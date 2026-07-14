@@ -1,0 +1,449 @@
+/*
+=================================================
+  PAYMENT MODAL - Compact & Focused Design
+  No scroll needed - Content fits viewport
+=================================================
+*/
+
+/* --- Overlay --- */
+.payment-modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  z-index: 10001;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 16px;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.25s ease;
+}
+
+.payment-modal-overlay.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* --- Modal Container --- */
+.payment-modal {
+  position: relative;
+  background: #fff;
+  width: 100%;
+  max-width: 380px;
+  border-radius: 16px;
+  overflow: hidden;
+  transform: scale(0.95) translateY(10px);
+  opacity: 0;
+  transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+}
+
+.payment-modal-overlay.active .payment-modal {
+  transform: scale(1) translateY(0);
+  opacity: 1;
+}
+
+/* Close button */
+.payment-modal-close {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  width: 28px;
+  height: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.25rem;
+  color: rgba(255, 255, 255, 0.7);
+  background: rgba(255, 255, 255, 0.15);
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: all 0.2s;
+  z-index: 10;
+}
+
+.payment-modal-close:hover {
+  background: rgba(255, 255, 255, 0.25);
+  color: #fff;
+}
+
+/* --- Modal Body --- */
+.payment-modal-body {
+  display: flex;
+  flex-direction: column;
+}
+
+/* --- Compact Header --- */
+.summary-box {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: #fff;
+  padding: 24px 20px 20px;
+  text-align: center;
+}
+
+.summary-box h2 {
+  display: none;
+}
+
+.plan-details {
+  font-size: 0.8rem;
+  color: rgba(255, 255, 255, 0.8);
+  margin-bottom: 2px;
+}
+
+.plan-details strong {
+  display: none;
+}
+
+.price-details {
+  margin-bottom: 0;
+}
+
+.price-details strong {
+  display: none;
+}
+
+.price-details .price {
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: #fff;
+  letter-spacing: -0.5px;
+}
+
+.summary-box .note {
+  display: none;
+}
+
+.back-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  background: rgba(255, 255, 255, 0.15);
+  border: none;
+  color: rgba(255, 255, 255, 0.9);
+  font-size: 0.8rem;
+  cursor: pointer;
+  padding: 6px 12px;
+  margin-top: 12px;
+  border-radius: 6px;
+  transition: all 0.2s;
+}
+
+.back-btn:hover {
+  background: rgba(255, 255, 255, 0.25);
+  color: #fff;
+}
+
+/* --- Payment Section --- */
+.payment-box {
+  padding: 20px;
+}
+
+.payment-box h2 {
+  display: none;
+}
+
+.payment-option {
+  margin-bottom: 0;
+}
+
+.payment-option h4 {
+  display: none;
+}
+
+/* ===============================================
+   SEPAY QR STYLES (Vietnam) - Compact
+=============================================== */
+
+.sepay-payment-container {
+  text-align: center;
+}
+
+.qr-wrapper {
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+  border-radius: 12px;
+  padding: 16px;
+  display: inline-block;
+  width: 100%;
+  max-width: 260px;
+}
+
+.qr-image {
+  width: 100%;
+  max-width: 160px;
+  border-radius: 8px;
+  display: block;
+  margin: 0 auto 12px;
+}
+
+.bank-info {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  font-size: 0.8rem;
+}
+
+.bank-info .bank-name {
+  font-weight: 600;
+  color: #1e40af;
+}
+
+.bank-info .account-name {
+  font-weight: 500;
+  color: #374151;
+}
+
+.bank-info .account-number {
+  color: #6b7280;
+  font-family: 'SF Mono', 'Monaco', monospace;
+  font-size: 0.75rem;
+}
+
+.bank-info .amount {
+  font-weight: 700;
+  color: #059669;
+  font-size: 1rem;
+  margin-top: 6px;
+}
+
+/* Transfer note */
+.transfer-note {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  margin-top: 12px;
+  padding: 10px 14px;
+  background: #f0fdf4;
+  border-radius: 8px;
+}
+
+.transfer-note .note-icon {
+  width: 16px;
+  height: 16px;
+  background: #22c55e;
+  color: #fff;
+  border-radius: 50%;
+  font-size: 10px;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.transfer-note .note-text {
+  font-size: 0.75rem;
+  color: #166534;
+  text-align: left;
+}
+
+/* Payment status */
+.payment-status {
+  margin-top: 12px;
+  padding: 10px;
+  border-radius: 8px;
+  text-align: center;
+}
+
+.payment-status.waiting {
+  background: #f1f5f9;
+}
+
+.payment-status.success {
+  background: #ecfdf5;
+}
+
+.payment-status .status-text {
+  display: block;
+  font-weight: 600;
+  font-size: 0.8rem;
+  margin-bottom: 1px;
+}
+
+.payment-status.waiting .status-text {
+  color: #475569;
+}
+
+.payment-status.success .status-text {
+  color: #059669;
+}
+
+.payment-status .status-note {
+  display: block;
+  font-size: 0.7rem;
+  color: #94a3b8;
+}
+
+/* ===============================================
+   LEMON SQUEEZY / CARD BUTTON STYLES
+=============================================== */
+
+#paypal-button-container {
+  width: 100%;
+}
+
+.lemon-checkout-btn {
+  display: flex !important;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  width: 100%;
+  padding: 14px 20px;
+  background: #111827;
+  color: #fff !important;
+  text-decoration: none !important;
+  font-weight: 600;
+  font-size: 0.95rem;
+  border-radius: 10px;
+  transition: all 0.2s ease;
+  border: none;
+  cursor: pointer;
+}
+
+.lemon-checkout-btn:hover {
+  background: #1f2937;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.lemon-checkout-btn:active {
+  transform: translateY(0);
+}
+
+.lemon-checkout-btn svg {
+  width: 18px;
+  height: 18px;
+}
+
+/* Security note */
+.payment-security-note {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  margin-top: 10px;
+  font-size: 0.7rem;
+  color: #94a3b8;
+}
+
+.payment-security-note svg {
+  width: 12px;
+  height: 12px;
+}
+
+/* Hide unused elements */
+.divider,
+#stripe-payment-option {
+  display: none !important;
+}
+
+/* ===============================================
+   TABLET+ ADJUSTMENTS
+=============================================== */
+@media (min-width: 480px) {
+  .payment-modal {
+    max-width: 400px;
+  }
+
+  .summary-box {
+    padding: 28px 24px 24px;
+  }
+
+  .price-details .price {
+    font-size: 2rem;
+  }
+
+  .payment-box {
+    padding: 24px;
+  }
+
+  .qr-wrapper {
+    padding: 20px;
+    max-width: 280px;
+  }
+
+  .qr-image {
+    max-width: 180px;
+  }
+}
+
+@media (min-width: 768px) {
+  .payment-modal {
+    max-width: 420px;
+  }
+
+  .summary-box .note {
+    display: block;
+    font-size: 0.75rem;
+    color: rgba(255, 255, 255, 0.75);
+    margin-top: 12px;
+  }
+}
+
+/* ===============================================
+   DARK MODE
+=============================================== */
+body.dark-mode .payment-modal {
+  background: #1e293b;
+}
+
+body.dark-mode .payment-modal-close {
+  background: rgba(255, 255, 255, 0.1);
+  color: rgba(255, 255, 255, 0.6);
+}
+
+body.dark-mode .payment-modal-close:hover {
+  background: rgba(255, 255, 255, 0.2);
+  color: #fff;
+}
+
+body.dark-mode .payment-box {
+  background: #1e293b;
+}
+
+body.dark-mode .qr-wrapper {
+  background: #0f172a;
+  border-color: #334155;
+}
+
+body.dark-mode .bank-info .account-name {
+  color: #e2e8f0;
+}
+
+body.dark-mode .bank-info .account-number {
+  color: #94a3b8;
+}
+
+body.dark-mode .transfer-note {
+  background: rgba(34, 197, 94, 0.1);
+}
+
+body.dark-mode .payment-status.waiting {
+  background: #0f172a;
+}
+
+body.dark-mode .payment-status.waiting .status-text {
+  color: #e2e8f0;
+}
+
+body.dark-mode .lemon-checkout-btn {
+  background: #f8fafc;
+  color: #0f172a !important;
+}
+
+body.dark-mode .lemon-checkout-btn:hover {
+  background: #fff;
+}
+
+body.dark-mode .payment-security-note {
+  color: #64748b;
+}

@@ -1,0 +1,950 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <script>window.location.replace('/pdftools/translate-pdf/translate-pdf.html');</script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PrivatePDF - Free PDF Tools | Merge, Split, Compress, Translate PDF</title>
+  <meta name="google-site-verification" content="VK-NJCH157Cg2uWo32QbH6GkF3nIIaTTYnByxqk5NVc" />
+  <meta name="trustpilot-one-time-domain-verification-id" content="c6f3b3c0-5bcd-4768-8a2d-602ce9ace311" />
+  <!-- SEO Meta Tags -->
+  <meta name="description"
+    content="PrivatePDF - A PDF processing platform for every device. Above all, we respect your privacy, and yes, our core tools are free.">
+  <meta name="keywords"
+    content="merge PDF, split PDF, compress PDF, translate PDF, chat PDF, Word to PDF, Excel to PDF, PPT to PDF, PDF to Word, images to PDF, PDF conversion, free PDF tools, online PDF processing, ghép PDF, tách PDF, nén PDF, dịch PDF">
+  <meta name="author" content="PrivatePDF">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://privatepdf.tech/">
+
+  <!-- Hreflang for Multilingual -->
+  <link rel="alternate" hreflang="en" href="https://privatepdf.tech/en/" />
+  <link rel="alternate" hreflang="vi" href="https://privatepdf.tech/vi/" />
+  <link rel="alternate" hreflang="x-default" href="https://privatepdf.tech/" />
+
+  <!-- Theme Color for Mobile -->
+  <meta content="#2563eb" name="theme-color" />
+  <meta content="#2563eb" name="msapplication-TileColor" />
+
+  <!-- PWA Manifest -->
+  <link href="/manifest.json" rel="manifest">
+  <link href="/assets/logo/dautrangweb.png" rel="apple-touch-icon">
+
+  <!-- Preconnect -->
+  <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+  <link rel="preconnect" href="https://assets.lemonsqueezy.com" crossorigin>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap"
+    rel="stylesheet">
+
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://privatepdf.tech/">
+  <meta property="og:title" content="PrivatePDF - Free PDF Tools | Merge, Split, Compress, Translate PDF">
+  <meta property="og:description"
+    content="PrivatePDF - A PDF processing platform for every device. Above all, we respect your privacy, and yes, our core tools are free.">
+  <meta property="og:image" content="https://privatepdf.tech/assets/logo/logomain.png">
+  <meta property="og:image:alt" content="PrivatePDF Logo">
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:url" content="https://privatepdf.tech/">
+  <meta name="twitter:title" content="PrivatePDF - Free PDF Tools | Merge, Split, Compress, Translate PDF">
+  <meta name="twitter:description"
+    content="PrivatePDF - A PDF processing platform for every device. Above all, we respect your privacy, and yes, our core tools are free.">
+  <meta name="twitter:image" content="https://privatepdf.tech/assets/logo/logomain.png">
+  <meta name="twitter:image:alt" content="PrivatePDF Logo">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" sizes="192x192" href="/assets/logo/dautrangweb.png?v=4">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon.png?v=4">
+  <link rel="apple-touch-icon" sizes="180x180" href="/assets/logo/dautrangweb.png?v=4">
+  <link rel="shortcut icon" href="/favicon.png?v=4">
+
+  <!-- Structured Data - WebApplication -->
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "PrivatePDF",
+      "description": "Free PDF processing tools, secure right in the browser. Merge, split, compress, translate, convert PDF online.",
+      "url": "https://privatepdf.tech/",
+      "applicationCategory": "BusinessApplication",
+      "operatingSystem": "Web Browser",
+      "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+      "featureList": ["Merge PDF","Split PDF","Compress PDF","Translate PDF","Chat with PDF","Image to PDF","Word to PDF","Excel to PDF","PDF to Word","PDF to Excel","Text to PDF","Rotate PDF","Watermark PDF","Sign PDF","OCR PDF"],
+      "publisher": { "@type": "Organization", "name": "PrivatePDF", "url": "https://privatepdf.tech/" }
+    }
+    </script>
+
+  <!-- FAQ Schema -->
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        { "@type": "Question", "name": "How to use PrivatePDF?", "acceptedAnswer": { "@type": "Answer", "text": "Visit privatepdf.tech, choose a tool (merge, split, compress, translate, etc.), upload your file, and download the result. Most tools process directly in your browser." } },
+        { "@type": "Question", "name": "Is PrivatePDF free?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. Core tools like merge, split, compress, rotate, watermark, sign, and image-to-PDF are completely free. Premium features like Translate PDF, Chat with PDF are available with Pro." } },
+        { "@type": "Question", "name": "Are my files uploaded to the server?", "acceptedAnswer": { "@type": "Answer", "text": "No. Basic tools process entirely in your browser. Only conversion and AI tools use server processing, with files encrypted and auto-deleted." } },
+        { "@type": "Question", "name": "What is the maximum file size?", "acceptedAnswer": { "@type": "Answer", "text": "Free users can process files up to 50MB. Premium users can handle files up to 500MB." } },
+        { "@type": "Question", "name": "Does PrivatePDF have dark mode?", "acceptedAnswer": { "@type": "Answer", "text": "Yes, PrivatePDF has a built-in dark mode for comfortable nighttime use." } }
+      ]
+    }
+    </script>
+
+  <script>
+    // Fix language flicker
+    (function () {
+      const savedLang = localStorage.getItem('selectedLanguage');
+      if (savedLang === 'en' || savedLang === 'vi') {
+        document.documentElement.lang = savedLang;
+      } else {
+        const bl = navigator.language || navigator.userLanguage;
+        document.documentElement.lang = bl && bl.startsWith('vi') ? 'vi' : 'en';
+      }
+    })();
+  </script>
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="/interface/landing-seo.css">
+  <link rel="stylesheet" href="/interface/giaodienhtml.css">
+  <link rel="stylesheet" href="/interface/navbar.css">
+  <link rel="stylesheet" href="/interface/footer.css">
+  <link rel="stylesheet" href="/interface/themes.css">
+  <link rel="stylesheet" href="/interface/auth-modal.css">
+  <link rel="stylesheet" href="/interface/premium-modal.css">
+  <link rel="stylesheet" href="/interface/payment-modal-paypal-stripe.css">
+  <link rel="stylesheet" href="/interface/roller-blind-modal.css">
+  <link rel="stylesheet" href="/interface/premium-limit-modal.css">
+  <link rel="stylesheet" href="/interface/settings-dropdown.css">
+  <link rel="stylesheet" href="/interface/notifications.css">
+  <link rel="stylesheet" href="/interface/notification-dot.css">
+  <link rel="stylesheet" href="/interface/language-switcher.css">
+  <link rel="stylesheet" href="/interface/animations.css">
+</head>
+
+<body class="landing-page">
+  <script>
+    (function () {
+      const DASHBOARD_PATH = '/pdftools/toolpdf.html';
+
+      function isLikelyBot() {
+        const ua = (navigator.userAgent || '').toLowerCase();
+        return /(googlebot|bingbot|yandex|baiduspider|duckduckbot|slurp|facebookexternalhit|twitterbot|linkedinbot|crawler|spider|bot)/.test(ua);
+      }
+
+      function redirectToDashboard() {
+        if (window.location.pathname !== DASHBOARD_PATH) {
+          window.location.replace(DASHBOARD_PATH);
+        }
+      }
+
+      function hasStoredLogin() {
+        const storedUser = localStorage.getItem('supabase_user');
+        if (!storedUser) return false;
+
+        try {
+          const user = JSON.parse(storedUser);
+          return !!(user && user.id);
+        } catch (e) {
+          return false;
+        }
+      }
+
+      window.__redirectToDashboardIfLoggedIn = function () {
+        if (isLikelyBot()) return false;
+        if (!hasStoredLogin()) return false;
+        redirectToDashboard();
+        return true;
+      };
+
+      const isDark = localStorage.getItem('darkMode') === 'enabled';
+      if (isDark) document.body.classList.add('dark-mode');
+
+      // Keep crawler responses stable for SEO rendering.
+      if (!isLikelyBot()) {
+        window.__redirectToDashboardIfLoggedIn();
+      }
+    })();
+  </script>
+
+  <!-- ===== NAVBAR ===== -->
+
+  <header class="navbar">
+    <div class="nav-left">
+      <a href="/">
+        <img src="/assets/logo/logomain.png" alt="PrivatePDF Logo" class="nav-logo">
+      </a>
+    </div>
+    <div class="nav-right">
+      <button class="premium-nav-btn" onclick="showPremiumModal()">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" stroke="none">
+          <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z" />
+        </svg>
+        <span>Pro</span>
+      </button>
+    </div>
+  </header>
+
+
+  <!-- <div class="seamless-bar-blue wave-active" id="specialViBanner">
+  <div class="seamless-content-blue">
+    <span class="text-blue" style="font-weight: 600; color: #fff; text-shadow: 1px 1px 2px rgba(0,0,0,0.5);">Mừng Đại lễ 30/4 – 1/5: Gói Pro chỉ từ 5K (3 ngày duy nhất)</span>
+    <button onclick="handleHeroOfferClick(); return false;" class="btn-solid-blue" style="border: none; cursor: pointer;">Dùng thử ngay</button>
+  </div>
+</div> -->
+
+  <style>
+    html[lang="en"] .seamless-bar-blue {
+      display: none !important;
+    }
+
+    .seamless-bar-blue.wave-active {
+      position: relative;
+      width: 100%;
+      background: linear-gradient(135deg, #da251d 0%, #b71c1c 100%);
+      border-bottom: 2px solid #ffeb3b;
+      box-shadow: 0 4px 12px rgba(218, 37, 29, 0.3);
+      display: flex;
+      justify-content: center;
+      padding: 10px 20px;
+      margin-bottom: 32px;
+      overflow: hidden;
+    }
+
+    .seamless-content-blue {
+      position: relative;
+      z-index: 2;
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      font-family: system-ui, -apple-system, sans-serif;
+      font-size: 0.85rem;
+    }
+
+    .badge-blue {
+      color: #da251d;
+      font-size: 0.75rem;
+      font-weight: 700;
+      background-color: #ffeb3b;
+      border-radius: 5px;
+      padding: 7px;
+    }
+
+    .text-blue {
+      color: #ffffff;
+      text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.4);
+    }
+
+    .btn-solid-blue {
+      background-color: #ffeb3b;
+      color: #da251d;
+      font-weight: 600;
+      text-decoration: none;
+      padding: 9px 16px;
+      border-radius: 6px;
+      white-space: nowrap;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    }
+
+
+    .thin-waves {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 1;
+      pointer-events: none;
+    }
+
+    .parallax-thin>use {
+      animation: flow-forever linear infinite;
+    }
+
+    .parallax-thin>use:nth-child(1) {
+      animation-duration: 10s;
+    }
+
+    .parallax-thin>use:nth-child(2) {
+      animation-duration: 14s;
+    }
+
+    .parallax-thin>use:nth-child(3) {
+      animation-duration: 18s;
+    }
+
+    @keyframes flow-forever {
+      0% {
+        transform: translate3d(-90px, 0, 0);
+      }
+
+      100% {
+        transform: translate3d(85px, 0, 0);
+      }
+    }
+
+    @media (max-width: 768px) {
+      .seamless-content-blue {
+        flex-direction: column;
+        text-align: center;
+        gap: 8px;
+      }
+    }
+  </style>
+
+  <!-- ===== HERO SECTION ===== -->
+  <section class="landing-hero">
+    <div class="landing-hero-text">
+      <h1>
+        <span data-i18n-key="landing.heroPrefix">Xử lý PDF</span> <span class="highlight"
+          data-i18n-key="landing.heroHighlight">dễ dàng hơn.</span>
+      </h1>
+      <p class="hero-desc" data-i18n-key="landing.heroDesc">
+        Tất cả các công cụ mà bạn cần để làm việc hiệu quả hơn và thông minh hơn với tài liệu. Miễn phí, bảo mật, xử lý
+        ngay trên trình duyệt.
+      </p>
+      <div class="hero-cta">
+        <button onclick="handleHeroOfferClick()" class="btn-primary" id="homeHeroOfferBtn"
+          data-i18n-key="landing.ctaPro">
+          Dùng thử gói Pro ngay
+        </button>
+        <a href="#all-tools" class="btn-secondary" data-i18n-key="landing.ctaExplore">
+          Khám phá tất cả công cụ
+        </a>
+      </div>
+      <div class="trust-row">
+        <div class="trust-item trust-tip-item">
+          <span data-i18n-key="landing.loginTip">Mẹo: Đăng nhập để bật darkmode trong phần cài đặt nhé</span>
+        </div>
+      </div>
+    </div>
+    <div class="landing-hero-visual">
+      <div class="hero-visual-composition">
+        <!-- Glow background -->
+        <div class="hero-glow"></div>
+
+        <!-- Center Document Layout -->
+        <div class="hero-doc">
+          <div class="doc-header"></div>
+          <div class="doc-line line-1"></div>
+          <div class="doc-line line-2"></div>
+          <div class="doc-line line-3"></div>
+          <div class="doc-line line-s"></div>
+
+          <!-- PrivatePDF watermark/logo inside the doc -->
+          <div class="doc-logo">
+            <img src="/assets/logo/dautrangweb.png" alt="Logo">
+            <span>PrivatePDF</span>
+          </div>
+        </div>
+
+        <!-- Floating tool icons around the document -->
+        <div class="hero-float-icon icon-chat"><img src="/assets/logo/chat-pdf.svg" alt="Chat PDF"></div>
+        <div class="hero-float-icon icon-translate"><img src="/assets/logo/translate-pdf.svg" alt="Translate PDF"></div>
+        <div class="hero-float-icon icon-compress"><img src="/assets/logo/compress.svg" alt="Compress PDF"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== ALL TOOLS SECTION ===== -->
+  <section class="landing-section alt-bg" id="all-tools">
+    <div class="section-inner">
+      <div class="section-header">
+        <h2 data-i18n-key="landing.toolsTitle">Tất Cả Các Công Cụ PDF</h2>
+        <p data-i18n-key="landing.toolsDesc">Hãy tận dụng các công cụ PDF để xử lý nhanh chóng các loại tài liệu điện tử
+          và làm việc hiệu quả hơn.</p>
+      </div>
+
+      <div class="tools-grid">
+        <!-- Popular tools -->
+        <a href="/pdftools/chatpdf/chat-pdf.html" class="tool-link">
+          <div class="tool-icon"><img src="/assets/logo/chat-pdf.svg" alt="Chat PDF"></div>
+          <div class="tool-info">
+            <h3 data-i18n-key="pdf.chatpdf">Chat với PDF</h3>
+            <p data-i18n-key="landing.descChat">Hỏi đáp với tài liệu PDF bằng AI</p>
+          </div>
+          <span class="tool-arrow">›</span>
+        </a>
+
+        <a href="/pdftools/translate-pdf/translate-pdf.html" class="tool-link">
+          <div class="tool-icon"><img src="/assets/logo/translate-pdf.svg" alt="Translate PDF"></div>
+          <div class="tool-info">
+            <h3 data-i18n-key="pdf.translate-pdf">Dịch PDF</h3>
+            <p data-i18n-key="landing.descTranslate">Dịch tài liệu PDF sang 100+ ngôn ngữ</p>
+          </div>
+          <span class="tool-arrow">›</span>
+        </a>
+
+        <a href="/pdftools/nenpdf/nen.html" class="tool-link">
+          <div class="tool-icon"><img src="/assets/logo/compress.svg" alt="Compress PDF"></div>
+          <div class="tool-info">
+            <h3 data-i18n-key="pdf.compress">Nén PDF</h3>
+            <p data-i18n-key="landing.descCompress">Giảm dung lượng PDF mà không mất chất lượng</p>
+          </div>
+          <span class="tool-arrow">›</span>
+        </a>
+
+        <a href="/pdftools/ghepfile/merge.html" class="tool-link">
+          <div class="tool-icon"><img src="/assets/logo/merge.svg" alt="Merge PDF"></div>
+          <div class="tool-info">
+            <h3 data-i18n-key="pdf.merge">Hợp nhất PDF</h3>
+            <p data-i18n-key="landing.descMerge">Ghép nhiều file PDF thành một tài liệu</p>
+          </div>
+          <span class="tool-arrow">›</span>
+        </a>
+
+        <a href="/pdftools/tachfile/split.html" class="tool-link">
+          <div class="tool-icon"><img src="/assets/logo/split.svg" alt="Split PDF"></div>
+          <div class="tool-info">
+            <h3 data-i18n-key="pdf.split">Tách PDF</h3>
+            <p data-i18n-key="landing.descSplit">Tách trang từ file PDF theo ý muốn</p>
+          </div>
+          <span class="tool-arrow">›</span>
+        </a>
+
+        <a href="/pdftools/xoaypdf/xoay.html" class="tool-link">
+          <div class="tool-icon"><img src="/assets/logo/rotate.svg" alt="Rotate PDF"></div>
+          <div class="tool-info">
+            <h3 data-i18n-key="pdf.rotate">Xoay PDF</h3>
+            <p data-i18n-key="landing.descRotate">Xoay trang PDF 90°, 180° hoặc 270°</p>
+          </div>
+          <span class="tool-arrow">›</span>
+        </a>
+
+        <a href="/pdftools/wordtopdf/wordtopdf.html" class="tool-link">
+          <div class="tool-icon"><img src="/assets/logo/word-pdf.svg" alt="Word to PDF"></div>
+          <div class="tool-info">
+            <h3 data-i18n-key="pdf.wordToPdf">Word sang PDF</h3>
+            <p data-i18n-key="landing.descWordToPdf">Chuyển đổi file Word sang PDF giữ nguyên format</p>
+          </div>
+          <span class="tool-arrow">›</span>
+        </a>
+
+        <a href="/pdftools/pdftoword/pdftoword.html" class="tool-link">
+          <div class="tool-icon"><img src="/assets/logo/pdf-word.svg" alt="PDF to Word"></div>
+          <div class="tool-info">
+            <h3 data-i18n-key="pdf.pdfToWord">PDF sang Word</h3>
+            <p data-i18n-key="landing.descPdfToWord">Chuyển PDF thành file Word có thể chỉnh sửa</p>
+          </div>
+          <span class="tool-arrow">›</span>
+        </a>
+
+        <a href="/pdftools/picture/imagetopdf.html" class="tool-link">
+          <div class="tool-icon"><img src="/assets/logo/image.svg" alt="Image to PDF"></div>
+          <div class="tool-info">
+            <h3 data-i18n-key="pdf.imageToPdf">Hình ảnh sang PDF</h3>
+            <p data-i18n-key="landing.descImageToPdf">Chuyển JPG, PNG thành PDF nhanh chóng</p>
+          </div>
+          <span class="tool-arrow">›</span>
+        </a>
+
+        <a href="/pdftools/exceltopdf/excel-to-pdf.html" class="tool-link">
+          <div class="tool-icon"><img src="/assets/logo/excel-pdf.svg" alt="Excel to PDF"></div>
+          <div class="tool-info">
+            <h3 data-i18n-key="pdf.excelToPdf">Excel sang PDF</h3>
+            <p data-i18n-key="landing.descExcelToPdf">Chuyển bảng tính Excel sang PDF</p>
+          </div>
+          <span class="tool-arrow">›</span>
+        </a>
+
+        <a href="/pdftools/pdf-to-excel/pdf-to-excel.html" class="tool-link">
+          <div class="tool-icon"><img src="/assets/logo/pdf-excel.svg" alt="PDF to Excel"></div>
+          <div class="tool-info">
+            <h3 data-i18n-key="pdf.pdfToExcel">PDF sang Excel</h3>
+            <p data-i18n-key="landing.descPdfToExcel">Trích xuất bảng dữ liệu từ PDF sang Excel</p>
+          </div>
+          <span class="tool-arrow">›</span>
+        </a>
+
+        <a href="/pdftools/ppt-to-pdf/ppt-to-pdf.html" class="tool-link">
+          <div class="tool-icon"><img src="/assets/logo/ppt-pdf.svg" alt="PPT to PDF"></div>
+          <div class="tool-info">
+            <h3 data-i18n-key="pdf.pptToPdf">PowerPoint sang PDF</h3>
+            <p data-i18n-key="landing.descPptToPdf">Chuyển slide thuyết trình sang PDF</p>
+          </div>
+          <span class="tool-arrow">›</span>
+        </a>
+
+        <a href="/pdftools/pdftoppt/pdftoppt.html" class="tool-link">
+          <div class="tool-icon"><img src="/assets/logo/pdf-ppt.svg" alt="PDF to PPT"></div>
+          <div class="tool-info">
+            <h3 data-i18n-key="pdf.pdfToPpt">PDF sang PowerPoint</h3>
+            <p data-i18n-key="landing.descPdfToPpt">Chuyển PDF thành slide có thể chỉnh sửa</p>
+          </div>
+          <span class="tool-arrow">›</span>
+        </a>
+
+        <a href="/pdftools/pdfocr/ocr-pdf.html" class="tool-link">
+          <div class="tool-icon"><img src="/assets/logo/ocr-pdf.svg" alt="OCR PDF"></div>
+          <div class="tool-info">
+            <h3 data-i18n-key="pdf.ocr">OCR PDF</h3>
+            <p data-i18n-key="landing.descOcr">Nhận dạng chữ từ ảnh/scan trong PDF</p>
+          </div>
+          <span class="tool-arrow">›</span>
+        </a>
+
+        <a href="/pdftools/watermarkpdf/water.html" class="tool-link">
+          <div class="tool-icon"><img src="/assets/logo/watermark.svg" alt="Watermark PDF"></div>
+          <div class="tool-info">
+            <h3 data-i18n-key="pdf.watermark">Đánh dấu PDF</h3>
+            <p data-i18n-key="landing.descWatermark">Thêm watermark bảo vệ tài liệu</p>
+          </div>
+          <span class="tool-arrow">›</span>
+        </a>
+
+        <a href="/pdftools/chukypdf/chuky.html" class="tool-link">
+          <div class="tool-icon"><img src="/assets/logo/sign.svg" alt="Sign PDF"></div>
+          <div class="tool-info">
+            <h3 data-i18n-key="pdf.sign">Ký tên PDF</h3>
+            <p data-i18n-key="landing.descSign">Ký tên điện tử lên tài liệu PDF</p>
+          </div>
+          <span class="tool-arrow">›</span>
+        </a>
+
+        <a href="/pdftools/txtsangpdf/txt.html" class="tool-link">
+          <div class="tool-icon"><img src="/assets/logo/txt.svg" alt="TXT to PDF"></div>
+          <div class="tool-info">
+            <h3 data-i18n-key="pdf.txtToPdf">TXT sang PDF</h3>
+            <p data-i18n-key="landing.descTxtToPdf">Chuyển file text thành PDF gọn gàng</p>
+          </div>
+          <span class="tool-arrow">›</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== HOW IT WORKS ===== -->
+  <section class="landing-section">
+    <div class="section-header">
+      <h2 data-i18n-key="landing.howTitle">Cách Sử Dụng</h2>
+      <p data-i18n-key="landing.howDesc">Chỉ 3 bước đơn giản để xử lý tài liệu PDF của bạn</p>
+    </div>
+    <div class="steps-grid">
+      <div class="step-card">
+        <div class="step-num-circle">1</div>
+        <h3 data-i18n-key="landing.step1Title">Chọn công cụ</h3>
+        <p data-i18n-key="landing.step1Desc">Duyệt qua các công cụ ở trên và chọn công cụ phù hợp với nhu cầu của bạn —
+          ghép, nén, chuyển đổi, hoặc dịch tài liệu.</p>
+      </div>
+      <div class="step-card">
+        <div class="step-num-circle">2</div>
+        <h3 data-i18n-key="landing.step2Title">Tải file lên</h3>
+        <p data-i18n-key="landing.step2Desc">Kéo thả file PDF vào công cụ. Các công cụ xử lý trên trình duyệt đảm bảo
+          file không rời khỏi thiết bị của bạn.</p>
+      </div>
+      <div class="step-card">
+        <div class="step-num-circle">3</div>
+        <h3 data-i18n-key="landing.step3Title">Tải về kết quả</h3>
+        <p data-i18n-key="landing.step3Desc">Khi xử lý hoàn tất, tải file về ngay lập tức. Không cần tạo tài khoản cho
+          các công cụ cơ bản.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== PRICING SECTION ===== -->
+  <section class="landing-section alt-bg pricing-section">
+    <div class="section-inner">
+      <div class="home-pricing-showcase">
+        <div class="home-pricing-intro">
+          <h2 id="homePricingTitle">Các gói & giá</h2>
+          <p id="homePricingDesc">Chọn gói phù hợp với nhu cầu sử dụng của bạn. Hiển thị tiền tệ tự động theo ngôn ngữ.
+          </p>
+          <p class="home-pricing-currency" id="homePricingCurrency">Tiền tệ đang hiển thị: VND</p>
+          <a href="/pdftools/toolpdf.html" onclick="handleHeroOfferClick(); return false;"
+            class="btn-primary home-pricing-compare-btn" id="homePricingCta">Nâng cấp ngay</a>
+        </div>
+
+        <div class="home-pricing-cards" id="homePricingCards"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== FAQ SECTION ===== -->
+  <section class="landing-section">
+    <div class="section-header">
+      <h2 data-i18n-key="landing.faqTitle">Câu Hỏi Thường Gặp</h2>
+    </div>
+    <div class="faq-list">
+      <details class="faq-item">
+        <summary data-i18n-key="landing.faq1q">Làm thế nào để ghép file PDF?</summary>
+        <div class="faq-answer" data-i18n-key="landing.faq1a">Vào công cụ <a href="/pdftools/ghepfile/merge.html">Hợp
+            nhất PDF</a>, kéo thả các file PDF, sắp xếp thứ tự, và bấm Ghép. File kết quả sẽ tự động tải về. Công cụ này
+          xử lý hoàn toàn trên trình duyệt của bạn.</div>
+      </details>
+      <details class="faq-item">
+        <summary data-i18n-key="landing.faq2q">File của tôi có an toàn không?</summary>
+        <div class="faq-answer" data-i18n-key="landing.faq2a">Có! Các công cụ xử lý trên trình duyệt (ghép, tách, nén,
+          xoay, watermark, ký tên) không bao giờ gửi file ra ngoài. Các công cụ server sử dụng mã hóa và xóa file ngay
+          sau khi xử lý xong.</div>
+      </details>
+      <details class="faq-item">
+        <summary data-i18n-key="landing.faq3q">PrivatePDF có thực sự miễn phí không?</summary>
+        <div class="faq-answer" data-i18n-key="landing.faq3a">Đúng vậy. Các công cụ cơ bản hoàn toàn miễn phí không giới
+          hạn. Tính năng cao cấp như Dịch PDF, Chat với PDF, OCR và hỗ trợ file lớn (đến 500MB) có trong gói Pro.</div>
+      </details>
+      <details class="faq-item">
+        <summary data-i18n-key="landing.faq4q">Dung lượng file tối đa là bao nhiêu?</summary>
+        <div class="faq-answer" data-i18n-key="landing.faq4a">Người dùng miễn phí có thể xử lý file đến 50MB. Người dùng
+          Premium xử lý file đến 500MB. Tốc độ xử lý trên trình duyệt phụ thuộc vào cấu hình thiết bị.</div>
+      </details>
+      <details class="faq-item">
+        <summary data-i18n-key="landing.faq5q">Tôi có cần tạo tài khoản không?</summary>
+        <div class="faq-answer" data-i18n-key="landing.faq5a">Không cần tài khoản cho các công cụ cơ bản. Bạn có thể
+          ghép, tách, nén file ngay lập tức. Tài khoản chỉ cần cho tính năng cao cấp và lưu cài đặt cá nhân.</div>
+      </details>
+      <details class="faq-item">
+        <summary data-i18n-key="landing.faq6q">Có thể dùng trên điện thoại không?</summary>
+        <div class="faq-answer" data-i18n-key="landing.faq6a">Có. PrivatePDF tương thích hoàn toàn với mọi thiết bị có
+          trình duyệt hiện đại — Android, iPhone, iPad. Không cần tải app.</div>
+      </details>
+      <details class="faq-item">
+        <summary data-i18n-key="landing.faq7q">Hỗ trợ những định dạng file nào?</summary>
+        <div class="faq-answer" data-i18n-key="landing.faq7a">PrivatePDF hỗ trợ PDF, Word (.docx), Excel (.xlsx),
+          PowerPoint (.pptx), hình ảnh (JPG, PNG, WEBP), và văn bản thuần (TXT). Mọi chuyển đổi đều giữ nguyên bố cục
+          gốc một cách tốt nhất.</div>
+      </details>
+    </div>
+  </section>
+
+  <!-- ===== FINAL CTA ===== -->
+  <section class="landing-cta-section">
+    <h2 data-i18n-key="landing.rateTitle">Rate Us</h2>
+    <p data-i18n-key="landing.rateDesc">If you like PrivatePDF, please leave us a quick review.</p>
+    <a href="https://www.trustpilot.com/evaluate/privatepdf.tech" class="btn-primary">
+      <span data-i18n-key="landing.rateButton">Rate Us →</span>
+    </a>
+  </section>
+
+  <!-- ===== FOOTER ===== -->
+  <footer class="footer">
+    <div class="footer-content">
+      <div class="footer-column footer-brand">
+        <img src="/assets/logo/logomain.png" alt="PrivatePDF Logo" class="footer-logo">
+        <p data-i18n-key="footer.description">PrivatePDF - Free PDF processing tools, secure right in the browser.</p>
+      </div>
+      <div class="footer-column">
+        <h4 data-i18n-key="footer.feature">PDF Tools</h4>
+        <ul>
+          <li><a href="/pdftools/ghepfile/merge.html" data-i18n-key="footer.merge">Merge PDF</a></li>
+          <li><a href="/pdftools/tachfile/split.html" data-i18n-key="footer.split">Split PDF</a></li>
+          <li><a href="/pdftools/nenpdf/nen.html" data-i18n-key="footer.compress">Compress PDF</a></li>
+          <li><a href="/pdftools/translate-pdf/translate-pdf.html" data-i18n-key="pdf.translate-pdf">Translate PDF</a>
+          </li>
+          <li><a href="/pdftools/picture/imagetopdf.html" data-i18n-key="footer.imageToPdf">Image to PDF</a></li>
+        </ul>
+      </div>
+      <div class="footer-column">
+        <h4 data-i18n-key="footer.aboutUs">About Us</h4>
+        <ul>
+          <li><a href="/statement/contact.html" data-i18n-key="footer.contact">Contact</a></li>
+          <li><a href="/statement/tos.html" data-i18n-key="footer.terms">Terms of Service</a></li>
+          <li><a href="/statement/privacypolicy.html" data-i18n-key="footer.privacy">Privacy Policy</a></li>
+          <li><a href="/statement/blog/blog.html" data-i18n-key="footer.blog">Blog</a></li>
+          <li><a href="/statement/feedback.html" data-i18n-key="footer.feedback">Feedback</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      © PrivatePDF. SmallLab28 (By LongPham). ALL rights reserved. <br>
+    </div>
+  </footer>
+
+  <!-- External Scripts -->
+  <script src="https://assets.lemonsqueezy.com/lemon.js" defer></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script defer src="/js/supabase-config.js"></script>
+  <script defer src="/language/i18n.js"></script>
+  <script defer src="/js/modules/state.js"></script>
+  <script defer src="/js/modules/ui.js"></script>
+
+  <script defer src="/js/modules/auth.js"></script>
+  <script defer src="/js/modules/premium.js"></script>
+  
+  <script defer src="/js/modules/settings.js"></script>
+
+  <!-- PWA Service Worker -->
+  <script>
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', () => {
+        navigator.serviceWorker.register('/service-worker.js')
+          .then(r => console.log('PWA SW registered:', r.scope))
+          .catch(e => console.log('PWA SW failed:', e));
+      });
+    }
+  </script>
+  <script defer src="/js/main.js"></script>
+
+  <!-- Redirect logic and Hero Offer Click -->
+  <script>
+    (function initHomepageLoginRedirect() {
+      const DASHBOARD_PATH = '/pdftools/toolpdf.html';
+
+      function isLikelyBot() {
+        const ua = (navigator.userAgent || '').toLowerCase();
+        return /(googlebot|bingbot|yandex|baiduspider|duckduckbot|slurp|facebookexternalhit|twitterbot|linkedinbot|crawler|spider|bot)/.test(ua);
+      }
+
+      if (isLikelyBot()) {
+        return;
+      }
+
+      function redirectToDashboard() {
+        if (window.location.pathname !== DASHBOARD_PATH) {
+          window.location.replace(DASHBOARD_PATH);
+        }
+      }
+
+      function redirectIfLoggedIn() {
+        if (typeof window.__redirectToDashboardIfLoggedIn === 'function') {
+          return window.__redirectToDashboardIfLoggedIn();
+        }
+        return false;
+      }
+
+      // Fallback watcher to avoid missing fast login events.
+      let ticks = 0;
+      const maxTicks = 40;
+      const watchId = setInterval(() => {
+        ticks += 1;
+        if (redirectIfLoggedIn() || ticks >= maxTicks) {
+          clearInterval(watchId);
+        }
+      }, 250);
+
+      window.addEventListener('focus', redirectIfLoggedIn);
+      document.addEventListener('visibilitychange', () => {
+        if (document.visibilityState === 'visible') {
+          redirectIfLoggedIn();
+        }
+      });
+
+      function bindSupabaseAuthListener(attempt) {
+        const client = window.supabaseClient;
+        if (client && client.auth) {
+          client.auth.getSession().then(({ data }) => {
+            if (data?.session?.user) {
+              redirectToDashboard();
+            }
+          }).catch(() => { });
+
+          client.auth.onAuthStateChange((event, session) => {
+            if ((event === 'SIGNED_IN' || event === 'INITIAL_SESSION' || event === 'TOKEN_REFRESHED') && session?.user) {
+              redirectToDashboard();
+            }
+          });
+          return;
+        }
+
+        if (attempt < 40) {
+          setTimeout(() => bindSupabaseAuthListener(attempt + 1), 250);
+        }
+      }
+
+      if (document.readyState === 'complete') {
+        bindSupabaseAuthListener(0);
+      } else {
+        window.addEventListener('load', () => bindSupabaseAuthListener(0));
+      }
+    })();
+
+    window.handleHeroOfferClick = function () {
+      const storedUser = localStorage.getItem('supabase_user');
+      let isLoggedIn = false;
+
+      if (storedUser) {
+        try {
+          const user = JSON.parse(storedUser);
+          isLoggedIn = !!(user && user.id);
+        } catch (e) {
+          isLoggedIn = false;
+        }
+      }
+
+      if (!isLoggedIn) {
+        // Đánh dấu để show Modal 5k sau khi đăng nhập thành công ở Dashboard
+        sessionStorage.setItem('pendingSpecialOffer', 'true');
+
+        // Mở Modal Đăng Nhập
+        const authModal = document.getElementById('authModal');
+        if (authModal) {
+          authModal.classList.add('active');
+          const loginTab = document.querySelector('[data-tab="login"]');
+          if (loginTab) loginTab.click();
+        } else if (typeof window.showAuthModal === 'function') {
+          window.showAuthModal();
+        } else {
+          const loginBtn = document.getElementById('login-btn');
+          if (loginBtn) loginBtn.click();
+        }
+      } else {
+        sessionStorage.setItem('pendingSpecialOffer', 'true');
+        window.location.href = '/pdftools/toolpdf.html';
+      }
+    };
+
+    function getHomePageLanguage() {
+      const params = new URLSearchParams(window.location.search);
+      const urlLang = params.get('lang');
+      if (urlLang === 'vi' || urlLang === 'en') return urlLang;
+
+      const path = window.location.pathname;
+      if (path.startsWith('/vi/')) return 'vi';
+      if (path.startsWith('/en/')) return 'en';
+
+      const savedLang = localStorage.getItem('selectedLanguage');
+      if (savedLang === 'vi' || savedLang === 'en') return savedLang;
+
+      const htmlLang = document.documentElement.lang;
+      return htmlLang && htmlLang.startsWith('en') ? 'en' : 'vi';
+    }
+
+    const HOME_PRICING_CONTENT = {
+      vi: {
+        title: 'Các gói & giá',
+        desc: 'Chọn gói phù hợp với nhu cầu sử dụng của bạn. Hiển thị tiền tệ tự động theo ngôn ngữ.',
+        currencyText: 'Tiền tệ đang hiển thị: VND',
+        cta: 'Nâng cấp ngay chỉ 5.000đ',
+        heroCta: 'Dùng gói Pro ngay chỉ với 20.000đ',
+        plans: [
+          {
+            name: 'Gói 2 tuần',
+            badge: 'Dùng thử',
+            amount: '20.000đ',
+            period: '/2 tuần',
+            note: 'Phù hợp cho nhu cầu ngắn hạn',
+            featured: false
+          },
+          {
+            name: 'Gói tháng',
+            badge: 'Phổ biến',
+            amount: '45.000đ',
+            period: '/tháng',
+            note: 'Thoải mái sử dụng hằng ngày',
+            featured: true
+          },
+          {
+            name: 'Gói 4 tháng',
+            badge: 'Tiết kiệm',
+            amount: '129.000đ',
+            period: '/4 tháng',
+            note: 'Tối ưu chi phí theo tháng',
+            featured: false
+          }
+        ]
+      },
+      en: {
+        title: 'Plans & pricing',
+        desc: 'Choose the plan that fits your needs. Currency display switches automatically by language.',
+        currencyText: 'Current currency: USD',
+        cta: 'Upgrade now for $1.99',
+        heroCta: 'Explore Pro features',
+        plans: [
+          {
+            name: '2 weeks plan',
+            badge: 'Starter',
+            amount: '$1.99',
+            period: '/2 weeks',
+            note: 'Great for short-term usage',
+            featured: false
+          },
+          {
+            name: 'Monthly plan',
+            badge: 'Popular',
+            amount: '$5.99',
+            period: '/month',
+            note: 'Best for everyday work',
+            featured: true
+          },
+          {
+            name: '4 months plan',
+            badge: 'Best value',
+            amount: '$39',
+            period: '/4 months',
+            note: 'Lower monthly cost',
+            featured: false
+          }
+        ]
+      }
+    };
+
+    function buildHomePricingCards(plans) {
+      const fragment = document.createDocumentFragment();
+
+      plans.forEach((plan) => {
+        const card = document.createElement('article');
+        card.className = `home-pricing-card${plan.featured ? ' home-pricing-card-featured' : ''}`;
+
+        const top = document.createElement('div');
+        top.className = 'home-pricing-card-top';
+
+        const title = document.createElement('h3');
+        title.textContent = plan.name;
+
+        const badge = document.createElement('span');
+        badge.className = 'home-pricing-badge';
+        badge.textContent = plan.badge;
+
+        const amount = document.createElement('div');
+        amount.className = 'home-pricing-amount';
+        amount.textContent = plan.amount;
+
+        const period = document.createElement('p');
+        period.className = 'home-pricing-period';
+        period.textContent = plan.period;
+
+        const note = document.createElement('p');
+        note.className = 'home-pricing-note';
+        note.textContent = plan.note;
+
+        top.appendChild(title);
+        top.appendChild(badge);
+        card.appendChild(top);
+        card.appendChild(amount);
+        card.appendChild(period);
+        card.appendChild(note);
+        fragment.appendChild(card);
+      });
+
+      return fragment;
+    }
+
+    function applyHomePricingLanguage(lang) {
+      const normalizedLang = lang === 'en' ? 'en' : 'vi';
+      const content = HOME_PRICING_CONTENT[normalizedLang];
+
+      const titleEl = document.getElementById('homePricingTitle');
+      const descEl = document.getElementById('homePricingDesc');
+      const currencyEl = document.getElementById('homePricingCurrency');
+      const ctaEl = document.getElementById('homePricingCta');
+      const heroOfferBtnEl = document.getElementById('homeHeroOfferBtn');
+      const cardsEl = document.getElementById('homePricingCards');
+
+      if (!titleEl || !descEl || !currencyEl || !ctaEl || !cardsEl || !heroOfferBtnEl) return;
+
+      titleEl.textContent = content.title;
+      descEl.textContent = content.desc;
+      currencyEl.textContent = content.currencyText;
+      ctaEl.textContent = content.cta;
+      heroOfferBtnEl.textContent = content.heroCta;
+
+      cardsEl.textContent = '';
+      cardsEl.appendChild(buildHomePricingCards(content.plans));
+    }
+
+    function updateHomePricingLanguage() {
+      applyHomePricingLanguage(getHomePageLanguage());
+    }
+
+    document.addEventListener('DOMContentLoaded', updateHomePricingLanguage);
+    window.addEventListener('languageChanged', (event) => {
+      const lang = event?.detail?.lang;
+      applyHomePricingLanguage(lang === 'en' ? 'en' : 'vi');
+    });
+  </script>
+</body>
+
+</html>

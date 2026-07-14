@@ -1,0 +1,296 @@
+/* ===== BASE (MOBILE) ===== */
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Segoe UI', sans-serif;
+  background: #f3f6fc;
+  min-height: 100vh;
+  width: 100%;
+  overflow-x: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+/* container */
+.merge-modern-container {
+  background: #fff;
+  padding: 20px 14px;
+  border-radius: 16px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+  width: 96%;
+  max-width: 700px;
+  margin: 80px auto 30px;
+  flex: 1;
+}
+
+/* header */
+.header-section {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.header-section h2 {
+  margin: 0 0 8px 0;
+  font-size: 20px;
+  color: #111827;
+  font-weight: 700;
+  line-height: 1.3;
+}
+
+.header-section p {
+  margin: 0;
+  color: #6b7280;
+  font-size: 13px;
+  line-height: 1.5;
+}
+
+/* file badge */
+.file-count-badge {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  background: #f0f7ff;
+  border: 1px solid #bfdbfe;
+  border-radius: 10px;
+  padding: 10px 16px;
+  margin-bottom: 18px;
+}
+
+.count-icon {
+  font-weight: 600;
+  color: #2563eb;
+  font-size: 13px;
+}
+
+.count-text {
+  color: #374151;
+  font-weight: 500;
+  font-size: 13px;
+}
+
+/* file list */
+.file-list-container {
+  max-height: 300px;
+  overflow-y: auto;
+  margin-bottom: 20px;
+  border: 1px solid #e5e7eb;
+  border-radius: 10px;
+  padding: 8px;
+  background: #f9fafb;
+}
+
+.modern-file-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.modern-file-list li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 12px;
+  background: #ffffff;
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+  margin-bottom: 8px;
+  transition: all 0.2s ease;
+}
+
+.modern-file-list li:hover {
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+  transform: translateX(2px);
+}
+
+.file-info-group {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  flex: 1;
+}
+
+.file-name {
+  font-weight: 500;
+  color: #374151;
+  font-size: 13px;
+}
+
+.file-size {
+  font-size: 11px;
+  color: #9ca3af;
+}
+
+/* remove button */
+.remove-btn {
+  background: #ef4444;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  width: 26px;
+  height: 26px;
+  font-size: 16px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
+}
+
+.remove-btn:hover {
+  background: #dc2626;
+  transform: scale(1.08);
+}
+
+/* actions */
+.action-section {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  justify-content: center;
+}
+
+.modern-btn {
+  padding: 12px 20px;
+  border: none;
+  border-radius: 10px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  transition: all 0.2s ease;
+  width: 100%;
+}
+
+.merge-btn {
+  background: linear-gradient(135deg, #2563eb, #3b82f6);
+  color: white;
+}
+
+.merge-btn:hover {
+  background: linear-gradient(135deg, #1d4ed8, #2563eb);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(37, 99, 235, 0.3);
+}
+
+.cancel-btn {
+  background: #f3f4f6;
+  color: #374151;
+}
+
+.cancel-btn:hover {
+  background: #e5e7eb;
+}
+
+/* progress */
+.progress-indicator {
+  display: none;
+  margin-top: 20px;
+  padding: 16px;
+  background: #f9fafb;
+  border-radius: 12px;
+  border: 1px solid #e5e7eb;
+}
+
+.progress-indicator.active {
+  display: block;
+}
+
+.progress-bar-bg {
+  width: 100%;
+  height: 6px;
+  background: #e5e7eb;
+  border-radius: 3px;
+  overflow: hidden;
+  margin-bottom: 10px;
+}
+
+.progress-bar-fill {
+  height: 100%;
+  background: linear-gradient(90deg, #2563eb, #3b82f6);
+  width: 0%;
+  transition: width 0.3s ease;
+  border-radius: 3px;
+}
+
+.progress-indicator p {
+  margin: 0;
+  font-size: 13px;
+  color: #6b7280;
+  font-weight: 500;
+  text-align: center;
+}
+
+.empty-message {
+  text-align: center;
+  padding: 30px 15px;
+  color: #9ca3af;
+  font-size: 13px;
+}
+
+/* ====== DESKTOP (PC) ====== */
+@media (min-width: 768px) {
+  body {
+    padding: 20px;
+  }
+
+  .merge-modern-container {
+    padding: 40px;
+    width: 90%;
+    margin: 100px auto 50px;
+  }
+
+  .header-section h2 {
+    font-size: 26px;
+  }
+
+  .header-section p {
+    font-size: 15px;
+  }
+
+  .file-count-badge {
+    padding: 12px 20px;
+    gap: 8px;
+  }
+
+  .file-name {
+    font-size: 14px;
+  }
+
+  .file-size {
+    font-size: 12px;
+  }
+
+  .remove-btn {
+    width: 28px;
+    height: 28px;
+    font-size: 18px;
+  }
+
+  .action-section {
+    flex-direction: row;
+    gap: 12px;
+  }
+
+  .modern-btn {
+    width: auto;
+    padding: 14px 28px;
+    font-size: 15px;
+  }
+
+  .progress-indicator {
+    padding: 20px;
+  }
+
+  .empty-message {
+    font-size: 14px;
+    padding: 40px 20px;
+  }
+}

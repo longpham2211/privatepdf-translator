@@ -1,0 +1,158 @@
+/* ========== TOAST NOTIFICATIONS ========== */
+/* Simple, clean notification with icon */
+
+.toast-notification {
+    position: fixed;
+    top: -150px;
+    left: 50%;
+    transform: translateX(-50%);
+    
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    
+    padding: 20px 32px;
+    border-radius: 12px;
+    
+    background: #ffffff;
+    color: #333333;
+    font-size: 14px;
+    font-weight: 500;
+    text-align: center;
+    
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    
+    z-index: 2147483647;
+    transition: top 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.toast-notification.show {
+    top: 30px;
+}
+
+/* Icon container */
+.toast-icon {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+/* Success - Green circle with checkmark */
+.toast-success .toast-icon {
+    background: #f0fdf4;
+    border: 2px solid #22c55e;
+}
+
+.toast-success .toast-icon::after {
+    content: '';
+    width: 12px;
+    height: 22px;
+    border: 3px solid #22c55e;
+    border-top: none;
+    border-left: none;
+    transform: rotate(45deg) translate(-2px, -2px);
+}
+
+/* Error - Red circle with X */
+.toast-error .toast-icon {
+    background: #fef2f2;
+    border: 2px solid #ef4444;
+}
+
+.toast-error .toast-icon::before,
+.toast-error .toast-icon::after {
+    content: '';
+    position: absolute;
+    width: 20px;
+    height: 3px;
+    background: #ef4444;
+    border-radius: 2px;
+}
+
+.toast-error .toast-icon::before {
+    transform: rotate(45deg);
+}
+
+.toast-error .toast-icon::after {
+    transform: rotate(-45deg);
+}
+
+/* Warning & Info - same as success style but different colors */
+.toast-warning .toast-icon {
+    background: #fffbeb;
+    border: 2px solid #f59e0b;
+}
+
+.toast-warning .toast-icon::after {
+    content: '';
+    width: 12px;
+    height: 22px;
+    border: 3px solid #f59e0b;
+    border-top: none;
+    border-left: none;
+    transform: rotate(45deg) translate(-2px, -2px);
+}
+
+.toast-info .toast-icon {
+    background: #eff6ff;
+    border: 2px solid #3b82f6;
+}
+
+.toast-info .toast-icon::after {
+    content: '';
+    width: 12px;
+    height: 22px;
+    border: 3px solid #3b82f6;
+    border-top: none;
+    border-left: none;
+    transform: rotate(45deg) translate(-2px, -2px);
+}
+
+/* ========== RESPONSIVE ========== */
+
+/* Mobile */
+@media (max-width: 767px) {
+    .toast-notification {
+        left: 16px;
+        right: 16px;
+        transform: none;
+        padding: 16px 24px;
+    }
+    
+    .toast-notification.show {
+        top: 20px;
+    }
+    
+    .toast-icon {
+        width: 44px;
+        height: 44px;
+    }
+    
+    .toast-success .toast-icon::after,
+    .toast-warning .toast-icon::after,
+    .toast-info .toast-icon::after {
+        width: 10px;
+        height: 18px;
+    }
+    
+    .toast-error .toast-icon::before,
+    .toast-error .toast-icon::after {
+        width: 18px;
+    }
+    
+    .toast-notification {
+        font-size: 13px;
+    }
+}
+
+/* ========== DARK MODE ========== */
+body.dark-mode .toast-notification {
+    background: #1f1f1f;
+    color: #ffffff;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+}

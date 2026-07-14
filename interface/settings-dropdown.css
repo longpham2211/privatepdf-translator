@@ -1,0 +1,477 @@
+/* ========== GOOGLE STYLE AVATAR ========== */
+
+/* 1. Cái vòng tròn 4 màu (Lớp vỏ) */
+.avatar-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 42px; /* Kích thước tổng thể (bao gồm cả viền) */
+  height: 42px;
+  border-radius: 50%;
+  cursor: pointer;
+  
+  /* Mặc định không có viền màu */
+  background: transparent;
+  
+  /* Hiệu ứng bóng nhẹ cho đẹp */
+  box-shadow: 0 1px 3px rgba(0,0,0,0.12);
+  transition: transform 0.2s ease;
+}
+
+/* Chỉ Premium mới có viền Google */
+.avatar-wrapper.premium-user {
+  background: conic-gradient(
+    from -45deg,
+    #fffb00 0deg 90deg,     
+    #fffb00 90deg 180deg,  
+    #fffb00 180deg 270deg, 
+    #fffb00 270deg 360deg  
+  );
+}
+
+/* 2. Cái ảnh Avatar bên trong */
+#avatar-btn {
+  width: 36px; /* Nhỏ hơn wrapper để lòi cái viền ra */
+  height: 36px;
+  border-radius: 50%;
+  object-fit: cover;
+  display: block;
+  
+  /* Tạo khoảng trắng giữa ảnh và viền màu */
+  border: 2px solid #ffffff; 
+  background-color: #ffffff; /* Để tránh bị lộ nền màu bên dưới ảnh trong suốt */
+  
+  /* Reset các style cũ */
+  padding: 0;
+  margin: 0;
+}
+
+/* ========== SETTINGS DROPDOWN ========== */
+.settings-icon-wrapper {
+  position: relative;
+  display: none;
+  margin-left: 12px;
+}
+
+.settings-icon-wrapper.active {
+  display: inline-block;
+}
+
+.settings-icon-btn {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 8px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.settings-icon-btn svg {
+  width: 24px;
+  height: 24px;
+  color: var(--text-primary, #212529);
+}
+
+.settings-icon-btn:hover svg {
+  transform: rotate(45deg);
+}
+
+.settings-dropdown {
+  display: none;
+  position: absolute;
+  top: calc(100% + 8px);
+  right: 0;
+  background: var(--bg-primary, #ffffff);
+  border: 1px solid var(--border-color, #dee2e6);
+  border-radius: 12px;
+  box-shadow: var(--shadow-lg, 0 8px 24px rgba(0,0,0,0.15));
+  min-width: 280px;
+  z-index: 1000;
+}
+
+.settings-dropdown.active {
+  display: block;
+}
+
+.settings-dropdown-header {
+  padding: 16px 20px;
+  border-bottom: 1px solid var(--border-color, #dee2e6);
+}
+
+.settings-dropdown-header h3 {
+  margin: 0;
+  font-size: 16px;
+  color: var(--text-primary, #212529);
+}
+
+.settings-dropdown-body {
+  padding: 12px 0;
+}
+
+.settings-item {
+  padding: 12px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.settings-item:hover {
+  background: var(--bg-secondary, #f8f9fa);
+}
+
+/* Menu Item Link */
+.menu-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 12px;
+  text-decoration: none;
+  color: #334155;
+  border-radius: 6px;
+  transition: background 0.2s;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.menu-item:hover {
+  /* background-color: #f1f5f9; */
+  background-color: transparent;
+}
+
+/* Dropdown Divider */
+.settings-divider {
+  height: 1px;
+  background: #3c3d3e;
+  margin: 4px 0;
+}
+
+.settings-item-label strong {
+  font-size: 14px;
+  color: var(--text-primary, #212529);
+}
+
+.settings-item-label small {
+  font-size: 12px;
+  color: var(--text-secondary, #6c757d);
+}
+
+.toggle-switch {
+  width: 48px;
+  height: 26px;
+  background: var(--border-color, #dee2e6);
+  border-radius: 13px;
+  cursor: pointer;
+  position: relative;
+}
+
+.toggle-switch.active {
+  background: var(--accent-primary, #007bff);
+}
+
+.toggle-switch::after {
+  content: '';
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: white;
+  position: absolute;
+  top: 3px;
+  left: 3px;
+  transition: transform 0.3s;
+}
+
+.toggle-switch.active::after {
+  transform: translateX(22px);
+}
+
+/* ========== THEME SELECTOR - FIX TRIỆT ĐỂ ========== */
+.theme-selector {
+  display: flex;
+  gap: 8px;
+}
+
+.theme-option {
+  padding: 6px 14px;
+  border: 1px solid var(--border-color, #dee2e6);
+  border-radius: 6px;
+  background: var(--bg-primary, #ffffff);
+  color: var(--text-secondary, #6c757d);
+  font-size: 13px;
+  cursor: pointer;
+  /* CHỈ TRANSITION */
+  transition: all 0.2s ease;
+  /* TẮT MỌI ANIMATION */
+  animation: none !important;
+  transform: none !important;
+}
+
+.theme-option:hover {
+  background: var(--bg-secondary, #f8f9fa);
+  color: var(--text-primary, #212529);
+}
+
+/* ACTIVE STATE - KHÔNG ANIMATION */
+.theme-option.active {
+  background: var(--accent-primary, #007bff);
+  color: white;
+  border-color: var(--accent-primary, #007bff);
+  /* TẮT HOÀN TOÀN ANIMATION */
+  animation: none !important;
+  transform: none !important;
+}
+
+/* TẮT CỤ THỂ CHO DEFAULT - MỌI STATE */
+.theme-option[data-theme="default"] {
+  animation: none !important;
+  transform: none !important;
+}
+
+.theme-option[data-theme="default"]:hover {
+  animation: none !important;
+  transform: none !important;
+}
+
+.theme-option[data-theme="default"]:active {
+  animation: none !important;
+  transform: none !important;
+}
+
+.theme-option[data-theme="default"].active {
+  animation: none !important;
+  transform: none !important;
+}
+
+/* CHỈ PREMIUM MỚI CÓ ANIMATION KHI CÓ CLASS ANIMATE VÀ ACTIVE */
+.theme-option[data-theme="premium"].active.animate {
+  animation: premiumActivate 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55) !important;
+}
+
+/* ĐẢM BẢO PREMIUM KHÔNG CÓ ANIMATION KHI THIẾU CLASS ANIMATE */
+.theme-option[data-theme="premium"].active:not(.animate) {
+  animation: none !important;
+  transform: none !important;
+}
+
+@keyframes premiumActivate {
+  0% {
+    transform: scale(1);
+    box-shadow: 0 0 0 0 rgba(102, 126, 234, 0.7);
+  }
+  30% {
+    transform: scale(1.2);
+    box-shadow: 0 0 0 10px rgba(102, 126, 234, 0.4);
+  }
+  60% {
+    transform: scale(0.9);
+    box-shadow: 0 0 0 15px rgba(102, 126, 234, 0.1);
+  }
+  80% {
+    transform: scale(1.1);
+    box-shadow: 0 0 0 10px rgba(102, 126, 234, 0.2);
+  }
+  100% {
+    transform: scale(1);
+    box-shadow: 0 0 0 0 rgba(102, 126, 234, 0);
+  }
+}
+
+.settings-dropdown-footer {
+  padding: 12px 20px;
+  border-top: 1px solid var(--border-color, #dee2e6);
+}
+
+/* Logout Button - Refined */
+.logout-btn {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 12px;
+  border: none;
+  background: transparent;
+  color: #334155;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  border-radius: 6px;
+  transition: opacity 0.2s;
+  text-align: left;
+}
+
+/* Force Remove all backgrounds and red colors */
+/* Force Remove all backgrounds and red colors - ID Selector for Max Specificity */
+/* Force Remove all backgrounds and red colors - ID Selector for Max Specificity */
+/* Make it match .menu-item hover style */
+#logout-btn:hover,
+#logout-btn:focus {
+  /* background-color: #f1f5f9 !important; Match menu-item hover color */
+  background-color: transparent !important;
+  background-image: none !important;
+  box-shadow: none !important;
+  border: none !important;
+  color: #334155 !important; 
+  opacity: 1 !important;
+  text-decoration: none !important;
+  outline: none !important;
+}
+
+#logout-btn:active {
+  background-color: #e2e8f0 !important;
+}
+
+/* ========== DARK MODE FOR SETTINGS DROPDOWN ========== */
+body.dark-mode .settings-dropdown {
+  background-color: #2d2d2d !important;
+  border-color: #495057 !important;
+}
+
+body.dark-mode .settings-dropdown-header {
+  border-bottom-color: #495057 !important;
+}
+
+body.dark-mode .settings-dropdown-header h3 {
+  color: #f8f9fa !important;
+}
+
+body.dark-mode .menu-item {
+  color: #f8f9fa !important;
+}
+
+body.dark-mode .menu-item:hover {
+  background-color: #3a3a3a !important;
+}
+
+body.dark-mode .settings-divider {
+  background: #495057 !important;
+}
+
+body.dark-mode .settings-item:hover {
+  background-color: #3a3a3a !important;
+}
+
+body.dark-mode .settings-item-label strong {
+  color: #f8f9fa !important;
+}
+
+body.dark-mode .settings-item-label small {
+  color: #adb5bd !important;
+}
+
+body.dark-mode .toggle-switch {
+  background-color: #495057 !important;
+}
+
+body.dark-mode .toggle-switch.active {
+  background-color: #007bff !important;
+}
+
+body.dark-mode .theme-option {
+  background-color: #3a3a3a !important;
+  border-color: #495057 !important;
+  color: #adb5bd !important;
+  animation: none !important;
+}
+
+body.dark-mode .theme-option:hover {
+  background-color: #495057 !important;
+  color: #f8f9fa !important;
+}
+
+body.dark-mode .theme-option.active {
+  background: #007bff;
+  color: white;
+  animation: none !important;
+  transform: none !important;
+}
+
+/* TẮT CỤ THỂ CHO DEFAULT TRONG DARK MODE */
+body.dark-mode .theme-option[data-theme="default"],
+body.dark-mode .theme-option[data-theme="default"].active {
+  animation: none !important;
+  transform: none !important;
+}
+
+/* CHỈ PREMIUM TRONG DARK MODE MỚI CÓ ANIMATION KHI CÓ CLASS ANIMATE */
+body.dark-mode .theme-option[data-theme="premium"].active.animate {
+  animation: premiumActivate 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55) !important;
+}
+
+body.dark-mode .theme-option[data-theme="premium"].active:not(.animate) {
+  animation: none !important;
+  transform: none !important;
+}
+
+body.dark-mode .settings-dropdown-footer {
+  border-top-color: #495057 !important;
+}
+
+body.dark-mode .logout-btn {
+  border: none !important;
+  color: #f8f9fa !important;
+}
+
+body.dark-mode #logout-btn:hover,
+body.dark-mode #logout-btn:focus {
+  background-color: #3a3a3a !important; /* Match dark mode menu-item hover */
+  background-image: none !important;
+  border: none !important;
+  box-shadow: none !important;
+  color: #f8f9fa !important;
+  text-decoration: none !important;
+  outline: none !important;
+}
+
+body.dark-mode #logout-btn:active {
+  background-color: #4b5563 !important;
+}
+/* File: settings-dropdown.css - PHẦN SỬA LỖI ANIMATION */
+
+/* ACTIVE STATE (chung cho cả 2 nút) */
+.theme-option.active {
+  background: var(--accent-primary, #007bff);
+  color: white;
+  border-color: var(--accent-primary, #007bff);
+}
+
+/* ANIMATION (chỉ áp dụng cho nút premium khi có class 'animate') */
+.theme-option[data-theme="premium"].animate {
+  animation: premiumActivate 0.6s ease;
+}
+
+@keyframes premiumActivate {
+  30% { transform: scale(1.1); }
+  100% { transform: scale(1); }
+}
+
+/* PREMIUM NOTICE & DISABLED STATE */
+.premium-notice { 
+  display: none; 
+  padding: 12px 20px;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  text-align: center;
+  font-size: 13px;
+  border-radius: 8px;
+  margin: 12px 16px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.premium-notice:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(102, 126, 234, 0.4);
+}
+
+/* Dark Mode Toggle & Theme Selector - Always Enabled */
+.not-premium .settings-item:has(#darkModeToggle),
+.not-premium .settings-item:has(.theme-selector) {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.not-premium .premium-notice {
+  display: block;
+}

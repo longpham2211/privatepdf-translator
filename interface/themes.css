@@ -1,0 +1,372 @@
+/* ======================================================= */
+/* ✨ THEMES.CSS - PHIÊN BẢN DỌN DẸP HOÀN CHỈNH ✨ */
+/* ======================================================= */
+
+/* ========== BIẾN MÀU (VARIABLES) ========== */
+:root {
+  /* Light Theme (Mặc định) */
+  --bg-primary: #ffffff;
+  --color-scheme: light dark;
+  --bg-secondary: #f8f9fa;
+  --bg-tertiary: #e9ecef;
+  --text-primary: #212529;
+  --text-secondary: #6c757d;
+  --text-muted: #adb5bd;
+  --border-color: #dee2e6;
+  --accent-primary: #007bff;
+  --accent-secondary: #6c63ff;
+  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.08);
+}
+
+/* Dark Theme */
+body.dark-mode {
+  --bg-primary: #0a0a0a;
+  --bg-secondary: #141414;
+  --bg-tertiary: #1f1f1f;
+  --text-primary: #f8f9fa;
+  --text-secondary: #adb5bd;
+  --text-muted: #6c757d;
+  --border-color: #495057;
+  --accent-primary: #007bff;
+  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.5);
+}
+
+/* ========== STYLE CHUNG CHO DARK MODE ========== */
+body.dark-mode {
+  background-color: var(--bg-primary) !important;
+  color: var(--text-primary) !important;
+}
+
+body.dark-mode .main,
+body.dark-mode .container,
+body.dark-mode .merge-container,
+body.dark-mode .split-container {
+  background-color: transparent !important;
+}
+
+body.dark-mode .footer {
+  background: var(--bg-primary) !important;
+  border-top: 1px solid var(--bg-secondary) !important;
+}
+
+body.dark-mode .navbar {
+  background-color: var(--bg-secondary) !important;
+}
+
+body.dark-mode input,
+body.dark-mode textarea,
+body.dark-mode select {
+  background-color: var(--bg-tertiary) !important;
+  color: var(--text-primary) !important;
+}
+
+body.dark-mode input::placeholder,
+body.dark-mode textarea::placeholder {
+  color: var(--text-secondary) !important;
+}
+
+body.dark-mode .btn,
+body.dark-mode .sign-in-btn,
+body.dark-mode .submit-btn,
+body.dark-mode .select-btn,
+body.dark-mode .split-btn,
+body.dark-mode .optimize-btn,
+body.dark-mode .optimize-all-btn,
+body.dark-mode .download-btn.primary,
+body.dark-mode .download-btn.secondary {
+  background-color: var(--accent-primary) !important;
+  color: white !important;
+  border: none !important;
+}
+
+body.dark-mode .btn:hover:not(.primary),
+body.dark-mode .select-btn:hover {
+  background-color: #0056b3 !important;
+}
+
+body.dark-mode h1,
+body.dark-mode h2,
+body.dark-mode h3,
+body.dark-mode h4,
+body.dark-mode h5,
+body.dark-mode h6,
+body.dark-mode p,
+body.dark-mode label,
+body.dark-mode a {
+  color: var(--text-primary) !important;
+}
+
+body.dark-mode small,
+body.dark-mode .hint-text {
+  color: var(--text-secondary) !important;
+}
+
+/* ========== FIX RIÊNG CHO TỪNG TRANG ========== */
+
+/* --- TRANG TOOL IMAGE (CÁC THẺ CÔNG CỤ) --- */
+body.dark-mode .tool-card,
+body.dark-mode .game-card {
+  background-color: transparent !important;
+  border-color: rgba(148, 163, 184, 0.35) !important;
+  box-shadow: none !important;
+}
+
+body.dark-mode .tool-card:hover,
+body.dark-mode .game-card:hover {
+  background-color: rgba(255, 255, 255, 0.05) !important;
+  border-color: #60a5fa !important;
+}
+
+/* --- TRANG TỐI ƯU HÓA ẢNH (TINYREDUCE) --- */
+body.dark-mode .settings-box,
+body.dark-mode .stats-panel,
+body.dark-mode .action-panel,
+body.dark-mode .image-item {
+  background: var(--bg-secondary) !important;
+  box-shadow: none !important;
+}
+
+body.dark-mode .stat-item {
+  background: var(--bg-tertiary) !important;
+}
+
+body.dark-mode input[type="range"]::-webkit-slider-thumb {
+  background: var(--bg-tertiary) !important;
+}
+
+body.dark-mode .download-btn,
+body.dark-mode .download-all-btn {
+  background: var(--bg-tertiary) !important;
+  color: var(--text-primary) !important;
+}
+
+/* --- TRANG DỌN DẸP VĂN BẢN (CLEANTEXT) --- */
+body.dark-mode .editor-wrap,
+body.dark-mode .stat {
+  background: var(--bg-secondary) !important;
+  box-shadow: none !important;
+}
+
+body.dark-mode .btn:not(.primary) {
+  background: var(--bg-tertiary) !important;
+  color: var(--text-primary) !important;
+}
+
+/* --- TRANG ĐẾM TỪ (TINYDEMTU) --- */
+body.dark-mode .stat-card,
+body.dark-mode .editor-container {
+  background: var(--bg-secondary) !important;
+  box-shadow: none !important;
+}
+
+body.dark-mode .toolbar-btn {
+  background: var(--bg-tertiary) !important;
+  color: var(--text-primary) !important;
+}
+
+body.dark-mode .toolbar-btn.active {
+  background: var(--accent-primary) !important;
+  color: white !important;
+}
+
+/* --- TRANG WATERMARK (TINYWATER) --- */
+body.dark-mode .preview-panel,
+body.dark-mode .settings-panel {
+  background: var(--bg-secondary) !important;
+}
+
+body.dark-mode .nav-btn {
+  background: var(--bg-tertiary) !important;
+  color: var(--text-primary) !important;
+}
+
+body.dark-mode .image-canvas-container {
+  background: var(--bg-primary) !important;
+  box-shadow: none !important;
+}
+
+body.dark-mode .color-picker-wrapper {
+  border-color: var(--border-color) !important;
+}
+
+body.dark-mode .action-btn.secondary {
+  background: var(--bg-tertiary) !important;
+  color: var(--text-primary) !important;
+}
+
+/* ======================================================= */
+/* ✨ FIX DARK MODE CHO TRANG HỢP NHẤT PDF (TINYMERGE) ✨ */
+/* ======================================================= */
+
+/* Nền của body và container chính */
+body.dark-mode,
+body.dark-mode .merge-modern-container {
+  background-color: var(--bg-primary) !important;
+}
+
+/* Các tiêu đề và đoạn văn */
+body.dark-mode .header-section h2,
+body.dark-mode .header-section p,
+body.dark-mode .count-text {
+  color: var(--text-primary) !important;
+}
+
+/* Badge đếm file */
+body.dark-mode .file-count-badge {
+  background-color: var(--bg-secondary) !important;
+  border-color: var(--border-color) !important;
+}
+
+/* Vùng danh sách file */
+body.dark-mode .file-list-container {
+  background-color: var(--bg-secondary) !important;
+  border-color: var(--border-color) !important;
+}
+
+/* Từng file trong danh sách */
+body.dark-mode .modern-file-list li {
+  background-color: var(--bg-tertiary) !important;
+  border-color: var(--border-color) !important;
+}
+
+body.dark-mode .file-name {
+  color: var(--text-primary) !important;
+}
+
+body.dark-mode .file-size {
+  color: var(--text-secondary) !important;
+}
+
+/* Nút "Quay lại" */
+body.dark-mode .cancel-btn {
+  background-color: var(--bg-tertiary) !important;
+  color: var(--text-primary) !important;
+}
+
+body.dark-mode .cancel-btn:hover {
+  background-color: #495057 !important;
+}
+
+/* Thanh tiến trình */
+body.dark-mode .progress-indicator {
+  background-color: var(--bg-secondary) !important;
+  border-color: var(--border-color) !important;
+}
+
+body.dark-mode .progress-bar-bg {
+  background-color: var(--bg-tertiary) !important;
+}
+
+body.dark-mode .progress-indicator p {
+  color: var(--text-secondary) !important;
+}
+
+/* Thông báo rỗng */
+body.dark-mode .empty-message {
+  color: var(--text-secondary) !important;
+}
+
+/* ======================================================= */
+/* ✨ FIX DARK MODE CHO TRANG WORD -> PDF (TINYWORDTOPDF) ✨ */
+/* ======================================================= */
+
+/* Khung cảnh báo màu vàng */
+body.dark-mode .warning-box-large {
+  background: #423d22 !important;
+  /* Nền vàng đậm/nâu */
+  border-color: #a1801c !important;
+  /* Viền vàng sẫm */
+  box-shadow: none !important;
+}
+
+/* Chữ tiêu đề và nội dung trong khung cảnh báo */
+body.dark-mode .warning-content h3,
+body.dark-mode .warning-content ul,
+body.dark-mode .warning-content strong {
+  color: #fde68a !important;
+  /* Chữ màu vàng nhạt */
+}
+
+/* Khung gợi ý công cụ khác */
+body.dark-mode .alternative-tools {
+  background: rgba(0, 0, 0, 0.2) !important;
+  /* Nền đen trong suốt */
+}
+
+body.dark-mode .alternative-tools span {
+  color: var(--text-secondary) !important;
+  /* Chữ màu xám trắng */
+}
+
+/* ======================================================= */
+/* ✨ FIX DARK MODE CHO TRANG NÉN PDF (TINYNEN) ✨ */
+/* ======================================================= */
+
+/* Các khung cài đặt */
+body.dark-mode .mode-input {
+  background-color: var(--bg-secondary) !important;
+  border-color: var(--border-color) !important;
+}
+
+/* Thanh trượt (slider) */
+body.dark-mode .mode-input input[type="range"] {
+  background-color: var(--bg-tertiary) !important;
+}
+
+/* Ô chọn (select) */
+body.dark-mode .mode-input select {
+  background-color: var(--bg-tertiary) !important;
+  color: var(--text-primary) !important;
+  border-color: var(--border-color) !important;
+}
+
+/* Ô checkbox */
+body.dark-mode .mode-input input[type="checkbox"] {
+  accent-color: var(--accent-primary);
+  /* Đổi màu tick của checkbox */
+}
+
+/* ======================================================= */
+/* ✨ FIX DARK MODE CHO TRANG KÝ TÊN PDF (TINYCHUKY) ✨ */
+/* ======================================================= */
+
+/* --- Vùng tab và các nút điều khiển --- */
+body.dark-mode .sign-options,
+body.dark-mode .tab-content {
+  background-color: var(--bg-secondary) !important;
+}
+
+body.dark-mode .tab-btn {
+  background-color: var(--bg-tertiary) !important;
+  color: var(--text-secondary) !important;
+  border-bottom: 1px solid var(--border-color) !important;
+}
+
+body.dark-mode .tab-btn.active {
+  background-color: var(--bg-secondary) !important;
+  /* Nền tab đang chọn */
+  color: var(--accent-primary) !important;
+  border-top: 2px solid var(--accent-primary) !important;
+  border-bottom-color: transparent !important;
+}
+
+/* --- Khung vẽ chữ ký --- */
+/* Buộc nền khung luôn là trắng, kể cả ở dark mode */
+body.dark-mode #signature-pad-container {
+  background-color: #ffffff !important;
+}
+
+/* --- Input và dropdown --- */
+/* Giúp tránh lỗi "chói chữ" khi ở dark mode */
+body.dark-mode .tab-content input[type="text"],
+body.dark-mode .tab-content select {
+  background-color: var(--bg-tertiary) !important;
+  color: var(--text-primary) !important;
+  border: 1px solid var(--border-color) !important;
+}
+
+/* --- Màu nền & chữ trong danh sách chọn (option) --- */
+body.dark-mode .tab-content select option {
+  background-color: var(--bg-secondary) !important;
+  color: var(--text-primary) !important;
+}

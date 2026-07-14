@@ -1,0 +1,551 @@
+/* ========== GLOBAL SMOOTH TRANSITIONS ========== */
+/* Áp dụng transition mượt mà cho tất cả các thuộc tính thay đổi */
+/* File: animations.css - ĐÃ SỬA LẠI */
+
+/* ========== GLOBAL SMOOTH TRANSITIONS ========== */
+/* Chỉ áp dụng transition cho các thành phần UI chính, KHÔNG DÙNG "*" */
+body,
+.navbar,
+.footer,
+.auth-modal,
+.premium-modal,
+.settings-dropdown {
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Giữ lại transition cho các nút bấm nhưng tách riêng ra */
+.btn,
+.sign-in-btn,
+.submit-btn,
+.social-btn,
+.logout-btn,
+.action-btn,
+.premium-btn,
+.toolbar-btn {
+    transition: 
+        background-color 0.3s ease,
+        color 0.3s ease,
+        border-color 0.3s ease,
+        box-shadow 0.3s ease,
+        transform 0.2s ease;
+}
+
+/* Riêng nút theme option, chúng ta muốn kiểm soát chặt chẽ hơn */
+.theme-option {
+    transition: 
+        background-color 0.2s ease,
+        color 0.2s ease,
+        border-color 0.2s ease;
+    /* Không có transition cho transform ở đây */
+}
+/* Loại bỏ transition cho các phần tử không cần thiết */
+input,
+textarea,
+select {
+  transition: 
+    background-color 0.2s ease,
+    border-color 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+/* ========== TOOL CARDS LIFT EFFECT ========== */
+.tool-card,
+.game-card {
+  position: relative;
+  transition: 
+    border-color 0.15s ease,
+    background-color 0.15s ease,
+    box-shadow 0.15s ease;
+  /* Removed transform and will-change to prevent visual expansion */
+}
+
+.tool-card::before,
+.game-card::before {
+  /* Disabled - causes visual expansion */
+  display: none;
+}
+
+.tool-card:hover,
+.game-card:hover {
+  /* Removed transform and scale - only subtle effects */
+  box-shadow: 0 4px 12px rgba(59, 130, 246, 0.1);
+  border-color: #3b82f6;
+}
+
+.tool-card:hover::before,
+.game-card:hover::before {
+  /* Disabled */
+  opacity: 0;
+}
+
+/* Dark mode hover styles managed in toolpdf.css */
+
+.tool-card:active,
+.game-card:active {
+  /* No transform on active */
+  transition: none;
+}
+
+/* Icon animation inside cards */
+.tool-card img,
+.game-card img {
+  /* No animation */
+}
+
+.tool-card:hover img,
+.game-card:hover img {
+  /* No transform or animation */
+  animation-play-state: paused;
+}
+
+@keyframes cardIconFloat {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-8px);
+  }
+}
+
+/* ========== DROPDOWN SETTINGS ANIMATION ========== */
+.settings-dropdown {
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-10px) scale(0.95);
+  transform-origin: top right;
+  pointer-events: none;
+  transition: 
+    opacity 0.25s cubic-bezier(0.4, 0, 0.2, 1),
+    transform 0.25s cubic-bezier(0.4, 0, 0.2, 1),
+    visibility 0s linear 0.25s;
+}
+
+.settings-dropdown.active {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0) scale(1);
+  pointer-events: auto;
+  transition: 
+    opacity 0.25s cubic-bezier(0.4, 0, 0.2, 1),
+    transform 0.25s cubic-bezier(0.4, 0, 0.2, 1),
+    visibility 0s linear 0s;
+}
+
+/* Settings items hover */
+.settings-item {
+  transition: background-color 0.2s ease;
+}
+
+.settings-item:hover {
+  background-color: var(--bg-secondary, #f8f9fa);
+}
+
+/* ========== AUTH MODAL ANIMATION ========== */
+.auth-modal-overlay {
+  opacity: 0;
+  visibility: hidden;
+  backdrop-filter: blur(0px);
+  transition: 
+    opacity 0.3s ease,
+    backdrop-filter 0.3s ease,
+    visibility 0s linear 0.3s;
+}
+
+.auth-modal-overlay.active {
+  opacity: 1;
+  visibility: visible;
+  backdrop-filter: blur(8px);
+  transition: 
+    opacity 0.3s ease,
+    backdrop-filter 0.3s ease,
+    visibility 0s linear 0s;
+}
+
+.auth-modal {
+  transform: scale(0.9) translateY(20px);
+  opacity: 0;
+  transition: 
+    transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1),
+    opacity 0.3s ease;
+}
+
+.auth-modal-overlay.active .auth-modal {
+  transform: scale(1) translateY(0);
+  opacity: 1;
+}
+
+/* Tab switching animation */
+.auth-tab-content {
+  animation: fadeInSlide 0.3s ease forwards;
+}
+
+@keyframes fadeInSlide {
+  from {
+    opacity: 0;
+    transform: translateX(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* ========== BUTTON EFFECTS ========== */
+/* Sign In Button */
+.sign-in-btn {
+  position: relative;
+  overflow: hidden;
+  transition: 
+    background-color 0.3s ease,
+    transform 0.2s ease,
+    box-shadow 0.3s ease;
+}
+
+.sign-in-btn::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.3);
+  transform: translate(-50%, -50%);
+  transition: width 0.6s ease, height 0.6s ease;
+}
+
+.sign-in-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 123, 255, 0.3);
+}
+
+.sign-in-btn:active {
+  transform: translateY(0) scale(0.98);
+}
+
+.sign-in-btn:active::before {
+  width: 300px;
+  height: 300px;
+}
+
+/* Submit button animation disabled by user request */
+
+/* Social buttons animation disabled by user request */
+
+/* Auth Tab Buttons */
+.auth-tab {
+  position: relative;
+  transition: 
+    color 0.3s ease,
+    border-bottom-color 0.3s ease;
+}
+
+.auth-tab::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  width: 0;
+  height: 2px;
+  background: var(--accent-primary, #007bff);
+  transform: translateX(-50%);
+  transition: width 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.auth-tab.active::after {
+  width: 100%;
+}
+
+.auth-tab:hover:not(.active) {
+  color: var(--text-primary, #212529);
+}
+
+/* ========== THEME OPTION BUTTONS - FIX HOÀN TOÀN ========== */
+.theme-option {
+  position: relative;
+  /* CHỈ TRANSITION, TUYỆT ĐỐI KHÔNG ANIMATION */
+  transition: 
+    background-color 0.2s ease,
+    color 0.2s ease,
+    border-color 0.2s ease,
+    transform 0.2s ease;
+  /* TẮT MỌI ANIMATION */
+  animation: none !important;
+}
+
+.theme-option:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.theme-option:active {
+  transform: scale(0.95);
+}
+
+/* TẮT HOVER/ACTIVE EFFECT KHI Ở STATE NOT-PREMIUM */
+.settings-dropdown.not-premium .theme-option:hover,
+.settings-dropdown.not-premium .theme-option:active {
+  transform: none !important;
+  box-shadow: none !important;
+}
+
+/* TẮT HOÀN TOÀN ANIMATION CHO MỌI ACTIVE STATE */
+.theme-option.active {
+  animation: none !important;
+  transform: none !important;
+}
+
+/* TẮT CỤ THỂ CHO DEFAULT - MỌI STATE */
+.theme-option[data-theme="default"],
+.theme-option[data-theme="default"].active,
+.theme-option[data-theme="default"]:hover,
+.theme-option[data-theme="default"]:active {
+  animation: none !important;
+  transform: none !important;
+}
+
+/* TẮT MẶC ĐỊNH CHO PREMIUM - CHỈ BẬT KHI CÓ CLASS .animate */
+.theme-option[data-theme="premium"].active {
+  animation: none !important;
+  transform: none !important;
+}
+
+/* CHỈ PREMIUM + CLASS .animate MỚI CÓ ANIMATION */
+/* VÀ CHỈ KHI KHÔNG TRONG STATE .not-premium */
+.theme-option[data-theme="premium"].active.animate {
+  animation: premiumPulse 0.6s cubic-bezier(0.34, 1.56, 0.64, 1) !important;
+}
+
+/* BLOCK ANIMATION HOÀN TOÀN KHI Ở STATE NOT-PREMIUM */
+.settings-dropdown.not-premium .theme-option[data-theme="premium"],
+.settings-dropdown.not-premium .theme-option[data-theme="premium"].active,
+.settings-dropdown.not-premium .theme-option[data-theme="premium"].active.animate {
+  animation: none !important;
+  transform: none !important;
+  pointer-events: none;
+}
+
+/* KEYFRAME CHO PREMIUM */
+@keyframes premiumPulse {
+  0% {
+    transform: scale(1);
+  }
+  25% {
+    transform: scale(1.15);
+  }
+  50% {
+    transform: scale(0.95);
+  }
+  75% {
+    transform: scale(1.08);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+/* Logout Button - Removed red effect, now matches menu-item */
+.logout-btn {
+  position: relative;
+  overflow: hidden;
+  transition: 
+    background-color 0.2s ease,
+    color 0.2s ease;
+}
+
+/* Disabled the red ::before animation */
+.logout-btn::before {
+  display: none !important;
+}
+
+.logout-btn:active {
+  transform: none;
+}
+
+/* ========== TOGGLE SWITCH ANIMATION ========== */
+.toggle-switch {
+  transition: background-color 0.3s ease;
+}
+
+.toggle-switch::after {
+  transition: 
+    transform 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55),
+    box-shadow 0.3s ease;
+}
+
+.toggle-switch:hover::after {
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.3);
+}
+
+.toggle-switch.active::after {
+  box-shadow: 0 3px 8px rgba(0, 123, 255, 0.4);
+}
+
+/* ========== INPUT FOCUS ANIMATION ========== */
+.form-group input {
+  transition: 
+    border-color 0.3s ease,
+    box-shadow 0.3s ease,
+    background-color 0.3s ease;
+}
+
+.form-group input:focus {
+  animation: inputFocus 0.3s ease;
+}
+
+@keyframes inputFocus {
+  0% {
+    box-shadow: 0 0 0 0 rgba(0, 123, 255, 0.4);
+  }
+  100% {
+    box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.1);
+  }
+}
+
+/* ========== NOTIFICATION ANIMATION ========== */
+/* DA CHUYEN SANG FILE notifications.css - KHONG DINH NGHIA O DAY NUA */
+
+/* ========== LOADING STATES ========== */
+.loading {
+  position: relative;
+  pointer-events: none;
+}
+
+/* Đã xóa spinner hình tròn - chỉ giữ loading-bar */
+
+/* ========== SETTINGS ICON ROTATION ========== */
+.settings-icon-btn svg {
+  transition: transform 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+.settings-icon-btn:hover svg {
+  transform: rotate(90deg);
+}
+
+.settings-icon-wrapper.active .settings-icon-btn svg {
+  transform: rotate(180deg);
+}
+
+/* ========== PAGE TRANSITION ========== */
+body {
+  animation: fadeIn 0.3s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* ========== NAVBAR SCROLL EFFECT ========== */
+.navbar {
+  transition: 
+    background-color 0.3s ease,
+    box-shadow 0.3s ease,
+    padding 0.3s ease;
+}
+
+.navbar.scrolled {
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.1);
+}
+
+body.dark-mode .navbar.scrolled {
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.5);
+}
+
+/* ========== SEARCH INPUT ANIMATION ========== */
+.nav-search {
+  transition: 
+    width 0.3s ease,
+    background-color 0.3s ease,
+    border-color 0.3s ease;
+}
+
+.nav-search:focus {
+  width: 250px;
+  border-color: var(--accent-primary, #007bff);
+}
+
+/* ========== FOOTER FADE IN ========== */
+.footer {
+  animation: fadeInUp 0.6s ease-in-out;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ========== MICRO INTERACTIONS ========== */
+/* Ripple effect for clickable elements */
+.ripple {
+  position: relative;
+  overflow: hidden;
+}
+
+.ripple::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.5);
+  transform: translate(-50%, -50%);
+  transition: width 0.6s, height 0.6s;
+}
+
+.ripple:active::after {
+  width: 200px;
+  height: 200px;
+}
+
+/* ========== SMOOTH SCROLL ========== */
+html {
+  scroll-behavior: smooth;
+}
+
+/* ========== REDUCE MOTION FOR ACCESSIBILITY ========== */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* ========== STAGGER ANIMATION FOR CARDS ========== */
+.game-card:nth-child(1) { animation-delay: 0.1s; }
+.game-card:nth-child(2) { animation-delay: 0.2s; }
+.game-card:nth-child(3) { animation-delay: 0.3s; }
+.game-card:nth-child(4) { animation-delay: 0.4s; }
+.game-card:nth-child(5) { animation-delay: 0.5s; }
+.game-card:nth-child(6) { animation-delay: 0.6s; }
+
+.tool-card,
+.game-card {
+  animation: fadeInScale 0.5s cubic-bezier(0.34, 1.56, 0.64, 1) both;
+}
+
+@keyframes fadeInScale {
+  from {
+    opacity: 0;
+    transform: scale(0.8) translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}

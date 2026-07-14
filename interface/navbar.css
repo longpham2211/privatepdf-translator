@@ -1,0 +1,247 @@
+/* ===== Unified navbar stylesheet ===== */
+:root {
+  --nav-height-mobile:80px; /* <-- Giảm từ 122px */
+  --nav-height-tablet:90px; /* <-- Giảm từ 168px */
+  --nav-logo-mobile:100px; /* <-- Giảm từ 122px */
+  --nav-logo-tablet:120px; /* <-- Giảm từ 176px */
+  --nav-horizontal-padding-mobile: 30px;
+  --nav-horizontal-padding-tablet: 50px;
+  /* ...các biến khác... */
+}
+
+
+
+* {
+  box-sizing: border-box;
+}
+
+.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  height: var(--nav-height-mobile);
+  padding: 0 var(--nav-horizontal-padding-mobile);
+  background-color: var(--bg-primary, #ffffff);
+  border-bottom: 1px solid rgba(148, 163, 184, 0.15);
+  box-shadow: var(--nav-shadow);
+  z-index: 999;
+  font-family: 'Segoe UI', 'Inter', system-ui, -apple-system, sans-serif;
+  transition: background-color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.nav-left {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  background-color: transparent;
+}
+
+.nav-left a {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  text-decoration: none;
+  color: inherit;
+  /* transition: transform 0.25s cubic-bezier(0.34, 1.56, 0.64, 1), opacity 0.25s ease; */
+}
+
+.nav-left a:hover {
+  /* opacity: 0.85; */
+  /* transform: translateY(-2px); */
+}
+
+.nav-left a:focus-visible {
+  outline: 3px solid var(--accent-primary, #2563eb);
+  outline-offset: 6px;
+}
+
+.nav-logo {
+  height: var(--nav-logo-mobile);
+  width: auto;
+  display: block;
+  object-fit: contain;
+}
+
+.brand {
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--text-primary, #0f172a);
+  white-space: nowrap;
+}
+
+.nav-menu {
+  display: none;
+}
+
+.nav-item {
+  font-size: 15px;
+  color: var(--text-secondary, #475569);
+  cursor: pointer;
+}
+
+.nav-right {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.sign-in-btn {
+  /* Style giống SmallPDF: Xanh solid, Bo góc nhẹ, Phẳng */
+  background: #2b50dd; /* Màu xanh đặc trưng SmallPDF */
+  color: #ffffff;
+  border: none;
+  padding: 10px 24px;
+  font-size: 15px;
+  font-weight: 700; /* Chữ đậm */
+  border-radius: 8px; /* Bo góc vuông hơn */
+  cursor: pointer;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Bóng đen nhẹ tinh tế */
+  transition: all 0.2s ease;
+}
+
+.sign-in-btn:hover {
+  /* Giữ nguyên màu khi hover (theo yêu cầu tắt hover) */
+  background: #2b50dd !important; 
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1) !important;
+  transform: none !important;
+  opacity: 1 !important;
+}
+
+.sign-in-btn:active {
+  background: #2b50dd !important;
+  transform: none !important;
+}
+
+.settings-icon-wrapper {
+  margin-left: 8px;
+}
+
+body.dark-mode .navbar {
+  background-color: var(--bg-secondary, #1f2937) !important;
+  border-bottom-color: rgba(100, 116, 139, 0.35) !important;
+  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.55) !important;
+}
+
+body.dark-mode .nav-item,
+body.dark-mode .brand {
+  color: var(--text-primary, #f8fafc) !important;
+}
+
+
+
+body.dark-mode .sign-in-btn {
+  background: #3b82f6; /* Xanh sáng hơn cho Dark Mode */
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+body.dark-mode .sign-in-btn:hover {
+  background: #3b82f6 !important;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3) !important;
+  transform: none !important;
+}
+
+@media (min-width: 768px) {
+  .navbar {
+    height: var(--nav-height-tablet);
+    padding: 0 var(--nav-horizontal-padding-tablet);
+  }
+
+  .nav-logo {
+    height: var(--nav-logo-tablet);
+  }
+
+  .nav-menu {
+    display: flex;
+    gap: 24px;
+  }
+
+  .sign-in-btn {
+    font-size: 16px;
+    padding: 12px 26px;
+  }
+}
+
+/* ... existing content ... */
+
+/* Premium Navigation Button */
+.premium-nav-btn {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 14px;
+  background-color: #f2db80;
+  border: 1px solid #f59e0b;
+  color: #b45309;
+  border-radius: 4px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.2s;
+  font-size: 14px;
+}
+
+.premium-nav-btn:hover {
+  opacity: 1 !important; /* Không làm mờ */
+  transform: none !important;
+  box-shadow: none !important;
+  background-color: #f2db80 !important; /* Giữ nguyên màu nền gốc */
+  color: #b45309 !important; /* Giữ nguyên màu chữ gốc */
+  border-color: #f59e0b !important; /* Giữ nguyên màu viền gốc */
+}
+
+@media (min-width: 1280px) {
+  .navbar {
+    padding: 0 calc(var(--nav-horizontal-padding-tablet) + 12px);
+  }
+}
+
+/* =========================================
+   NOTIFICATION DOT STYLES (Merged)
+   ========================================= */
+.notification-dot {
+    position: absolute;
+    top: -2px;
+    right: -2px;
+    width: 10px;
+    height: 10px;
+    background-color: #ef4444; /* Tailwind red-500 */
+    border: 2px solid #ffffff;
+    border-radius: 50%;
+    z-index: 10;
+    display: none; /* Hidden by default */
+    pointer-events: none;
+    box-shadow: 0 1px 2px rgba(0,0,0,0.1);
+}
+
+.notification-dot.active {
+    display: inline-block !important; /* Force show */
+}
+
+/* Specific adjustments for inline dots (Menu, Sidebar) */
+.inline-dot {
+    position: relative !important; /* Reset absolute */
+    top: auto !important;
+    right: auto !important;
+    width: 8px !important;
+    height: 8px !important;
+    border: none !important;
+    margin-left: 8px !important;
+    background-color: #ff3e3e !important;
+    box-shadow: none !important;
+    flex-shrink: 0; /* Prevent shrinking in flex container */
+    vertical-align: middle;
+}
+
+/* Wrapper adjustments */
+.settings-icon-wrapper {
+    position: relative;
+}
+
+.settings-icon-wrapper .notification-dot {
+    top: 0;
+    right: 0;
+}

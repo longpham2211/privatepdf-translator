@@ -1,0 +1,8 @@
+{
+    "files.associations": {
+        "vector": "cpp",
+        "cstring": "cpp"
+    },
+    "liveServer.settings.port": 5510,
+    "livePreview.defaultPreviewPath": "/pdftools/chatpdf/chat-pdf.html"
+}

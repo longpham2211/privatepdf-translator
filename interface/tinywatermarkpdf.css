@@ -1,0 +1,396 @@
+    .watermark-workspace {
+      display: flex;
+      gap: 25px;
+      margin: 30px 0;
+      max-width: 1600px; /* Tăng từ 1400px lên 1600px */
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    /* Khi dùng chung .split-container (nhiều trang dùng chung), watermarks cần không gian rộng hơn.
+       Chỉ override khi chính container chứa watermark-workspace để tránh ảnh hưởng tới các tool khác. */
+    .split-container > .watermark-workspace,
+    .merge-container > .watermark-workspace {
+      max-width: 1400px;
+      width: calc(100% - 40px);
+    }
+
+      /* Background + contrast for file info when used on watermark page */
+      .split-container.watermark-page > .file-info-box {
+        background: linear-gradient(135deg, var(--primary-2) 0%, var(--primary) 100%);
+        padding: 20px;
+        border-radius: 12px;
+        margin-bottom: 20px; /* Thêm khoảng cách dưới để tách biệt với workspace */
+        color: white;
+        display: block;
+        text-align: left;
+        align-items: stretch;
+        gap: 10px;
+      }
+
+      .split-container.watermark-page > .file-info-box .info-row {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 10px;
+        font-size: 14px;
+        width: 100%;
+      }
+
+      .split-container.watermark-page > .file-info-box .info-row:last-child {
+        margin-bottom: 0;
+      }
+
+      .split-container.watermark-page > .file-info-box .info-label {
+        font-weight: 600;
+      }
+
+      .split-container.watermark-page > .file-info-box .info-value {
+        font-weight: 400;
+        opacity: 0.95;
+        max-width: 60%;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        text-align: right;
+      }
+
+      /* In dark-mode, make this more legible (increase contrast) */
+      body.dark-mode .split-container.watermark-page > .file-info-box {
+        background: linear-gradient(135deg, rgba(59,130,246,0.06) 0%, rgba(37,99,235,0.06) 100%);
+        border: 1px solid rgba(255,255,255,0.05) !important;
+        color: var(--text) !important;
+      }
+
+      body.dark-mode .split-container.watermark-page > .file-info-box .info-row {
+        border-bottom: 1px solid #495057 !important;
+      }
+
+      body.dark-mode .split-container.watermark-page > .file-info-box .info-label,
+      body.dark-mode .split-container.watermark-page > .file-info-box .info-value {
+        color: #f8f9fa !important;
+      }
+
+    /* Left panel - PDF Preview (Main) */
+    .preview-panel {
+      flex: 3; /* Tăng từ 2 lên 3 để preview to hơn */
+      background: #f8f9fa;
+      border-radius: 16px;
+      padding: 25px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      min-height: 600px; /* Giảm nhẹ để tránh overflow dọc */
+      border: 1px solid #e5e7eb;
+      box-sizing: border-box;
+      overflow: hidden;
+    }
+
+    .preview-header {
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 20px;
+      padding-bottom: 15px;
+      border-bottom: 2px solid #e5e7eb;
+    }
+
+    .preview-title {
+      font-size: 16px;
+      font-weight: 600;
+      color: #1f2937;
+    }
+
+    .page-navigation {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .nav-btn {
+      width: 36px;
+      height: 36px;
+      border: 1px solid #d1d5db;
+      background: white;
+      border-radius: 8px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 18px;
+      transition: all 0.2s ease;
+    }
+
+    .nav-btn:hover:not(:disabled) {
+      background: #2563eb;
+      color: white;
+      border-color: #2563eb;
+    }
+
+    .nav-btn:disabled {
+      opacity: 0.3;
+      cursor: not-allowed;
+    }
+
+    .page-indicator {
+      font-size: 14px;
+      color: #6b7280;
+      min-width: 80px;
+      text-align: center;
+    }
+
+    /* PDF Canvas Preview */
+    .pdf-canvas-container {
+      flex: 1;
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: white;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+      overflow: auto;
+      position: relative;
+      padding: 20px;
+    }
+
+    /* Wrapper chỉ để chứa canvas và watermark, không zoom */
+    .canvas-zoom-wrapper {
+      position: relative;
+      display: inline-block;
+    }
+
+    #pdfCanvas {
+      display: block;
+      max-width: 100%;
+      height: auto;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    }
+
+    #watermarkOverlay {
+      position: absolute;
+      pointer-events: none;
+      font-size: 48px;
+      opacity: 0.3;
+      transform-origin: center;
+      white-space: nowrap;
+      font-weight: bold;
+      left: 50%;
+      top: 50%;
+    }
+
+    /* Right panel - Settings (Sidebar) */
+    .settings-panel {
+      width: 300px; /* Giảm từ 360px xuống 300px để nhỏ hơn */
+      background: white;
+      border-radius: 16px;
+      padding: 25px;
+      border: 1px solid #e5e7eb;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      max-height: calc(100vh - 220px); /* Giữ vừa vặn với header/footer */
+      overflow-y: auto;
+      box-sizing: border-box;
+    }
+
+    .settings-panel h3 {
+      margin: 0;
+      font-size: 18px;
+      color: #111827;
+      font-weight: 600;
+      padding-bottom: 15px;
+      border-bottom: 2px solid #f3f4f6;
+    }
+
+    .setting-group {
+      margin: 0;
+    }
+
+    .setting-group label {
+      display: block;
+      margin-bottom: 8px;
+      font-weight: 600;
+      color: #374151;
+      font-size: 13px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .setting-group input[type="text"] {
+      width: 100%;
+      padding: 12px 14px;
+      border: 2px solid #e5e7eb;
+      border-radius: 10px;
+      font-size: 15px;
+      box-sizing: border-box;
+      transition: all 0.2s ease;
+    }
+
+    .setting-group input[type="text"]:focus {
+      outline: none;
+      border-color: #2563eb;
+      box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+    }
+
+    .setting-group select {
+      width: 100%;
+      padding: 12px 14px;
+      border: 2px solid #e5e7eb;
+      border-radius: 10px;
+      font-size: 14px;
+      background: white;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+
+    .setting-group select:focus {
+      outline: none;
+      border-color: #2563eb;
+    }
+
+    /* Slider modern */
+    .slider-container {
+      position: relative;
+    }
+
+    .slider-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 12px;
+    }
+
+    .slider-value {
+      background: #2563eb;
+      color: white;
+      padding: 4px 10px;
+      border-radius: 6px;
+      font-size: 13px;
+      font-weight: 600;
+    }
+
+    .setting-group input[type="range"] {
+      width: 100%;
+      height: 8px;
+      border-radius: 4px;
+      background: #e5e7eb;
+      outline: none;
+      -webkit-appearance: none;
+      appearance: none;
+    }
+
+    .setting-group input[type="range"]::-webkit-slider-thumb {
+      -webkit-appearance: none;
+      appearance: none;
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      background: #2563eb;
+      cursor: pointer;
+      box-shadow: 0 2px 6px rgba(37, 99, 235, 0.4);
+      transition: all 0.2s ease;
+    }
+
+    .setting-group input[type="range"]::-webkit-slider-thumb:hover {
+      transform: scale(1.15);
+      box-shadow: 0 3px 8px rgba(37, 99, 235, 0.6);
+    }
+
+    .setting-group input[type="range"]::-moz-range-thumb {
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      background: #2563eb;
+      cursor: pointer;
+      border: none;
+      box-shadow: 0 2px 6px rgba(37, 99, 235, 0.4);
+    }
+
+    /* Color picker enhanced */
+    .color-picker-wrapper {
+      position: relative;
+      width: 100%;
+      height: 50px;
+      border-radius: 10px;
+      overflow: hidden;
+      border: 2px solid #e5e7eb;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+
+    .color-picker-wrapper:hover {
+      border-color: #2563eb;
+    }
+
+    .color-picker-wrapper input[type="color"] {
+      width: 100%;
+      height: 100%;
+      border: none;
+      cursor: pointer;
+    }
+
+    /* Action buttons */
+    .action-buttons {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      margin-top: 20px;
+    }
+
+    .action-btn {
+      padding: 14px 20px;
+      border: none;
+      border-radius: 10px;
+      font-size: 15px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+    }
+
+    .action-btn.primary {
+      background: #2563eb;
+      color: white;
+    }
+
+    .action-btn.primary:hover {
+      background: #1d4ed8;
+      transform: translateY(-1px);
+      box-shadow: 0 4px 12px rgba(37, 99, 235, 0.3);
+    }
+
+    .action-btn.secondary {
+      background: #f3f4f6;
+      color: #374151;
+    }
+
+    .action-btn.secondary:hover {
+      background: #e5e7eb;
+    }
+
+    /* Responsive */
+    @media (max-width: 1200px) {
+      .watermark-workspace {
+        flex-direction: column;
+      }
+
+      .settings-panel {
+        width: 100%;
+        max-height: none;
+      }
+    }
+
+    /* Hide default elements */
+    .split-container > h2,
+    .split-container > p:first-of-type {
+      display: none;
+    }
+    /* ================================================= */
+/* ===== CSS CHO CUSTOM ALERT (Thêm vào cuối) ===== */
+/* ================================================= */
+/* ===== CUSTOM ALERT TINY HÌNH CHỮ NHẬT ===== */

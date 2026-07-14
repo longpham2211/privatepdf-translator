@@ -1,0 +1,323 @@
+/* ========== IMAGE TOOLS GENERAL STYLES ========== */
+body {
+  background-color: var(--bg-secondary, #f8f9fa);
+  color: var(--text-primary, #212529);
+}
+
+.image-container {
+  max-width: 1200px;
+  margin: 80px auto 40px;
+  padding: 40px 20px;
+  text-align: center;
+}
+
+.image-container h2 {
+  font-size: 32px;
+  margin-bottom: 16px;
+  color: var(--text-primary, #212529);
+}
+
+.image-container p {
+  font-size: 16px;
+  color: var(--text-secondary, #6c757d);
+  margin-bottom: 32px;
+}
+
+/* Upload Box */
+.upload-area {
+  background: var(--bg-primary, #ffffff);
+  border: 2px dashed var(--border-color, #dee2e6);
+  border-radius: 12px;
+  padding: 60px 40px;
+  margin: 32px auto;
+  max-width: 800px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.upload-area:hover {
+  border-color: var(--accent-primary, #007bff);
+  background: var(--bg-secondary, #f8f9fa);
+}
+
+.upload-area.drag-over {
+  border-color: var(--accent-primary, #007bff);
+  background: rgba(0, 123, 255, 0.05);
+}
+
+.upload-icon {
+  font-size: 64px;
+  margin-bottom: 20px;
+  color: var(--text-muted, #adb5bd);
+}
+
+.upload-text {
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--text-primary, #212529);
+  margin-bottom: 8px;
+}
+
+.upload-hint {
+  font-size: 14px;
+  color: var(--text-secondary, #6c757d);
+}
+
+/* Image Preview */
+.image-preview {
+  margin: 32px 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 16px;
+}
+
+.preview-item {
+  background: var(--bg-primary, #ffffff);
+  border: 1px solid var(--border-color, #dee2e6);
+  border-radius: 8px;
+  padding: 12px;
+  position: relative;
+}
+
+.preview-item img {
+  width: 100%;
+  height: 150px;
+  object-fit: cover;
+  border-radius: 4px;
+}
+
+.preview-info {
+  margin-top: 8px;
+  font-size: 12px;
+  color: var(--text-secondary, #6c757d);
+}
+
+/* Controls */
+.controls {
+  background: var(--bg-primary, #ffffff);
+  border: 1px solid var(--border-color, #dee2e6);
+  border-radius: 12px;
+  padding: 24px;
+  margin: 32px auto;
+  max-width: 800px;
+}
+
+.control-group {
+  margin-bottom: 20px;
+}
+
+.control-label {
+  display: block;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--text-primary, #212529);
+  margin-bottom: 8px;
+}
+
+.slider-container {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.slider {
+  flex: 1;
+  height: 6px;
+  border-radius: 3px;
+  background: linear-gradient(to right, #ff4444, #ffaa00, #44ff44);
+  outline: none;
+  -webkit-appearance: none;
+}
+
+.slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: var(--bg-primary, #ffffff);
+  border: 2px solid var(--accent-primary, #007bff);
+  cursor: pointer;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+}
+
+.slider::-moz-range-thumb {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: var(--bg-primary, #ffffff);
+  border: 2px solid var(--accent-primary, #007bff);
+  cursor: pointer;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+}
+
+.value-display {
+  min-width: 60px;
+  text-align: center;
+  font-weight: 600;
+  color: var(--accent-primary, #007bff);
+  background: var(--bg-secondary, #f8f9fa);
+  padding: 6px 12px;
+  border-radius: 6px;
+}
+
+.dimension-input {
+  flex: 1;
+  padding: 10px;
+  border: 1px solid var(--border-color, #dee2e6);
+  border-radius: 6px;
+  font-size: 14px;
+  text-align: center;
+  background: var(--bg-primary, #ffffff);
+  color: var(--text-primary, #212529);
+}
+
+.dimension-unit {
+  font-size: 14px;
+  color: var(--text-secondary, #6c757d);
+}
+
+/* Stats */
+.stats {
+  background: var(--bg-secondary, #f8f9fa);
+  border-radius: 12px;
+  padding: 24px;
+  margin: 32px auto;
+  max-width: 800px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 16px;
+}
+
+.stat-item {
+  text-align: center;
+}
+
+.stat-label {
+  font-size: 12px;
+  color: var(--text-secondary, #6c757d);
+  margin-bottom: 4px;
+}
+
+.stat-value {
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--accent-primary, #007bff);
+}
+
+/* Buttons */
+.btn-primary {
+  background: var(--accent-primary, #007bff);
+  color: white;
+  border: none;
+  padding: 12px 32px;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 123, 255, 0.3);
+}
+
+.btn-primary:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.btn-secondary {
+  background: transparent;
+  color: var(--accent-primary, #007bff);
+  border: 2px solid var(--accent-primary, #007bff);
+  padding: 12px 32px;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin-left: 12px;
+}
+
+.btn-secondary:hover {
+  background: var(--accent-primary, #007bff);
+  color: white;
+}
+
+/* ========== DARK MODE ========== */
+body.dark-mode {
+  background-color: #1a1a1a;
+}
+
+body.dark-mode .image-container {
+  color: #f8f9fa;
+}
+
+body.dark-mode .image-container h2 {
+  color: #f8f9fa;
+}
+
+body.dark-mode .image-container p {
+  color: #adb5bd;
+}
+
+body.dark-mode .upload-area {
+  background: #2d2d2d;
+  border-color: #495057;
+}
+
+body.dark-mode .upload-area:hover,
+body.dark-mode .upload-area.drag-over {
+  background: #3a3a3a;
+  border-color: #007bff;
+}
+
+body.dark-mode .upload-text {
+  color: #f8f9fa;
+}
+
+body.dark-mode .upload-hint {
+  color: #adb5bd;
+}
+
+body.dark-mode .preview-item {
+  background: #2d2d2d;
+  border-color: #495057;
+}
+
+body.dark-mode .preview-info {
+  color: #adb5bd;
+}
+
+body.dark-mode .controls {
+  background: #2d2d2d;
+  border-color: #495057;
+}
+
+body.dark-mode .control-label {
+  color: #f8f9fa;
+}
+
+body.dark-mode .dimension-input {
+  background: #3a3a3a;
+  border-color: #495057;
+  color: #f8f9fa;
+}
+
+body.dark-mode .value-display {
+  background: #3a3a3a;
+  color: #007bff;
+}
+
+body.dark-mode .stats {
+  background: #2d2d2d;
+}
+
+body.dark-mode .stat-label {
+  color: #adb5bd;
+}
+
+body.dark-mode .stat-value {
+  color: #007bff;
+}

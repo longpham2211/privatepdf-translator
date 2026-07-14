@@ -1,0 +1,40 @@
+<!-- Premium Limit Modal - Hiển thị khi premium user vượt giới hạn 500MB -->
+<div id="premiumLimitModal" class="premium-limit-overlay">
+  <div class="premium-limit-modal">
+    <div class="premium-limit-header">
+      <div class="premium-limit-icon">
+        <svg width="70" height="70" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <circle cx="12" cy="12" r="10" stroke="#FF9800" stroke-width="2" fill="none"/>
+          <line x1="12" y1="8" x2="12" y2="12" stroke="#FF9800" stroke-width="2.5" stroke-linecap="round"/>
+          <circle cx="12" cy="16" r="0.5" fill="#FF9800" stroke="#FF9800" stroke-width="1.5"/>
+        </svg>
+      </div>
+      <h2 data-i18n-key="premiumLimit.title">Vượt Giới hạn Premium</h2>
+      <p class="premium-limit-subtitle" data-i18n-key="premiumLimit.subtitle">File bạn tải lên đã vượt quá giới hạn 500MB dành cho tài khoản Premium.</p>
+    </div>
+    
+    <div class="premium-limit-content">
+      <div class="file-info-box">
+        <div class="file-info-item">
+          <span class="file-info-label" data-i18n-key="premiumLimit.fileNameLabel">Tên file:</span>
+          <span class="file-info-value" id="premiumLimitFileName">file.pdf</span>
+        </div>
+        <div class="file-info-item">
+          <span class="file-info-label" data-i18n-key="premiumLimit.fileSizeLabel">Kích thước:</span>
+          <span class="file-info-value" id="premiumLimitFileSize">500 MB</span>
+        </div>
+        <div class="file-info-item">
+          <span class="file-info-label" data-i18n-key="premiumLimit.limitLabel">Giới hạn Premium:</span>
+          <span class="file-info-value limit">500 MB</span>
+        </div>
+      </div>
+    </div>
+    
+    <div class="premium-limit-actions">
+      <button class="premium-limit-btn-primary" id="premiumLimitUnderstandBtn">
+        <span data-i18n-key="premiumLimit.understandBtn">Đã hiểu</span>
+      </button>
+    </div>
+    
+  </div>
+</div>

@@ -1,0 +1,37 @@
+/* ===== FILE: footer.css (Cho các trang công cụ) ===== */
+/* File này là BẢN SAO của footer trong giaodienhtml.css */
+
+.footer {
+  text-align: center;
+  font-size: 13px;
+  line-height: 1.6;
+  color: var(--text-secondary, #64748b);
+  background-color: var(--bg-primary, #ffffff);
+  width: 100%;
+  padding: 25px 15px;
+  margin-top: auto;
+  box-shadow: 0 -2px 5px rgba(15, 23, 42, 0.06);
+  flex-shrink: 0;
+  transition: background-color 0.3s ease, color 0.3s ease, box-shadow 0.3s ease;
+}
+/* --- 5. FOOTER BOTTOM (Dòng bản quyền) --- */
+.footer-bottom {
+  margin-top: 30px;
+  padding-top: 20px;
+  border-top: 1px solid rgba(0, 0, 0, 0.05);
+  text-align: center;
+  
+  /* ✨ CẬP NHẬT ĐỂ DỄ NHÌN HƠN ✨ */
+  font-size: 13px;  /* Tăng nhẹ kích thước */
+  font-weight: 600; /* In đậm hơn (Semi-bold) */
+  color: #475569;   /* Màu xám đậm (Slate-600) thay vì xám nhạt */
+}
+
+/* --- FIX CHO DARK MODE --- */
+/* Tìm đoạn body.dark-mode .footer-bottom ở cuối file và sửa thành: */
+body.dark-mode .footer-bottom {
+  border-top-color: rgba(255, 255, 255, 0.1);
+  
+  /* ✨ MÀU CHỮ SÁNG HƠN TRONG ĐÊM ✨ */
+  color: #e2e8f0; /* Màu trắng xám (Slate-200) cho nổi bật */
+}

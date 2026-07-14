@@ -1,0 +1,204 @@
+ /* ===== FILE: toolpdf.css - Clean List Style ===== */
+
+/* === 1. RESET & BASE === */
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  background-color: var(--bg-primary, #ffffff);
+  color: var(--text-primary, #0f172a);
+  padding-top: var(--nav-height-mobile, 96px);
+  width: 100%;
+  overflow-x: hidden;
+}
+
+main {
+  flex: 1;
+}
+
+/* === 2. MAIN WRAPPER === */
+.main-wrapper {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  width: 100%;
+  padding: 90px 16px 50px 16px;
+}
+
+/* === 3. CONTAINER === */
+.container {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 10px;
+  width: 100%;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+/* === 4. TOOL CARD - Horizontal List Style === */
+.tool-card {
+  text-decoration: none;
+  color: var(--text-primary, #334155);
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 17px 23px; /* Longer horizontal */
+  background: #ffffff;
+  border-radius: 10px;
+  border: 1px solid #e2e8f0;
+  cursor: pointer;
+  transition: border-color 0.15s ease, background-color 0.15s ease;
+}
+
+.tool-card:hover {
+  border-color: #3b82f6;
+  background: #f8fafc;
+}
+
+/* Icon - Clean & Simple */
+.tool-card img {
+  width: 42px;
+  height: 42px;
+  flex-shrink: 0;
+}
+
+/* Tool Name */
+.tool-card p {
+  margin: 0;
+  font-size: 15px;
+  font-weight: 500;
+  color: #1e293b;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* === 5. DARK MODE === */
+body.dark-mode {
+  background-color: #0f172a;
+}
+
+body.dark-mode .tool-card {
+  background: transparent !important;
+  border-color: rgba(148, 163, 184, 0.35) !important;
+  box-shadow: none !important;
+}
+
+body.dark-mode .tool-card:hover {
+  background: rgba(255, 255, 255, 0.05) !important; 
+  border-color: #60a5fa !important; 
+  box-shadow: none !important; 
+}
+
+body.dark-mode .tool-card p {
+  color: #f1f5f9;
+}
+
+/* =========================================
+   📱 TABLET (>= 600px)
+========================================= */
+@media (min-width: 600px) {
+  .main-wrapper {
+    padding: 100px 24px 50px 24px;
+  }
+
+  .container {
+    grid-template-columns: repeat(2, 1fr); /* 2 columns on tablet */
+    gap: 14px;
+  }
+
+  .tool-card {
+    padding: 17px 27px; /* Longer */
+  }
+
+  .tool-card img {
+    width: 44px;
+    height: 44px;
+  }
+
+  .tool-card p {
+    font-size: 15px;
+  }
+}
+
+/* =========================================
+   💻 DESKTOP (>= 900px)
+========================================= */
+@media (min-width: 900px) {
+  body {
+    padding-top: var(--nav-height-tablet, 90px);
+    padding-left: 100px; /* Space from sidebar */
+  }
+
+  .main-wrapper {
+    padding: 30px 40px 60px 40px;
+  }
+
+  .container {
+    grid-template-columns: repeat(4, 1fr); /* 4 columns max */
+    gap: 14px;
+    max-width: 1100px;
+  }
+
+  .tool-card {
+    padding: 17px 27px; /* Longer horizontal */
+    border-radius: 10px;
+  }
+
+  .tool-card img {
+    width: 44px;
+    height: 44px;
+  }
+
+  .tool-card p {
+    font-size: 15px;
+  }
+}
+
+/* =========================================
+   🖥️ LARGE DESKTOP (>= 1200px)
+========================================= */
+@media (min-width: 1200px) {
+  .container {
+    grid-template-columns: repeat(4, 1fr); /* 4 columns max */
+    max-width: 1200px;
+  }
+
+  .tool-card {
+    padding: 17px 31px; /* Even longer */
+  }
+
+  .tool-card img {
+    width: 46px;
+    height: 46px;
+  }
+
+  .tool-card p {
+    font-size: 15px;
+  }
+}
+
+/* === FOOTER === */
+.footer {
+  width: 100%;
+  text-align: center;
+  padding: 24px 20px;
+  margin-top: auto;
+  background-color: transparent;
+  flex-shrink: 0;
+  font-size: 13px;
+  color: #64748b;
+}
+
+body.dark-mode .footer {
+  color: #94a3b8;
+}

@@ -1,0 +1,45 @@
+/* Notification Dot Styling - Static (No Pulse) */
+.notification-dot {
+    position: absolute;
+    top: -2px;
+    right: -2px;
+    width: 10px;
+    height: 10px;
+    background-color: #ef4444; /* Tailwind red-500 */
+    border: 2px solid #ffffff;
+    border-radius: 50%;
+    z-index: 10;
+    display: none; /* Hidden by default */
+    pointer-events: none;
+    box-shadow: 0 1px 2px rgba(0,0,0,0.1);
+}
+
+.notification-dot.active {
+    display: inline-block !important; /* Force show */
+}
+
+/* Specific adjustments for inline dots (Menu, Sidebar) */
+/* Override absolute positioning for inline usage */
+.inline-dot {
+    position: relative !important; /* Reset absolute */
+    top: auto !important;
+    right: auto !important;
+    width: 8px !important;
+    height: 8px !important;
+    border: none !important;
+    margin-left: 8px !important;
+    background-color: #ff3e3e !important;
+    box-shadow: none !important;
+    flex-shrink: 0; /* Prevent shrinking in flex container */
+    vertical-align: middle;
+}
+
+/* Wrapper adjustments */
+.settings-icon-wrapper {
+    position: relative;
+}
+
+.settings-icon-wrapper .notification-dot {
+    top: 0;
+    right: 0;
+}

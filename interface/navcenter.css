@@ -1,0 +1,75 @@
+
+        /* Center Menu (Categories) */
+        .nav-center { 
+            display: flex; 
+            align-items: center; 
+            justify-content: space-evenly; /* Phân bố đều đều */
+            flex: 1; /* Chiếm toàn bộ không gian ở giữa */
+        }
+        .nav-link {
+            display: flex;
+            align-items: center;
+            gap: 32px;
+            text-decoration: none;
+            color: #64748b;
+            font-size: 0.95rem;
+            font-weight: 600;
+            padding: 32px 0; /* Full height hover area */
+            transition: all 0.2s;
+        }
+
+        .nav-link:hover { color: #007bff; }
+        /* Active state logic styling if needed */
+        .nav-link.active-category { color: #007bff; }
+
+
+        .tool-pill {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            text-decoration: none;
+            color: #475569;
+            font-size: 0.85rem;
+            font-weight: 500;
+            padding: 6px 14px;
+            border-radius: 8px;
+            transition: all 0.2s ease;
+            background: transparent;
+        }
+        .tool-pill:hover {
+            background: #ffffff;
+            color: #0f172a;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+        }
+        .tool-pill.active {
+            background: #e0f2fe;
+            color: #0284c7;
+            font-weight: 600;
+        }
+        .tool-icon-mini { width: 18px; height: 18px; }
+
+        /* Divider trong sub-nav */
+        .sub-divider { width: 1px; height: 24px; background: #cbd5e1; margin: 0 8px; }
+
+        /* Content Adjustment */
+        /* Nếu có sub-navbar thì padding-top = 70 + 54 = 124px. Nếu không thì 70px */
+        .main { padding-top: 80px; transition: padding 0.3s; }
+        /* Class helper khi có sub-nav */
+        body.has-sub-nav .main { padding-top: 135px; }
+
+        /* Dark Mode */
+        body.dark-mode .navbar { background: rgba(15, 23, 42, 0.9); border-bottom-color: #334155; }
+        body.dark-mode .sub-navbar { background: #0f172a; border-bottom-color: #1e293b; }
+        body.dark-mode .brand-name { color: #f1f5f9; }
+        body.dark-mode .nav-link { color: #94a3b8; }
+        body.dark-mode .nav-link:hover { color: #60a5fa; }
+        body.dark-mode .tool-pill { color: #94a3b8; }
+        body.dark-mode .tool-pill:hover { background: #1e293b; color: #f1f5f9; }
+        body.dark-mode .language-btn { color: #94a3b8; }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav-center { display: none; } /* Ẩn menu giữa trên mobile */
+            .sub-navbar { overflow-x: auto; justify-content: flex-start; } /* Cho phép cuộn ngang */
+        }
+   

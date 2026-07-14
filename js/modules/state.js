@@ -1,0 +1,1 @@
+window.isLoggedIn = !1, window.isPremiumUser = !1, console.log("Global State Initialized: LoggedIn=" + window.isLoggedIn + ", Premium=" + window.isPremiumUser);

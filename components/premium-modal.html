@@ -1,0 +1,107 @@
+<!-- Premium Modal Component -->
+<div class="premium-modal-overlay" id="premiumModalOverlay">
+  <div class="premium-modal">
+    <button class="premium-modal-close" id="premiumModalClose">&times;</button>
+    
+    <div class="premium-modal-header">
+      <div class="premium-icon">
+        <img src="../assets/logo/premium-con.svg" alt="Premium Icon" style="width: 100%; height: 100%; object-fit: contain;">
+      </div>
+      <h2>Nâng cấp lên Premium</h2>
+      <p class="premium-subtitle">Nâng cấp để trải nghiệm thêm nhiều tính năng mới.</p>
+    </div>
+
+    <div class="premium-features">
+      <div class="feature-item">
+        <svg class="feature-icon" width="24" height="24" viewBox="0 0 24 24" fill="none">
+          <path d="M20 6L9 17L4 12" stroke="#28a745" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        <div class="feature-text">
+          <strong>Cho phép tải lên file nặng lên tới 500MB.</strong>
+        </div>
+      </div>
+
+      <div class="feature-item">
+        <svg class="feature-icon" width="24" height="24" viewBox="0 0 24 24" fill="none">
+          <path d="M20 6L9 17L4 12" stroke="#28a745" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        <div class="feature-text">
+          <strong>Xử lý file hàng loạt và với tốc độ nhanh hơn</strong>
+        </div>
+      </div>
+
+      <div class="feature-item">
+        <svg class="feature-icon" width="24" height="24" viewBox="0 0 24 24" fill="none">
+          <path d="M20 6L9 17L4 12" stroke="#28a745" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        <div class="feature-text">
+          <strong>Nén mạnh</strong>
+        </div>
+      </div>
+
+      <div class="feature-item">
+        <svg class="feature-icon" width="24" height="24" viewBox="0 0 24 24" fill="none">
+          <path d="M20 6L9 17L4 12" stroke="#28a745" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        <div class="feature-text">
+            <strong>Xử lý tài liệu hàng loạt.</strong>
+        </div>
+      </div>
+
+      <div class="feature-item">
+        <svg class="feature-icon" width="24" height="24" viewBox="0 0 24 24" fill="none">
+          <path d="M20 6L9 17L4 12" stroke="#28a745" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        <div class="feature-text">
+          <strong>Kèm chế độ ban đêm (Dark mode).</strong>
+        </div>
+      </div>
+
+      <div class="feature-item">
+        <svg class="feature-icon" width="24" height="24" viewBox="0 0 24 24" fill="none">
+          <path d="M20 6L9 17L4 12" stroke="#28a745" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        <div class="feature-text">
+          <strong>Và nhiều hơn nữa,...</strong>
+        </div>
+      </div>
+    </div>
+
+    <div class="premium-pricing">
+      <div class="pricing-card" data-plan="monthly">
+        <div class="pricing-badge">Phổ biến</div>
+        <h3>Gói Tháng</h3>
+        <div class="pricing-price">
+          <span class="currency">₫</span>
+          <span class="amount">45.000</span>
+          <span class="period">/tháng</span>
+        </div>
+        <ul class="pricing-features">
+          <li>✓ Tất cả tính năng Premium</li>
+          <li>✓ Thanh toán 1 lần duy nhất. không trừ tiền mỗi tháng</li>
+        </ul>
+        <button class="premium-btn" onclick="selectPlan('monthly', 45000)">
+          Chọn gói này
+        </button>
+      </div>
+
+      <div class="pricing-card featured" data-plan="yearly">
+        <div class="pricing-badge best">Giá tốt nhất</div>
+        <h3>Gói 4 Tháng</h3>
+        <div class="pricing-price">
+          <span class="currency">₫</span>
+          <span class="amount">129.000</span>
+          <span class="period">/4 tháng</span>
+        </div>
+        <div class="pricing-save">Chỉ bằng 2.8 tháng - Tiết kiệm hơn 30%</div>
+        <ul class="pricing-features">
+          <li>✓ Tất cả tính năng Premium</li>
+          <li>✓ Thanh toán 1 lần duy nhất. không trừ tiền mỗi 4 tháng</li>
+        </ul>
+        <button class="premium-btn featured" onclick="selectPlan('yearly', 129000)">
+          Chọn gói này
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,231 @@
+/* Modal Overlay (Giữ nguyên) */
+.special-offer-overlay {
+    position: fixed;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background: rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(4px);
+    z-index: 99999;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.special-offer-overlay.active {
+    opacity: 1;
+}
+
+/* Modal Content - LÀM DẸP RA VÀ SANG HƠN */
+.special-offer-modal {
+    background: #fff;
+    width: 90%;
+    max-width: 580px; /* Tăng từ 360px lên 580px để form bè ra */
+    border-radius: 20px; /* Bo tròn mềm mại hơn */
+    border: none; /* Bỏ viền cứng để bớt thô */
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15); /* Đổ bóng sâu và mịn hơn */
+    animation: zoomInOffer 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+@keyframes zoomInOffer {
+    from { transform: scale(0.8) translateY(20px); opacity: 0; }
+    to { transform: scale(1) translateY(0); opacity: 1; }
+}
+
+/* Background Header Image/Gradient */
+.offer-header-bg {
+    height: 140px; /* Tăng nhẹ chiều cao để cân đối với chiều rộng mới */
+    background: url('/assets/banners/banner_vietnam.png') center/cover no-repeat;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.offer-header-bg::after {
+    content: '';
+    position: absolute;
+    bottom: -1px;
+    left: 0;
+    width: 100%;
+    height: 30px; /* Giảm độ cao của đường cong */
+    background: #fff;
+    clip-path: ellipse(70% 100% at 50% 100%); /* Đường cong thoai thoải, thanh lịch hơn */
+}
+
+.offer-header-icon {
+    width: 0; height: 0; background: none; border-radius: 0; display: flex; align-items: center; justify-content: center; color: transparent; box-shadow: none; backdrop-filter: none; overflow: hidden;
+}
+
+/* Close Button (Giữ nguyên) */
+.offer-close-btn {
+    position: absolute;
+    top: 12px; right: 12px;
+    width: 32px; height: 32px;
+    background: transparent;
+    border: none;
+    border-radius: 50%;
+    color: #6c757d;
+    font-size: 20px;
+    cursor: pointer;
+    display: flex; align-items: center; justify-content: center;
+    transition: background 0.2s;
+    z-index: 10;
+}
+.offer-close-btn:hover {
+    background: #f8f9fa;
+    color: #212529;
+}
+
+/* Content Body */
+.offer-content {
+    padding: 20px 32px 32px; /* Mở rộng không gian 2 bên */
+    text-align: center;
+    position: relative;
+    z-index: 5;
+    margin-top: 0;
+}
+
+.offer-badge {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: fit-content;
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    color: #fff;
+    padding: 6px 16px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin: 0 auto 12px;
+    border: none;
+}
+
+.offer-plan-name {
+    font-size: 28px;
+    font-weight: 700;
+    color: #212529;
+    margin: 0 0 8px; /* Giảm margin một chút */
+    text-align: center;
+}
+
+/* Price Box */
+/* Price Box - Giảm khoảng cách để nhường chỗ cho khối Features */
+.offer-price-box {
+    margin-bottom: 20px;
+    position: relative;
+    display: block;
+    text-align: center;
+}
+
+.offer-price-amount {
+    font-size: 44px;
+    font-weight: 700;
+    color: #212529;
+    line-height: 1;
+}
+
+.offer-price-currency {
+    font-size: 20px;
+    vertical-align: top;
+    font-weight: 700;
+    color: #6c757d;
+    position: relative;
+    top: 4px;
+}
+
+.offer-price-period {
+    display: inline-block;
+    font-size: 16px;
+    color: #6b7280;
+    font-weight: 500;
+    margin-left: 4px;
+}
+
+/* Features List - ĐÓNG KHUNG TẠO BỐ CỤC KHỐI */
+.offer-features {
+    list-style: none;
+    padding: 20px; /* Thêm đệm để tạo thành một khối hộp */
+    margin: 0 0 24px 0;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px 24px; /* Tăng khoảng cách các dòng một chút cho thoáng */
+    text-align: left;
+    background: #f8f9fa; /* Màu nền xám cực nhạt để tách biệt với phần Giá */
+    border-radius: 12px; /* Bo góc cái khối này lại */
+    border: 1px solid #e9ecef; /* Viền mờ định hình khối */
+}
+
+.offer-feature-item {
+    display: flex;
+    align-items: flex-start; /* Ép icon và text luôn canh theo mép trên */
+    justify-content: flex-start;
+    font-size: 13px; /* Thu nhỏ text một tẹo để vừa vặn hơn trong lưới */
+    color: #495057;
+    background: transparent;
+    padding: 0;
+    border-radius: 0;
+    border-bottom: none;
+    width: 100%;
+    box-sizing: border-box;
+    line-height: 1.5;
+}
+
+.offer-check-icon {
+    color: #1a73e8;
+    font-weight: 700;
+    margin-right: 8px;
+    font-size: 16px;
+    min-width: 18px;
+    line-height: 1.5; /* Cho line-height bằng với text để nó canh giữa dòng đầu tiên */
+    margin-top: 1px; /* Đẩy nhẹ xuống để thẳng hàng với font chữ */
+}
+
+/* CTA Button */
+.offer-btn {
+    width: 100%;
+    max-width: 320px;
+    margin: 0 auto;
+    display: block;
+    padding: 14px;
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    color: #fff;
+    border: none;
+    border-radius: 12px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    box-shadow: 0 4px 15px rgba(102, 126, 234, 0.2);
+    transition: transform 0.2s, box-shadow 0.2s;
+    position: relative;
+    overflow: hidden;
+}
+
+.offer-btn::before {
+    content: '';
+    position: absolute;
+    top: 0; left: -100%;
+    width: 100%; height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+    animation: shineBtn 2.5s infinite;
+}
+
+@keyframes shineBtn {
+    0% { left: -100%; }
+    100% { left: 100%; }
+}
+
+.offer-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(102, 126, 234, 0.4);
+}
+
+/* DARK MODE SUPPORT CHO KHỐI MỚI */
+body.dark-mode .offer-features {
+    background: #374151; /* Màu khối nổi lên trên nền form */
+    border-color: #4b5563;
+}

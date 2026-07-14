@@ -1,0 +1,1856 @@
+<!DOCTYPE html>
+
+<html lang="th">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<meta content="no-referrer" name="referrer"/>
+<!-- Favicon -->
+<script src="https://unpkg.com/@pdf-lib/fontkit/dist/fontkit.umd.min.js"></script>
+<link href="/assets/logo/dautrangweb.png" rel="icon" sizes="192x192" type="image/png"/>
+<link href="/assets/logo/dautrangweb.png" rel="apple-touch-icon"/>
+<script>
+        // Critical Script: Anti-FOUC (Dark Mode) & Language Fix
+        // Executed immediately before page rendering
+        (function () {
+            // 1. Handle Dark Mode Immediately
+            const isDark = localStorage.getItem('darkMode') === 'enabled';
+            if (isDark) {
+                document.documentElement.classList.add('dark-mode');
+                // Force paint background dark immediately to stop white flash
+                document.documentElement.style.backgroundColor = '#0f172a';
+                document.documentElement.style.color = '#e2e8f0';
+            }
+
+            // 2. Handle Language Immediately
+            const savedLang = localStorage.getItem('selectedLanguage');
+            if (savedLang === 'en' || savedLang === 'vi') {
+                document.documentElement.lang = savedLang;
+            } else {
+                const browserLang = navigator.language || navigator.userLanguage;
+                document.documentElement.lang = browserLang.startsWith('vi') ? 'vi' : 'en';
+            }
+        })();
+    </script>
+<title>แปล PDF - แปลไฟล์ PDF ของคุณฟรี รวดเร็วและง่ายดาย</title>
+<link href="/interface/dungchung.css" rel="stylesheet">
+<link href="/interface/giaodienhtml.css" rel="stylesheet">
+<link href="/interface/footer.css" rel="stylesheet"/>
+<link href="/interface/navbar.css" rel="stylesheet"/>
+<link href="/interface/themes.css" rel="stylesheet"/>
+<link href="/interface/animations.css" rel="stylesheet"/>
+<link href="/interface/language-switcher.css" rel="stylesheet"/>
+<link href="/interface/notifications.css" rel="stylesheet"/>
+<link href="/interface/settings-dropdown.css" rel="stylesheet"/>
+<link href="/interface/auth-modal.css" rel="stylesheet"/>
+<link href="/interface/premium-modal.css" rel="stylesheet"/>
+<link href="/interface/payment-modal-paypal-stripe.css" rel="stylesheet"/>
+<link href="/interface/premium-limit-modal.css" rel="stylesheet"/>
+<link href="/interface/roller-blind-modal.css" rel="stylesheet"/>
+<link href="/interface/upgrade-prompt-modal.css" rel="stylesheet"/>
+<link href="/interface/doublenavpdf.css" rel="stylesheet"/>
+<link href="/interface/navcenter.css" rel="stylesheet"/>
+<style>
+        /* Local font faces to align DOM & PDF fonts for non-Latin scripts */
+        @font-face {
+            font-family: 'Noto Sans KR';
+            src: url('/pdftools/translate-pdf/NotoSansKR-Regular.ttf') format('truetype');
+            font-weight: 400;
+            font-style: normal;
+            font-display: swap;
+        }
+
+        @font-face {
+            font-family: 'Noto Sans JP';
+            src: url('/pdftools/translate-pdf/NotoSansJP-Regular.ttf') format('truetype');
+            font-weight: 400;
+            font-style: normal;
+            font-display: swap;
+        }
+
+        @font-face {
+            font-family: 'Noto Sans SC';
+            src: url('/pdftools/translate-pdf/NotoSansSC-Regular.ttf') format('truetype');
+            font-weight: 400;
+            font-style: normal;
+            font-display: swap;
+        }
+
+        @font-face {
+            font-family: 'Noto Sans TC';
+            src: url('/pdftools/translate-pdf/NotoSansTC-Regular.ttf') format('truetype');
+            font-weight: 400;
+            font-style: normal;
+            font-display: swap;
+        }
+
+        @font-face {
+            font-family: 'Noto Sans Thai';
+            src: url('/pdftools/translate-pdf/NotoSansThai-Regular.ttf') format('truetype');
+            font-weight: 400;
+            font-style: normal;
+            font-display: swap;
+        }
+
+        @font-face {
+            font-family: 'Noto Sans Devanagari';
+            src: url('/pdftools/translate-pdf/NotoSansDevanagari-Regular.ttf') format('truetype');
+            font-weight: 400;
+            font-style: normal;
+            font-display: swap;
+        }
+
+        @font-face {
+            font-family: 'Noto Sans Arabic';
+            src: url('/pdftools/translate-pdf/NotoSansArabic-Regular.ttf') format('truetype');
+            font-weight: 400;
+            font-style: normal;
+            font-display: swap;
+        }
+
+        @font-face {
+            font-family: 'Roboto';
+            src: url('/pdftools/translate-pdf/Roboto-Regular.ttf') format('truetype');
+            font-weight: 400;
+            font-style: normal;
+            font-display: swap;
+        }
+    </style>
+<style>
+        /* Specific Styles for Dual View Layout */
+        body {
+            /* Prevent double scrollbars, we handle scrolling inside panels */
+            overflow: hidden;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            padding-top: 0 !important;
+        }
+
+        /* Spinner Animation */
+        @keyframes spin {
+            from {
+                transform: rotate(0deg);
+            }
+
+            to {
+                transform: rotate(360deg);
+            }
+        }
+
+        /* Override footer to not be fixed or huge if we want full screen app feel */
+        .footer {
+            display: none;
+            /* Hide standard footer for this full-screen tool */
+        }
+
+        /* Adjust main content area to sit below navbars */
+        .dual-view-container {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            height: 100vh;
+            position: relative;
+            box-sizing: border-box;
+
+            /* Mobile: Top Bar (80px) + Sub Nav (54px) = 134px */
+            padding-top: 134px;
+        }
+
+        /* DESKTOP (>= 900px) */
+        @media (min-width: 900px) {
+            .dual-view-container {
+                /* Desktop: Top Bar (90px) */
+                padding-top: 90px;
+                padding-left: 0;
+                transition: padding-left 0.3s ease;
+            }
+
+            body.has-sub-navbar .dual-view-container {
+                /* Sidebar (86px) on Left */
+                padding-left: 86px;
+            }
+        }
+
+        /* nơi chỉnh khoảng cách giữa navbar và dual view darkmode */
+        body.dark-mode .dual-view-container {
+            padding-top: 134px; /* same as light mode mobile */
+        }
+
+        @media (min-width: 900px) {
+            body.dark-mode .dual-view-container {
+                padding-top: 90px; /* same as light mode desktop */
+                padding-left: 0;
+            }
+
+            body.dark-mode.has-sub-navbar .dual-view-container {
+                padding-left: 86px;
+            }
+        }
+
+        .toolbar {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            padding: 0.75rem 2rem;
+            background: var(--surface-color);
+            border-bottom: 1px solid var(--border-color);
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+            z-index: 10;
+            flex-shrink: 0;
+            flex-wrap: wrap;
+            /* responsive */
+            max-height: 420px;
+            overflow: visible;
+            transition: max-height 0.22s ease, padding 0.2s ease, border-color 0.2s ease;
+        }
+
+        .toolbar-toggle-wrap {
+            display: flex;
+            justify-content: flex-end;
+            padding: 6px 10px;
+            background: var(--surface-color);
+            border-bottom: 1px solid var(--border-color);
+            z-index: 15;
+            flex-shrink: 0;
+        }
+
+        .toolbar-toggle-btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 38px;
+            height: 34px;
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            background: var(--background-color);
+            color: #1a1a1a;
+            cursor: pointer;
+            padding: 0;
+        }
+
+        .toolbar-toggle-icon {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 22px;
+            height: 22px;
+            line-height: 0;
+            transition: transform 0.2s ease;
+        }
+
+        .toolbar-toggle-icon svg {
+            width: 22px;
+            height: 22px;
+            stroke: currentColor;
+            fill: none;
+            stroke-width: 2.8;
+            stroke-linecap: round;
+            stroke-linejoin: round;
+        }
+
+        body.toolbar-collapsed .toolbar {
+            max-height: 0;
+            overflow: hidden;
+            padding-top: 0;
+            padding-bottom: 0;
+            border-bottom-color: transparent;
+        }
+
+        body.toolbar-collapsed .toolbar>* {
+            opacity: 0;
+            pointer-events: none;
+        }
+
+        body.toolbar-collapsed .toolbar-toggle-icon {
+            transform: rotate(-90deg);
+        }
+
+        .split-view {
+            display: flex;
+            flex: 1;
+            overflow: hidden;
+            position: relative;
+            background-color: var(--background-app);
+            /* Theme aware */
+        }
+
+        .panel {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+            position: relative;
+            transition: width 0.3s ease;
+            border-right: 1px solid var(--border-color);
+        }
+
+        .panel:last-child {
+            border-right: none;
+        }
+
+        .panel-header {
+            padding: 0.5rem 1rem;
+            background: var(--surface-color);
+            /* Theme aware */
+            color: #1a1a1a;
+            font-weight: 600;
+            font-size: 0.9rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .panel-content {
+            flex: 1;
+            overflow-y: auto;
+            padding: 1rem;
+            padding-bottom: 80px;
+            /* Thêm padding dưới cùng để không bị che khuất */
+            background: var(--background-color);
+            text-align: center;
+            /* Căn giữa các phần tử inline-block/block children */
+        }
+
+        /* Căn giữa canvas PDF */
+        .panel-content canvas {
+            margin: 0 auto 15px auto;
+            /* Căn giữa horizontal */
+            display: block;
+        }
+
+        /* Right panel (translation) should be lighter to read text */
+        #rightPanel .panel-content {
+            background: var(--background-color);
+            overflow-x: hidden;
+        }
+
+        .divider {
+            width: 4px;
+            background: var(--border-color);
+            cursor: col-resize;
+            transition: background 0.2s;
+            z-index: 20;
+        }
+
+        .divider:hover {
+            background: var(--primary-color);
+        }
+
+        /* PDF Page Styling */
+        .pdf-page-container {
+            margin-bottom: 20px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            background: white;
+            display: flex;
+            justify-content: center;
+        }
+
+        .pdf-page-container canvas {
+            max-width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        /* Translation Content Styling */
+        .translation-page {
+            background: var(--surface-color);
+            padding: 2rem;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+            /* Soft shadow */
+            min-height: 800px;
+            color: var(--text-color);
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            white-space: pre-wrap;
+            border-radius: 4px;
+        }
+
+        .loading-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(255, 255, 255, 0.9);
+            z-index: 1000;
+            /* High z-index */
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            backdrop-filter: blur(5px);
+        }
+
+        body.dark-mode .loading-overlay {
+            background: rgba(15, 23, 42, 0.9);
+        }
+
+        .progress-bar-container {
+            width: 300px;
+            height: 8px;
+            background: #e2e8f0;
+            border-radius: 4px;
+            overflow: hidden;
+            margin-top: 1rem;
+        }
+
+        .progress-bar {
+            height: 100%;
+            width: 0%;
+            background: var(--primary-color);
+            transition: width 0.3s ease;
+        }
+
+        .process-inline {
+            display: none;
+            align-items: center;
+            justify-content: flex-end;
+            gap: 0;
+            padding: 0;
+            color: #1a1a1a;
+            flex-wrap: nowrap;
+            width: auto;
+        }
+
+        .status-text {
+            min-width: 0;
+            font-weight: 700;
+            font-size: 13px;
+            color: #2563eb;
+            text-align: right;
+            white-space: nowrap;
+        }
+
+        body.dark-mode .status-text {
+            color: #93c5fd;
+        }
+
+        /* Progress bar hidden (status text only) */
+        .process-inline .progress-bar-container {
+            display: none;
+        }
+
+        /* Controls Styling */
+        .lang-select {
+            /* Hide original select but keep it accessible for form submission/logic */
+            display: none;
+        }
+
+        /* CUSTOM SELECT CONTAINER */
+        .custom-select {
+            position: relative;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            width: 100%;
+            min-width: 200px;
+            isolation: isolate;
+        }
+
+        .select-selected {
+            background-color: var(--surface-color);
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            padding: 10px 16px;
+            /* Tăng padding nhìn cho thoáng */
+            cursor: pointer;
+            user-select: none;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-weight: 500;
+            transition: all 0.2s;
+            color: #1a1a1a;
+            opacity: 1;
+        }
+
+        /* Mũi tên */
+        .select-selected:after {
+            content: "";
+            width: 8px;
+            height: 8px;
+            border: 2px solid #1a1a1a;
+            border-top: none;
+            border-right: none;
+            transform: rotate(-45deg);
+            margin-left: 10px;
+            margin-top: -4px;
+            transition: transform 0.2s;
+            opacity: 0.6;
+        }
+
+        /* Khi mở dropdown: Xoay mũi tên & đổi màu viền */
+        .select-selected.select-arrow-active:after {
+            transform: rotate(135deg);
+            margin-top: 2px;
+        }
+
+        .select-selected.select-arrow-active {
+            border-color: var(--primary-color);
+            box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+        }
+
+        /* DROPDOWN LIST */
+        .select-items {
+            position: absolute;
+            background-color: #f8fafc !important;
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            /* Bo góc mềm mại hơn */
+            top: 110%;
+            left: 0;
+            right: 0;
+            z-index: 99;
+            max-height: 350px;
+            /* Cao hơn chút để nhìn sướng mắt */
+            overflow-y: auto;
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.01);
+            backdrop-filter: none;
+            -webkit-backdrop-filter: none;
+            background-image: none !important;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(-10px);
+            transition: all 0.2s cubic-bezier(0.165, 0.84, 0.44, 1);
+        }
+
+        @media (max-width: 768px) {
+            .select-items {
+                max-height: min(62vh, 520px) !important;
+            }
+        }
+
+        .select-search {
+            padding: 10px 12px 6px 12px;
+            position: sticky;
+            top: 0;
+            background: inherit;
+            z-index: 2;
+        }
+
+        .select-search input {
+            width: 100%;
+            padding: 8px 10px;
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            font-size: 0.95rem;
+            color: var(--text-color);
+            background: #fff;
+        }
+
+        body.dark-mode .select-search input {
+            background: #111827;
+            border-color: #334155;
+            color: #e5e7eb;
+        }
+
+        body.dark-mode .select-selected {
+            background-color: #111827;
+            border-color: #334155;
+        }
+
+        body.dark-mode .select-items {
+            background-color: #0f172a !important;
+            border-color: #334155;
+            background-image: none !important;
+        }
+
+        body.dark-mode .dual-view-container,
+        body.dark-mode .toolbar,
+        body.dark-mode .split-view,
+        body.dark-mode .panel,
+        body.dark-mode .panel-header,
+        body.dark-mode .panel-content {
+            background-image: none !important;
+        }
+
+        body.dark-mode .dual-view-container,
+        body.dark-mode .split-view {
+            background-color: #0f172a !important;
+        }
+
+        body.dark-mode .toolbar,
+        body.dark-mode .panel-header {
+            background-color: #111827 !important;
+            color: #e2e8f0 !important;
+        }
+
+        body.dark-mode .toolbar-toggle-wrap {
+            background-color: #111827 !important;
+            border-bottom-color: #334155;
+        }
+
+        body.dark-mode .toolbar-toggle-btn {
+            color: #e2e8f0;
+            background-color: #1e293b;
+            border-color: #334155;
+        }
+
+        /* Dark mode: tất cả chữ trong toolbar phải sáng */
+        body.dark-mode .mini-btn,
+        body.dark-mode .zoom-level,
+        body.dark-mode .page-jump-input,
+        body.dark-mode .select-selected,
+        body.dark-mode .process-inline {
+            color: #e2e8f0 !important;
+        }
+
+        body.dark-mode .page-jump-input::placeholder {
+            color: #64748b !important;
+        }
+
+        body.dark-mode .select-selected:after {
+            border-color: #e2e8f0 !important;
+        }
+
+        body.dark-mode .mobile-tab-btn {
+            color: #e2e8f0;
+        }
+
+        body.dark-mode .mobile-tab-btn.active {
+            color: #e2e8f0;
+            background: #1e3a5f;
+            border-color: #3b82f6;
+        }
+
+        body.dark-mode #pageCountLeft {
+            color: #e2e8f0 !important;
+        }
+
+        body.dark-mode .panel-content {
+            background-color: #0f172a !important;
+        }
+
+        .toolbar-control-group {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .mini-btn {
+            background: var(--surface-color);
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            color: #1a1a1a;
+            padding: 0.45rem 0.7rem;
+            font-size: 0.95rem;
+            cursor: pointer;
+            min-width: 38px;
+        }
+
+        .mini-btn:active {
+            opacity: 0.9;
+        }
+
+        .zoom-level {
+            min-width: 58px;
+            text-align: center;
+            font-weight: 600;
+            color: #1a1a1a;
+            font-size: 0.9rem;
+        }
+
+        .page-jump-input {
+            width: 90px;
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            background: var(--background-color);
+            color: #1a1a1a;
+            padding: 0.45rem 0.6rem;
+            font-size: 0.9rem;
+        }
+
+        .page-jump-input::placeholder {
+            color: #9ca3af;
+        }
+
+        .select-items.select-show {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+
+        /* OPTION ITEM */
+        .select-items div {
+            background-color: #f8fafc !important;
+            padding: 10px 16px;
+            cursor: pointer;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.03);
+            transition: background 0.1s;
+        }
+
+        body.dark-mode .select-items div {
+            background-color: #0f172a !important;
+        }
+
+        .select-items div:last-child {
+            border-bottom: none;
+        }
+
+        /* Hover effect nhẹ nhàng (user bảo đừng hover?? ý là đừng mở bằng hover, nhưng highlight thì cần)
+       Nếu user cực đoan "đừng có hover", ta sẽ bỏ background change?
+       Nhưng UX cần feedback. Mình để rất nhẹ hoặc bỏ hẳn nếu cần.
+       User: "đừng có hover là được nha". -> Maybe means "don't open on hover".
+       I will add subtle highlight.*/
+        .select-items div:hover {
+            background-color: rgba(0, 0, 0, 0.03);
+        }
+
+        .same-as-selected {
+            background-color: rgba(37, 99, 235, 0.1) !important;
+            color: var(--primary-color);
+            font-weight: bold;
+        }
+
+        /* Headers (Optgroup labels) */
+        .select-group-label {
+            background-color: #f8fafc;
+            color: #64748b;
+            font-size: 0.85rem;
+            font-weight: bold;
+            padding: 6px 12px;
+            pointer-events: none;
+            /* Không click đc */
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        body.dark-mode .select-group-label {
+            background-color: #1e293b;
+            color: #94a3b8;
+        }
+
+        /* Scrollbar đẹp */
+        .select-items::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        .select-items::-webkit-scrollbar-track {
+            background: transparent;
+        }
+
+        .select-items::-webkit-scrollbar-thumb {
+            background-color: rgba(0, 0, 0, 0.1);
+            border-radius: 4px;
+        }
+
+        /* Blue Glow detection for custom Select */
+        .custom-select.detect-blue .select-selected {
+            animation: glow-blue 1.5s ease-out infinite;
+            border: 2px solid #3b82f6 !important;
+            color: #1d4ed8 !important;
+        }
+
+        /* Target change effect */
+        .custom-select.target-change .select-selected {
+            animation: target-blink 1s ease-out;
+        }
+
+        /* PDF.js textLayer for copyable text on original pages */
+        .textLayer {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            color: transparent;
+            user-select: text;
+            pointer-events: auto;
+            mix-blend-mode: multiply;
+        }
+
+        .textLayer span {
+            position: absolute;
+            white-space: pre;
+            transform-origin: 0 0;
+        }
+
+        .textLayer ::selection {
+            background: rgba(37, 99, 235, 0.25);
+            color: transparent;
+        }
+
+        /* Keep translated overlay text readable in all themes */
+        #translationContainer .text-layer {
+            isolation: isolate;
+        }
+
+        #translationContainer .text-layer .bbox-translated {
+            mix-blend-mode: normal !important;
+            opacity: 1 !important;
+        }
+
+        #translationContainer .text-layer .bbox-translated.white-text {
+            text-shadow: 0 0 4px #000, 0 0 4px #000;
+            font-weight: 600;
+        }
+
+        .action-btn {
+            background: #2563eb;
+            /* Blue */
+            color: white;
+            border: none;
+            padding: 0.62rem 1.35rem;
+            border-radius: 6px;
+            font-weight: 700;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            box-shadow: none;
+            transform: none;
+        }
+
+        .action-btn:active {
+            opacity: 0.9;
+        }
+
+        .btn-gray {
+            background: #9ca3af !important;
+            /* Gray */
+            color: white !important;
+        }
+
+        .btn-blue {
+            background: #2563eb !important;
+            /* Blue */
+            color: white !important;
+        }
+
+        /* Fix for button inside link issues from original copy */
+        .menu-item:hover {
+            background-color: #f1f5f9;
+        }
+
+        .logout-btn:hover {
+            background: none !important;
+            background-color: transparent !important;
+            box-shadow: none !important;
+            opacity: 0.8;
+            text-decoration: underline;
+        }
+
+        .premium-nav-btn:hover {
+            opacity: 0.9;
+            transform: none !important;
+        }
+
+        /* Title Styling in Header */
+        .tool-title {
+            font-weight: bold;
+            color: var(--primary-color);
+            margin-right: 1rem;
+        }
+
+        /* --- MOBILE RESPONSIVE --- */
+        .mobile-tabs {
+            display: none;
+            /* Desktop hidden */
+            background: var(--surface-color);
+            border-bottom: 1px solid var(--border-color);
+            padding: 0.5rem;
+            gap: 10px;
+        }
+
+        .mobile-tab-btn {
+            flex: 1;
+            padding: 10px;
+            border: 1px solid var(--border-color);
+            background: var(--background-color);
+            color: #1a1a1a;
+            border-radius: 6px;
+            font-weight: 600;
+            cursor: pointer;
+        }
+
+        .mobile-tab-btn.active {
+            background: #e8f0fe;
+            color: #1a1a1a;
+            border-color: #2563eb;
+            border-width: 2px;
+        }
+
+        @media (max-width: 768px) {
+            .toolbar-toggle-wrap {
+                padding: 6px 8px;
+            }
+
+            .toolbar {
+                flex-wrap: wrap;
+                gap: 10px;
+                height: auto !important;
+                padding: 10px;
+                justify-content: center;
+            }
+
+            .tool-title {
+                width: 100%;
+                text-align: center;
+                margin-right: 0;
+                margin-bottom: 5px;
+                display: none;
+                /* Ẩn title cho gọn */
+            }
+
+            .lang-group {
+                flex: 1;
+                min-width: 100%;
+                /* Full width select */
+            }
+
+            .custom-select {
+                width: 100%;
+                min-width: unset;
+            }
+
+            /* Ẩn mũi tên chuyển đổi ở giữa vì đã xếp dọc */
+            .toolbar>div[style*="font-size: 1.2rem"] {
+                display: none;
+            }
+
+            .toolbar-control-group {
+                flex: 1;
+                justify-content: center;
+            }
+
+            /* Ẩn bớt zoom text */
+            #zoomLevelText {
+                display: none;
+            }
+
+            #translateBtn,
+            #downloadBtn {
+                flex: 1;
+                padding: 10px;
+                justify-content: center;
+            }
+
+            /* CHUYỂN SPLIT VIEW THÀNH TAB VIEW */
+            .split-view {
+                display: block !important;
+                /* Stacked */
+                position: relative;
+            }
+
+            .divider {
+                display: none;
+            }
+
+            .panel {
+                display: none;
+                /* Mặc định ẩn, JS sẽ bật cái active */
+                width: 100% !important;
+                height: calc(100vh - 280px);
+                /* Adjust height */
+                min-width: 100%;
+            }
+
+            .panel.mobile-active {
+                display: flex;
+            }
+
+            .mobile-tabs {
+                display: flex;
+                /* Hiện Tab */
+            }
+
+            /* Ẩn panel-header gốc đi, dùng Tab thay thế */
+            .panel-header {
+                display: none;
+            }
+        }
+
+        /* --- MOBILE RESPONSIVE --- */
+        .mobile-tabs {
+            display: none;
+            /* Desktop hidden */
+            background: var(--surface-color);
+            border-bottom: 1px solid var(--border-color);
+            padding: 0.5rem;
+            gap: 10px;
+        }
+
+        .mobile-tab-btn {
+            flex: 1;
+            padding: 10px;
+            border: 1px solid var(--border-color);
+            background: var(--background-color);
+            color: #1a1a1a;
+            border-radius: 6px;
+            font-weight: 600;
+            cursor: pointer;
+        }
+
+        .mobile-tab-btn.active {
+            background: #e8f0fe;
+            color: #1a1a1a;
+            border-color: #2563eb;
+            border-width: 2px;
+        }
+
+        @media (max-width: 768px) {
+            .toolbar {
+                flex-wrap: wrap;
+                gap: 8px;
+                height: auto !important;
+                padding: 8px 12px;
+                justify-content: space-between;
+            }
+
+            .tool-title {
+                display: none;
+            }
+
+            /* Language Group: 2 select trên 1 dòng */
+            .lang-group {
+                flex: 1;
+                /* Chiếm hết chỗ trống */
+                min-width: 0;
+                /* Cho phép co nhỏ dưới content size */
+                margin-bottom: 0;
+            }
+
+            .custom-select {
+                width: 100%;
+                min-width: unset;
+            }
+
+            .select-selected {
+                padding: 6px 10px;
+                /* Padding nút select nhỏ lại */
+                font-size: 0.9rem;
+                height: 36px;
+                white-space: nowrap;
+                overflow: hidden;
+                text-overflow: ellipsis;
+            }
+
+            /* ẨN TUYỆT ĐỐI mũi tên chuyển đổi ngôn ngữ */
+            .toolbar>div[style*="font-size: 1.2rem"] {
+                display: none !important;
+            }
+
+            /* Chỉnh nút Input trang nhỏ lại */
+            .page-jump-input {
+                width: 50px;
+                padding: 4px;
+                text-align: center;
+            }
+
+            /* Hiện text "Trang..." placeholder */
+            .page-jump-input::placeholder {
+                color: #9ca3af;
+            }
+
+            /* Gom nhóm Zoom và PageJump vào 1 dòng giữa */
+            /* Cần chỉnh flex order hoặc width */
+
+            /* Ẩn Zoom Level Text nếu quá chật, hoặc để nhỏ */
+            #zoomLevelText {
+                display: inline-block;
+                font-size: 0.8rem;
+                min-width: 40px;
+            }
+
+            .mini-btn {
+                padding: 4px 8px;
+                /* Nút nhỏ hơn chút */
+            }
+
+            /* Hàng cuối: Dịch & Download */
+            #translateBtn,
+            #downloadBtn {
+                flex: 1 1 45%;
+                /* Chia sẻ hàng cuối */
+                padding: 10px;
+                justify-content: center;
+                font-size: 0.95rem;
+                margin-top: 5px !important;
+            }
+
+            /* Fix Download button margin */
+            #downloadBtn {
+                margin-left: 8px !important;
+            }
+
+            /* CHUYỂN SPLIT VIEW THÀNH TAB VIEW */
+            .split-view {
+                display: block !important;
+                /* Stacked */
+                position: relative;
+                flex: 1;
+                height: auto;
+            }
+
+            /* Ẩn thanh chia */
+            .divider {
+                display: none;
+            }
+
+            /* Panel chính: Chiếm phần còn lại của màn hình */
+            .panel {
+                display: none;
+                /* Mặc định ẩn */
+                width: 100% !important;
+                /* Fix height: 100dvh trừ Header (60px) - Toolbar (~140px) - Tabs (50px) */
+                height: calc(100dvh - 250px);
+                min-height: 400px;
+                min-width: 100%;
+                border-right: none;
+            }
+
+            .panel.mobile-active {
+                display: flex;
+            }
+
+            /* Tab Control ở dưới cùng hoặc ngay dưới toolbar?
+           User thích dưới toolbar cho dễ chọn context.
+        */
+            .mobile-tabs {
+                display: flex;
+                position: sticky;
+                top: 0;
+                z-index: 10;
+                margin-bottom: 0px;
+                box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            }
+
+            .panel-header {
+                display: none;
+            }
+
+            .panel-content {
+                padding: 10px;
+                padding-bottom: 100px;
+            }
+
+            /* --- MOBILE CSS FINAL (CHUẨN ĐỒNG BỘ PC) --- */
+            @media (max-width: 768px) {
+
+                /* 1. SỬA LỖI KHOẢNG CÁCH (GAP) */
+                .dual-view-container {
+                    /* Giảm padding xuống để khớp với Navbar, tránh bị tụt */
+                    padding-top: 90px !important;
+                    padding-left: 0 !important;
+                    height: 100dvh;
+                    overflow: hidden;
+                }
+
+                /* 2. TOOLBAR: Dùng màu gốc của theme (không tự chế màu) */
+                .toolbar {
+                    display: flex;
+                    flex-wrap: wrap;
+                    padding: 8px 10px;
+                    gap: 8px;
+                    height: auto !important;
+                    align-items: center;
+
+                    /* Dùng biến màu hệ thống để giống hệt PC */
+                    background-color: var(--surface-color) !important;
+                    border-bottom: 1px solid var(--border-color);
+                    color: #1a1a1a;
+
+                    position: relative;
+                    z-index: 50 !important;
+                    /* Nổi lên trên Tab */
+                    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+                    /* Bóng nhẹ giống PC */
+                }
+
+                .toolbar-toggle-btn {
+                    width: 36px;
+                    height: 32px;
+                }
+
+                /* Ẩn phần tử thừa */
+                .toolbar>div[style*="font-size: 1.2rem"],
+                .toolbar>div[style="flex: 1"] {
+                    display: none !important;
+                }
+
+                /* 3. CÁC PHẦN TỬ CON (INPUT, BUTTON): Ép dùng màu */
+                .toolbar input,
+                .toolbar select,
+                .zoom-level,
+                .mini-btn {
+                    color: #1a1a1a !important;
+                    background-color: var(--background-color) !important;
+                    border: 1px solid var(--border-color) !important;
+                }
+
+                /* Dark mode mobile: chữ toolbar phải sáng */
+                body.dark-mode .toolbar input,
+                body.dark-mode .toolbar select,
+                body.dark-mode .zoom-level,
+                body.dark-mode .mini-btn {
+                    color: #e2e8f0 !important;
+                    background-color: #1e293b !important;
+                }
+
+                body.dark-mode #zoomLevelText {
+                    color: #e2e8f0 !important;
+                }
+
+                /* Riêng nút Action (Dịch/Tải) giữ nguyên class gốc để có màu xanh/xám */
+
+
+                /* 4. LAYOUT CÁC HÀNG (GIỮ NGUYÊN CẤU TRÚC GỌN) */
+
+                /* Hàng 1: Ngôn ngữ */
+                .lang-group {
+                    order: 1;
+                    flex: 0 0 48%;
+                    width: 48%;
+                    margin: 0;
+                    position: relative;
+                    z-index: 100;
+                }
+
+                .lang-group .custom-select,
+                .lang-group .select-selected {
+                    width: 100% !important;
+                    min-width: unset !important;
+                }
+
+                /* Hàng 2: Zoom & Page (Bỏ khung nền lạ, chỉ căn giữa) */
+                .toolbar-control-group {
+                    order: 2;
+                    flex: 1 1 auto;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    margin-top: 4px;
+                    height: 38px;
+                    z-index: 1;
+                    /* Không thêm background lạ, dùng mặc định */
+                }
+
+                .page-jump-input {
+                    width: 70px !important;
+                    padding: 4px !important;
+                    text-align: center;
+                    margin-right: 6px;
+                }
+
+                #zoomLevelText {
+                    font-size: 0.85rem;
+                    min-width: 45px;
+                    text-align: center;
+                    color: #1a1a1a !important;
+                }
+
+                /* Hàng 3: Buttons */
+                #translateBtn,
+                #downloadBtn {
+                    order: 3;
+                    flex: 1;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    margin-top: 8px !important;
+                    height: 42px !important;
+                    padding: 0 10px !important;
+                    border-radius: 6px;
+                    width: auto !important;
+                    z-index: 1;
+                }
+
+                #translateBtn {
+                    margin-right: 4px !important;
+                    margin-left: 0 !important;
+                }
+
+                #downloadBtn {
+                    margin-left: 4px !important;
+                }
+
+                #downloadBtn span {
+                    display: inline-block !important;
+                    margin-left: 6px;
+                    font-size: 0.9rem;
+                    font-weight: 600;
+                }
+
+                #downloadBtn svg {
+                    width: 18px;
+                    height: 18px;
+                    display: block;
+                }
+
+                /* 5. FIX LỖI DROPDOWN TRONG SUỐT (Nhưng dùng màu theo Theme) */
+
+                /* Light Mode */
+                .select-items {
+                    /* Dùng màu bề mặt của theme */
+                    background-color: var(--surface-color) !important;
+                    /* Ép không trong suốt */
+                    opacity: 1 !important;
+                    backdrop-filter: none !important;
+                    -webkit-backdrop-filter: none !important;
+                    background-image: none !important;
+
+                    border: 1px solid var(--border-color) !important;
+                    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2) !important;
+                    z-index: 99999 !important;
+                }
+
+                .select-items div {
+                    background-color: var(--surface-color) !important;
+                    color: var(--text-color) !important;
+                }
+
+                /* Vì var(--surface-color) đôi khi có độ trong suốt trong thiết kế gốc,
+       ta cần "ép cứng" màu trắng cho Light Mode để chắc chắn không xuyên thấu */
+                @media (prefers-color-scheme: light) {
+                    .select-items {
+                        background-color: #ffffff !important;
+                    }
+
+                    .select-items div {
+                        background-color: #ffffff !important;
+                    }
+                }
+
+                /* Nếu body không có class dark-mode, ép màu trắng cho chắc */
+                body:not(.dark-mode) .select-items {
+                    background-color: #ffffff !important;
+                }
+
+                /* Ô search */
+                .select-search {
+                    background-color: inherit !important;
+                    position: sticky;
+                    top: 0;
+                    z-index: 100000;
+                    border-bottom: 1px solid var(--border-color);
+                }
+
+                /* Dark Mode (Tận dụng class dark-mode có sẵn) */
+                body.dark-mode .select-items {
+                    background-color: #111827 !important;
+                    /* Màu cứng cho dark mode */
+                    border-color: #374151 !important;
+                }
+
+                body.dark-mode .select-items div {
+                    background-color: #111827 !important;
+                }
+            }
+
+        }
+
+        /* Mobile fullscreen fix when collapsing toolbar */
+        @media (max-width: 768px) {
+            .dual-view-container {
+                min-height: 100dvh;
+            }
+
+            .split-view {
+                flex: 1 !important;
+                min-height: 0;
+            }
+
+            .panel {
+                height: 100% !important;
+                min-height: 0 !important;
+            }
+        }
+
+        /* Tự động đảo màu chữ bằng blend-mode dễ gây tàng hình text trên nền trắng,
+   nên tắt tại trang translate-pdf để luôn nhìn thấy DOM overlay rõ ràng. */
+    </style>
+<meta content="noindex, nofollow" name="robots"/></head>
+<body>
+<script>
+        (function () {
+            // Kiểm tra localStorage ngay lập tức
+            const isDark = localStorage.getItem('darkMode') === 'enabled';
+            // Nếu đang bật dark mode, thêm class ngay lập tức
+            if (isDark) {
+                document.body.classList.add('dark-mode');
+            }
+        })();
+    </script>
+<header class="navbar">
+<div class="nav-left">
+<a href="/th/index.html" style="display: flex; align-items: center; text-decoration: none; color: inherit;">
+<img alt="Logo" class="nav-logo" src="/../assets/logo/logomain.png"/>
+</a>
+</div>
+<!--navright-->
+<div class="nav-right">
+<!-- Premium Button (Style Smallpdf) -->
+<button class="premium-nav-btn" onclick="showPremiumModal()">
+<!-- Icon Tia sét -->
+<svg fill="currentColor" height="16" stroke="none" viewbox="0 0 24 24" width="16">
+<path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"></path>
+</svg>
+<span>Pro</span>
+</button>
+</div>
+</header>
+<!-- SUB-NAVBAR - Thanh điều hướng kép -->
+<!-- SUB-NAVBAR - Được load từ file JS trung tâm -->
+<!-- Main Application Container -->
+<div class="dual-view-container">
+<div class="toolbar-toggle-wrap">
+<button aria-expanded="true" class="toolbar-toggle-btn" data-i18n-title="translate-pdf.collapseToolbar" id="toolbarToggleBtn" title="Thu gọn thanh công cụ" type="button">
+<span aria-hidden="true" class="toolbar-toggle-icon" id="toolbarToggleIcon">
+<svg focusable="false" viewbox="0 0 24 24">
+<path d="M6 9l6 6 6-6"></path>
+</svg>
+</span>
+</button>
+</div>
+<!-- Toolbar -->
+<div class="toolbar">
+<div class="lang-group">
+<select class="lang-select" id="sourceLang">
+<option disabled="" selected="" value="">เลือกภาษาของคุณ</option>
+<option value="auto">ตรวจจับอัตโนมัติ</option>
+<option value="af">Afrikaans</option>
+<option value="sq">Albanian</option>
+<option value="am">Amharic</option>
+<option value="ar">Arabic</option>
+<option value="hy">Armenian</option>
+<option value="as">Assamese</option>
+<option value="ay">Aymara</option>
+<option value="az">Azerbaijani</option>
+<option value="bm">Bambara</option>
+<option value="eu">Basque</option>
+<option value="be">Belarusian</option>
+<option value="bn">Bengali</option>
+<option value="bho">Bhojpuri</option>
+<option value="bs">Bosnian</option>
+<option value="bg">Bulgarian</option>
+<option value="ca">Catalan</option>
+<option value="ceb">Cebuano</option>
+<option value="ny">Chichewa</option>
+<option value="zh-CN">Chinese (Simplified)</option>
+<option value="zh-TW">Chinese (Traditional)</option>
+<option value="co">Corsican</option>
+<option value="hr">Croatian</option>
+<option value="cs">Czech</option>
+<option value="da">Danish</option>
+<option value="dv">Dhivehi</option>
+<option value="doi">Dogri</option>
+<option value="nl">Dutch</option>
+<option value="en">English</option>
+<option value="eo">Esperanto</option>
+<option value="et">Estonian</option>
+<option value="ee">Ewe</option>
+<option value="tl">Filipino</option>
+<option value="fi">Finnish</option>
+<option value="fr">French</option>
+<option value="fy">Frisian</option>
+<option value="gl">Galician</option>
+<option value="ka">Georgian</option>
+<option value="de">German</option>
+<option value="el">Greek</option>
+<option value="gn">Guarani</option>
+<option value="gu">Gujarati</option>
+<option value="ht">Haitian Creole</option>
+<option value="ha">Hausa</option>
+<option value="haw">Hawaiian</option>
+<option value="iw">Hebrew</option>
+<option value="hi">Hindi</option>
+<option value="hmn">Hmong</option>
+<option value="hu">Hungarian</option>
+<option value="is">Icelandic</option>
+<option value="ig">Igbo</option>
+<option value="ilo">Ilocano</option>
+<option value="id">Indonesian</option>
+<option value="ga">Irish</option>
+<option value="it">Italian</option>
+<option value="ja">Japanese</option>
+<option value="jw">Javanese</option>
+<option value="kn">Kannada</option>
+<option value="kk">Kazakh</option>
+<option value="km">Khmer</option>
+<option value="rw">Kinyarwanda</option>
+<option value="ko">Korean</option>
+<option value="kri">Krio</option>
+<option value="ku">Kurdish (Kurmanji)</option>
+<option value="ckb">Kurdish (Sorani)</option>
+<option value="ky">Kyrgyz</option>
+<option value="lo">Lao</option>
+<option value="la">Latin</option>
+<option value="lv">Latvian</option>
+<option value="ln">Lingala</option>
+<option value="lt">Lithuanian</option>
+<option value="lg">Luganda</option>
+<option value="lb">Luxembourgish</option>
+<option value="mk">Macedonian</option>
+<option value="mai">Maithili</option>
+<option value="mg">Malagasy</option>
+<option value="ms">Malay</option>
+<option value="ml">Malayalam</option>
+<option value="mt">Maltese</option>
+<option value="mi">Maori</option>
+<option value="mr">Marathi</option>
+<option value="mni-Mtei">Meiteilon (Manipuri)</option>
+<option value="lus">Mizo</option>
+<option value="mn">Mongolian</option>
+<option value="my">Myanmar (Burmese)</option>
+<option value="ne">Nepali</option>
+<option value="no">Norwegian</option>
+<option value="or">Odia (Oriya)</option>
+<option value="om">Oromo</option>
+<option value="ps">Pashto</option>
+<option value="fa">Persian</option>
+<option value="pl">Polish</option>
+<option value="pt">Portuguese</option>
+<option value="pt-BR">Portuguese (Brazil)</option>
+<option value="pa">Punjabi</option>
+<option value="qu">Quechua</option>
+<option value="ro">Romanian</option>
+<option value="ru">Russian</option>
+<option value="sm">Samoan</option>
+<option value="sa">Sanskrit</option>
+<option value="gd">Scots Gaelic</option>
+<option value="nso">Sepedi</option>
+<option value="sr">Serbian</option>
+<option value="st">Sesotho</option>
+<option value="sn">Shona</option>
+<option value="sd">Sindhi</option>
+<option value="si">Sinhala</option>
+<option value="sk">Slovak</option>
+<option value="sl">Slovenian</option>
+<option value="so">Somali</option>
+<option value="es">Spanish</option>
+<option value="su">Sundanese</option>
+<option value="sw">Swahili</option>
+<option value="sv">Swedish</option>
+<option value="tg">Tajik</option>
+<option value="ta">Tamil</option>
+<option value="tt">Tatar</option>
+<option value="te">Telugu</option>
+<option value="th">Thai</option>
+<option value="ti">Tigrinya</option>
+<option value="ts">Tsonga</option>
+<option value="tr">Turkish</option>
+<option value="tk">Turkmen</option>
+<option value="ak">Twi (Akan)</option>
+<option value="uk">Ukrainian</option>
+<option value="ur">Urdu</option>
+<option value="ug">Uyghur</option>
+<option value="uz">Uzbek</option>
+<option value="vi">Vietnamese</option>
+<option value="cy">Welsh</option>
+<option value="xh">Xhosa</option>
+<option value="yi">Yiddish</option>
+<option value="yo">Yoruba</option>
+<option value="zu">Zulu</option>
+</select>
+</div>
+<div style="font-size: 1.2rem; color: var(--text-color); margin: 0 10px;">→</div>
+<div class="lang-group">
+<select class="lang-select" id="targetLang">
+<option disabled="" selected="" value="">เลือกภาษาของคุณ</option>
+<option value="af">Afrikaans</option>
+<option value="sq">Albanian</option>
+<option value="am">Amharic</option>
+<option value="ar">Arabic</option>
+<option value="hy">Armenian</option>
+<option value="as">Assamese</option>
+<option value="ay">Aymara</option>
+<option value="az">Azerbaijani</option>
+<option value="bm">Bambara</option>
+<option value="eu">Basque</option>
+<option value="be">Belarusian</option>
+<option value="bn">Bengali</option>
+<option value="bho">Bhojpuri</option>
+<option value="bs">Bosnian</option>
+<option value="bg">Bulgarian</option>
+<option value="ca">Catalan</option>
+<option value="ceb">Cebuano</option>
+<option value="ny">Chichewa</option>
+<option value="zh-CN">Chinese (Simplified)</option>
+<option value="zh-TW">Chinese (Traditional)</option>
+<option value="co">Corsican</option>
+<option value="hr">Croatian</option>
+<option value="cs">Czech</option>
+<option value="da">Danish</option>
+<option value="dv">Dhivehi</option>
+<option value="doi">Dogri</option>
+<option value="nl">Dutch</option>
+<option value="en">English</option>
+<option value="eo">Esperanto</option>
+<option value="et">Estonian</option>
+<option value="ee">Ewe</option>
+<option value="tl">Filipino</option>
+<option value="fi">Finnish</option>
+<option value="fr">French</option>
+<option value="fy">Frisian</option>
+<option value="gl">Galician</option>
+<option value="ka">Georgian</option>
+<option value="de">German</option>
+<option value="el">Greek</option>
+<option value="gn">Guarani</option>
+<option value="gu">Gujarati</option>
+<option value="ht">Haitian Creole</option>
+<option value="ha">Hausa</option>
+<option value="haw">Hawaiian</option>
+<option value="iw">Hebrew</option>
+<option value="hi">Hindi</option>
+<option value="hmn">Hmong</option>
+<option value="hu">Hungarian</option>
+<option value="is">Icelandic</option>
+<option value="ig">Igbo</option>
+<option value="ilo">Ilocano</option>
+<option value="id">Indonesian</option>
+<option value="ga">Irish</option>
+<option value="it">Italian</option>
+<option value="ja">Japanese</option>
+<option value="jw">Javanese</option>
+<option value="kn">Kannada</option>
+<option value="kk">Kazakh</option>
+<option value="km">Khmer</option>
+<option value="rw">Kinyarwanda</option>
+<option value="ko">Korean</option>
+<option value="kri">Krio</option>
+<option value="ku">Kurdish (Kurmanji)</option>
+<option value="ckb">Kurdish (Sorani)</option>
+<option value="ky">Kyrgyz</option>
+<option value="lo">Lao</option>
+<option value="la">Latin</option>
+<option value="lv">Latvian</option>
+<option value="ln">Lingala</option>
+<option value="lt">Lithuanian</option>
+<option value="lg">Luganda</option>
+<option value="lb">Luxembourgish</option>
+<option value="mk">Macedonian</option>
+<option value="mai">Maithili</option>
+<option value="mg">Malagasy</option>
+<option value="ms">Malay</option>
+<option value="ml">Malayalam</option>
+<option value="mt">Maltese</option>
+<option value="mi">Maori</option>
+<option value="mr">Marathi</option>
+<option value="mni-Mtei">Meiteilon (Manipuri)</option>
+<option value="lus">Mizo</option>
+<option value="mn">Mongolian</option>
+<option value="my">Myanmar (Burmese)</option>
+<option value="ne">Nepali</option>
+<option value="no">Norwegian</option>
+<option value="or">Odia (Oriya)</option>
+<option value="om">Oromo</option>
+<option value="ps">Pashto</option>
+<option value="fa">Persian</option>
+<option value="pl">Polish</option>
+<option value="pt">Portuguese</option>
+<option value="pt-BR">Portuguese (Brazil)</option>
+<option value="pa">Punjabi</option>
+<option value="qu">Quechua</option>
+<option value="ro">Romanian</option>
+<option value="ru">Russian</option>
+<option value="sm">Samoan</option>
+<option value="sa">Sanskrit</option>
+<option value="gd">Scots Gaelic</option>
+<option value="nso">Sepedi</option>
+<option value="sr">Serbian</option>
+<option value="st">Sesotho</option>
+<option value="sn">Shona</option>
+<option value="sd">Sindhi</option>
+<option value="si">Sinhala</option>
+<option value="sk">Slovak</option>
+<option value="sl">Slovenian</option>
+<option value="so">Somali</option>
+<option value="es">Spanish</option>
+<option value="su">Sundanese</option>
+<option value="sw">Swahili</option>
+<option value="sv">Swedish</option>
+<option value="tg">Tajik</option>
+<option value="ta">Tamil</option>
+<option value="tt">Tatar</option>
+<option value="te">Telugu</option>
+<option value="th">Thai</option>
+<option value="ti">Tigrinya</option>
+<option value="ts">Tsonga</option>
+<option value="tr">Turkish</option>
+<option value="tk">Turkmen</option>
+<option value="ak">Twi (Akan)</option>
+<option value="uk">Ukrainian</option>
+<option value="ur">Urdu</option>
+<option value="ug">Uyghur</option>
+<option value="uz">Uzbek</option>
+<option value="vi">Vietnamese</option>
+<option value="cy">Welsh</option>
+<option value="xh">Xhosa</option>
+<option value="yi">Yiddish</option>
+<option value="yo">Yoruba</option>
+<option value="zu">Zulu</option>
+</select>
+</div>
+<div style="flex: 1"></div>
+<div class="toolbar-control-group">
+<button class="mini-btn" id="zoomOutBtn" title="Thu nhỏ" type="button">−</button>
+<span class="zoom-level" id="zoomLevelText">100%</span>
+<button class="mini-btn" id="zoomInBtn" title="Phóng to" type="button">+</button>
+</div>
+<div class="toolbar-control-group">
+<input class="page-jump-input" id="pageJumpInput" min="1" placeholder="หน้าหนังสือ..." type="number"/>
+<button class="mini-btn" id="goToPageBtn" title="ไปที่หน้า" type="button">
+<span>ไป</span>
+</button>
+</div>
+<button class="action-btn btn-blue" id="translateBtn">แปล</button>
+<button class="action-btn btn-gray" id="downloadBtn" style="margin-left: 10px;">
+<svg fill="none" height="18" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24" width="18">
+<path d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path>
+</svg>
+<span>ดาวน์โหลด</span>
+</button>
+</div>
+<!-- MOBILE TABS (Chỉ hiện trên mobile) -->
+<div class="mobile-tabs">
+<button class="mobile-tab-btn active" data-tab="leftPanel" onclick="switchMobileTab('leftPanel')">ต้นฉบับ</button>
+<button class="mobile-tab-btn" data-tab="rightPanel" onclick="switchMobileTab('rightPanel')">การแปล</button>
+</div>
+<div class="split-view">
+<!-- Left Panel: Original PDF -->
+<div class="panel" id="leftPanel">
+<div class="panel-header">
+<span>ต้นฉบับ</span>
+<span id="pageCountLeft" style="font-size: 0.8rem; color: #1a1a1a;"></span>
+</div>
+<div class="panel-content" id="pdfContainer">
+<!-- PDF pages will be rendered here -->
+</div>
+</div>
+<!-- Divider -->
+<div class="divider"></div>
+<!-- Right Panel: Translated Content -->
+<div class="panel" id="rightPanel">
+<div class="panel-header">
+<span>การแปล</span>
+<div aria-live="polite" class="process-inline" id="processSection" style="margin-left: auto;">
+<span class="status-text" id="statusText">Sẵn sàng</span>
+<div class="progress-bar-container">
+<div class="progress-bar" id="progressBar"></div>
+</div>
+</div>
+</div>
+<div class="panel-content" id="translationContainer">
+<div class="translation-page" style="display: flex; flex-direction: column; align-items: center; justify-content: center; color: #888; height: 100%; min-height: unset; box-shadow: none; background: transparent;">
+<div style="font-size: 3rem; margin-bottom: 1rem; opacity: 0.3;">TRANSLATE PDF</div>
+<p>คลิก <b>"แปล"</b> ด้านบนเพื่อเริ่มแปลเอกสารนี้</p>
+</div>
+</div>
+</div>
+</div>
+<!-- Loading/Progress Overlay - DISABLED (Dùng button progress thay thế) -->
+<!--
+        <div id="progressOverlay" class="loading-overlay" style="display: none;">
+            <h3 id="progressTitle">Đang xử lý...</h3>
+            <p id="progressDetail" style="margin-bottom: 5px;">Vui lòng chờ trong giây lát</p>
+            <div class="progress-bar-container">
+                <div id="progressBar" class="progress-bar"></div>
+            </div>
+            <p id="progressPercent" style="margin-top: 0.5rem; font-weight: bold;">0%</p>
+        </div>
+        -->
+</div>
+<!-- Hidden File Input for reloading if needed (optional) -->
+<input accept=".pdf" id="fileInput" style="display: none" type="file"/>
+<!-- External Scripts -->
+<!-- Lemon Squeezy Checkout Overlay -->
+<script defer="" src="https://assets.lemonsqueezy.com/lemon.js"></script>
+<!-- JavaScript -->
+<script src="/language/i18n.js"></script>
+<!-- Supabase Auth -->
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="/js/supabase-config.js"></script>
+<!-- Modules -->
+<script src="/js/modules/state.js"></script>
+<script src="/js/modules/ui.js"></script>
+<script src="/js/modules/auth.js"></script>
+<script src="/js/modules/premium.js"></script>
+<script src="/js/modules/settings.js"></script>
+<script src="/js/main.js"></script>
+<script src="/js/premium-access-control.js"></script>
+<!-- PDF.js CDN -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
+<script>
+        // Config PDF.js worker
+        pdfjsLib.GlobalWorkerOptions.workerSrc = 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js';
+    </script>
+<!-- Transformers.js & App Logic -->
+<!-- Thư viện tạo PDF Client-side -->
+<script src="https://unpkg.com/pdf-lib@1.17.1/dist/pdf-lib.min.js"></script>
+<script src="/pdftools/translate-pdf/tiny-translate-pdf.js" type="module"></script>
+<script>
+        // --- TOOLBAR COLLAPSE / EXPAND ---
+        (function initToolbarToggle() {
+            const storageKey = 'translatePdfToolbarCollapsed';
+
+            function applyToolbarState(collapsed) {
+                const toggleBtn = document.getElementById('toolbarToggleBtn');
+                if (!toggleBtn) return;
+
+                document.body.classList.toggle('toolbar-collapsed', collapsed);
+                toggleBtn.setAttribute('aria-expanded', String(!collapsed));
+                const openText = window.i18n ? window.i18n.t('translate-pdf.expandToolbar') : 'Mở thanh công cụ';
+                const collapseText = window.i18n ? window.i18n.t('translate-pdf.collapseToolbar') : 'Thu gọn thanh công cụ';
+                toggleBtn.title = collapsed ? openText : collapseText;
+                toggleBtn.setAttribute('aria-label', toggleBtn.title);
+            }
+
+            window.addEventListener('DOMContentLoaded', () => {
+                const toggleBtn = document.getElementById('toolbarToggleBtn');
+                if (!toggleBtn) return;
+
+                const savedState = localStorage.getItem(storageKey);
+                const defaultCollapsed = window.innerWidth <= 768;
+                const isCollapsed = savedState === null ? defaultCollapsed : savedState === '1';
+
+                applyToolbarState(isCollapsed);
+
+                toggleBtn.addEventListener('click', () => {
+                    const nextCollapsed = !document.body.classList.contains('toolbar-collapsed');
+                    applyToolbarState(nextCollapsed);
+                    localStorage.setItem(storageKey, nextCollapsed ? '1' : '0');
+                });
+            });
+        })();
+
+        // --- MOBILE TAB LOGIC ---
+        function switchMobileTab(panelId) {
+            // 1. Update Buttons
+            document.querySelectorAll('.mobile-tab-btn').forEach(btn => {
+                if (btn.dataset.tab === panelId) btn.classList.add('active');
+                else btn.classList.remove('active');
+            });
+
+            // 2. Update Panels (Chỉ áp dụng khi màn hình nhỏ)
+            if (window.innerWidth <= 768) {
+                document.querySelectorAll('.panel').forEach(p => p.classList.remove('mobile-active'));
+                const activePanel = document.getElementById(panelId);
+                if (activePanel) activePanel.classList.add('mobile-active');
+            }
+        }
+
+        // Init Mobile State
+        window.addEventListener('DOMContentLoaded', () => {
+            if (window.innerWidth <= 768) {
+                // Mặc định hiện bản gốc
+                switchMobileTab('leftPanel');
+            }
+        });
+
+        // Resize handler
+        window.addEventListener('resize', () => {
+            if (window.innerWidth > 768) {
+                // Reset style khi về desktop
+                document.querySelectorAll('.panel').forEach(p => p.classList.remove('mobile-active'));
+                document.querySelectorAll('.panel').forEach(p => p.style.display = '');
+            } else {
+                // Về mobile -> trigger lại tab hiện tại
+                const activeBtn = document.querySelector('.mobile-tab-btn.active');
+                if (activeBtn) switchMobileTab(activeBtn.dataset.tab);
+            }
+        });
+    </script>
+</body>
+</html>

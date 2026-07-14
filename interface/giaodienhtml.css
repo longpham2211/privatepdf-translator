@@ -1,0 +1,662 @@
+/* ==========================================================================
+   📱 GIAODIENHTML.CSS - MODERN MOBILE FIRST DESIGN
+   ========================================================================== */
+
+/* --- 1. RESET & BASE (MOBILE FIRST) --- */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  -webkit-font-smoothing: antialiased;
+  -webkit-tap-highlight-color: transparent;
+}
+
+body {
+  min-height: 100vh;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+
+  background: linear-gradient(135deg, #f5f7fa 0%, #e8f0fe 100%);
+  color: #1e293b;
+  display: flex;
+  flex-direction: column;
+  overflow-x: hidden;
+}
+
+main {
+  flex: 1;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* --- 2. HERO SECTION (MOBILE) --- */
+.hero-section {
+  text-align: center;
+  padding: 40px 20px 10px;
+  width: 100%;
+  max-width: 900px;
+  animation: fadeIn 0.6s ease;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.hero-title {
+  font-size: 35px;
+  font-weight: 900;
+  line-height: 1.2;
+  margin: 0 0 16px 0;
+  color: #1e293b;
+  letter-spacing: -1px;
+}
+
+.text-gradient {
+  background: linear-gradient(135deg, #2563eb 0%, #db2777 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  display: inline-block;
+}
+
+.hero-subtitle {
+  font-size: 1.1rem;
+  line-height: 1.6;
+  color: #64748b;
+  margin: 0 auto 24px;
+  max-width: 600px;
+  font-weight: 400;
+}
+
+/* Trust Badge Container */
+.hero-badge-container {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  flex-wrap: wrap;
+  margin-top: 20px;
+  margin-bottom: 40px;
+}
+
+/* Base Badge Style */
+.trust-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 24px;
+  border-radius: 50px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: default;
+  transition: all 0.2s ease;
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+}
+
+/* SVG Icon */
+.trust-badge svg {
+  width: 18px;
+  height: 18px;
+  flex-shrink: 0;
+  stroke-width: 2;
+  fill: none;
+  stroke: currentColor;
+}
+
+/* Hover Effect */
+.trust-badge:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+/* FREE - Blue */
+.trust-badge.free {
+  color: #2563eb;
+  background-color: #eff6ff;
+  border-color: #bfdbfe;
+}
+
+/* FAST - Green */
+.trust-badge.fast {
+  color: #059669;
+  background-color: #ecfdf5;
+  border-color: #a7f3d0;
+}
+
+/* SECURE - Purple */
+.trust-badge.secure {
+  color: #7c3aed;
+  background-color: #f5f3ff;
+  border-color: #ddd6fe;
+}
+
+/* Animation */
+.trust-badge {
+  animation: fadeInUp 0.5s ease backwards;
+}
+
+.trust-badge.free {
+  animation-delay: 0.1s;
+}
+
+.trust-badge.fast {
+  animation-delay: 0.2s;
+}
+
+.trust-badge.secure {
+  animation-delay: 0.3s;
+}
+
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+
+/* --- 3. CONTAINER (MOBILE FIRST) --- */
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 24px;
+  padding: 30px 16px 40px;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.container a {
+  text-decoration: none;
+  display: block;
+  width: 100%;
+  max-width: 300px;
+}
+
+/* --- 4. GAME CARD (MOBILE - Ô VUÔNG NHỎ GỌN) --- */
+.game-card {
+  /* Card vuông trên mobile */
+  width: 100%;
+  max-width: 300px;
+  padding: 22px 18px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+
+  border-radius: 20px;
+
+  /* Glass effect hiện đại với gradient nhẹ */
+  background: linear-gradient(145deg, rgba(37, 99, 235, 0.08), rgba(99, 102, 241, 0.08));
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(148, 163, 184, 0.18);
+  box-shadow: 0 20px 48px rgba(15, 23, 42, 0.08);
+
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+/* Hiệu ứng shine khi hover */
+.game-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+  transition: left 0.5s ease;
+}
+
+.game-card:active::before {
+  left: 100%;
+}
+
+/* Icon */
+.game-card img {
+  width: 80px;
+  height: 80px;
+  object-fit: contain;
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.08));
+  margin-bottom: 14px;
+  transition: transform 0.3s ease;
+}
+
+/* Text content */
+.game-card p {
+  margin: 0;
+  font-size: 16px;
+  font-weight: 600;
+  color: #1e293b;
+  letter-spacing: -0.01em;
+}
+
+/* Hover/Active states */
+.game-card:hover,
+.game-card:active {
+  transform: translateY(-5px) scale(1.02);
+  background: linear-gradient(145deg, rgba(37, 99, 235, 0.12), rgba(99, 102, 241, 0.12));
+  box-shadow: 0 25px 55px rgba(15, 23, 42, 0.12);
+  border-color: rgba(37, 99, 235, 0.25);
+}
+
+.game-card:hover img {
+  transform: scale(1.08);
+}
+
+.game-card:active {
+  transform: translateY(-2px) scale(0.98);
+}
+
+/* --- 5. FOOTER (MOBILE FIRST) --- */
+.footer {
+  width: 100%;
+  background: #fff;
+  border-top: 1px solid #e2e8f0;
+  padding: 36px 20px 20px;
+  margin-top: 40px;
+  font-size: 13px;
+  color: #64748b;
+  animation: slideUp 0.5s ease;
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.footer-content {
+  max-width: 1000px;
+  margin: 0 auto;
+
+  /* Mobile: Stack vertically */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 32px;
+}
+
+.footer-column {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  width: 100%;
+  max-width: 280px;
+}
+
+/* Footer Brand/Logo */
+.footer-brand {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
+}
+
+.footer-logo {
+  height: 90px;
+  width: auto;
+  object-fit: contain;
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.05));
+  margin-bottom: 10px;
+}
+
+.footer-brand p {
+  font-size: 12.5px;
+  line-height: 1.6;
+  color: #94a3b8;
+  max-width: 300px;
+  margin: 0;
+}
+
+/* Column Title */
+.footer-column h4 {
+  font-size: 13px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+  color: #0f172a;
+  margin-bottom: 8px;
+}
+
+/* Footer Links */
+.footer-column ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.footer-column ul li a {
+  text-decoration: none;
+  color: #64748b;
+  transition: all 0.25s ease;
+  display: inline-block;
+  position: relative;
+  font-weight: 500;
+}
+
+/* Underline effect on hover */
+.footer-column ul li a::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: #2563eb;
+  transition: width 0.3s ease;
+}
+
+.footer-column ul li a:hover {
+  color: #2563eb;
+  transform: translateX(3px);
+}
+
+.footer-column ul li a:hover::after {
+  width: 100%;
+}
+
+/* Footer Bottom */
+.footer-bottom {
+  border-top: 1px solid #f1f5f9;
+  margin-top: 32px;
+  padding-top: 18px;
+  text-align: center;
+  font-size: 11.5px;
+  color: #cbd5e1;
+}
+
+.footer-bottom p {
+  margin: 0;
+}
+
+/* ==========================================================================
+   💻 TABLET & DESKTOP (min-width: 768px)
+   ========================================================================== */
+@media (min-width: 768px) {
+
+  /* Hero Section Desktop */
+  .hero-title {
+    font-size: 3rem;
+    margin-bottom: 20px;
+  }
+
+  .hero-subtitle {
+    font-size: 1.25rem;
+  }
+
+  body {
+    padding-top: 90px;
+  }
+
+  /* Container Desktop - 3 ô nằm ngang */
+  .container {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    gap: 30px;
+    padding: 40px 32px 50px;
+  }
+
+  .container a {
+    width: auto;
+    max-width: none;
+  }
+
+  /* CARD STYLE PC: Ô VUÔNG NHỎ GỌN (200px) */
+  .game-card {
+    width: 180px;
+    height: 175px;
+    max-width: none;
+    padding: 20px 16px;
+    gap: 12px;
+  }
+
+  .game-card img {
+    width: 70px;
+    height: 70px;
+    margin-bottom: 10px;
+  }
+
+  .game-card p {
+    font-size: 15px;
+    font-weight: 600;
+  }
+
+  .game-card:hover {
+    transform: translateY(-8px) scale(1.03);
+    box-shadow: 0 28px 60px rgba(15, 23, 42, 0.15);
+  }
+
+  /* FOOTER PC: 3 cột ngang */
+  .footer {
+    padding: 56px 40px 28px;
+  }
+
+  .footer-content {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-start;
+    text-align: left;
+    gap: 48px;
+  }
+
+  .footer-brand {
+    flex: 2;
+    align-items: flex-start;
+    padding-right: 40px;
+    max-width: 340px;
+  }
+
+  .footer-column {
+    flex: 1;
+    align-items: flex-start;
+  }
+
+  .footer-column ul li a:hover {
+    transform: translateX(5px);
+  }
+}
+
+/* ==========================================================================
+   💻 LARGE DESKTOP (min-width: 1024px)
+   ========================================================================== */
+@media (min-width: 1024px) {
+  .container {
+    gap: 40px;
+    padding: 50px 40px;
+  }
+
+  /* Card to hơn một chút trên màn hình lớn */
+  .game-card {
+    width: 200px;
+    height: 185px;
+    padding: 24px 18px;
+  }
+
+  .game-card img {
+    width: 80px;
+    height: 80px;
+  }
+
+  .game-card p {
+    font-size: 16px;
+  }
+}
+
+/* ==========================================================================
+   🌙 DARK MODE
+   ========================================================================== */
+body.dark-mode {
+  background: linear-gradient(135deg, #050505 0%, #111111 100%);
+  color: #f1f5f9;
+}
+
+body.dark-mode .hero-title {
+  color: #f1f5f9;
+}
+
+body.dark-mode .hero-subtitle {
+  color: #94a3b8;
+}
+
+body.dark-mode .game-card {
+  background: linear-gradient(145deg, rgba(30, 41, 59, 0.6), rgba(51, 65, 85, 0.6));
+  border-color: rgba(148, 163, 184, 0.15);
+  box-shadow: 0 20px 48px rgba(0, 0, 0, 0.25);
+}
+
+body.dark-mode .game-card p {
+  color: #f1f5f9;
+}
+
+body.dark-mode .game-card:hover {
+  background: linear-gradient(145deg, rgba(30, 41, 59, 0.8), rgba(51, 65, 85, 0.8));
+  border-color: rgba(148, 163, 184, 0.3);
+  box-shadow: 0 28px 60px rgba(0, 0, 0, 0.35);
+}
+
+body.dark-mode .footer {
+  background: #0f172a;
+  border-top-color: #1e293b;
+}
+
+body.dark-mode .footer-column h4 {
+  color: #f1f5f9;
+}
+
+body.dark-mode .footer-column ul li a {
+  color: #94a3b8;
+}
+
+body.dark-mode .footer-column ul li a:hover {
+  color: #60a5fa;
+}
+
+body.dark-mode .footer-column ul li a::after {
+  background: #60a5fa;
+}
+
+body.dark-mode .footer-bottom {
+  border-top-color: #1e293b;
+  color: #475569;
+}
+
+/* Dark mode badge adjustments */
+body.dark-mode .trust-badge {
+  background: rgba(30, 41, 59, 0.6);
+  border-color: rgba(148, 163, 184, 0.2);
+}
+
+/* Free - Dark */
+body.dark-mode .trust-badge.free {
+  background: rgba(37, 99, 235, 0.15);
+  border-color: rgba(37, 99, 235, 0.3);
+  color: #60a5fa;
+}
+
+body.dark-mode .trust-badge.free:hover {
+  background: rgba(37, 99, 235, 0.25);
+  box-shadow: 0 8px 20px rgba(59, 130, 246, 0.2);
+}
+
+/* Fast - Dark */
+body.dark-mode .trust-badge.fast {
+  background: rgba(16, 185, 129, 0.15);
+  border-color: rgba(16, 185, 129, 0.3);
+  color: #34d399;
+}
+
+body.dark-mode .trust-badge.fast:hover {
+  background: rgba(16, 185, 129, 0.25);
+  box-shadow: 0 8px 20px rgba(16, 185, 129, 0.2);
+}
+
+/* Secure - Dark */
+body.dark-mode .trust-badge.secure {
+  background: rgba(139, 92, 246, 0.15);
+  border-color: rgba(139, 92, 246, 0.3);
+  color: #a78bfa;
+}
+
+body.dark-mode .trust-badge.secure:hover {
+  background: rgba(139, 92, 246, 0.25);
+  box-shadow: 0 8px 20px rgba(139, 92, 246, 0.2);
+}
+
+/* ==========================================================================
+   📱 RESPONSIVE BREAKPOINTS
+   ========================================================================== */
+
+/* Small phones */
+@media (max-width: 360px) {
+  .container {
+    padding: 25px 12px 35px;
+  }
+
+  .game-card {
+    max-width: 280px;
+    padding: 18px 14px;
+  }
+
+  .game-card img {
+    width: 70px;
+    height: 70px;
+  }
+
+  .game-card p {
+    font-size: 14.5px;
+  }
+
+  /* Smaller badges on tiny screens */
+  .trust-badge {
+    font-size: 13px;
+    padding: 8px 18px;
+  }
+
+  .hero-badge-container {
+    gap: 10px;
+  }
+}
+
+/* Medium phones and tablets */
+@media (min-width: 481px) and (max-width: 768px) {
+  .trust-badge {
+    font-size: 14px;
+    padding: 9px 20px;
+  }
+}

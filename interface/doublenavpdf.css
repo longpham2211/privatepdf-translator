@@ -1,0 +1,783 @@
+/* ========================================
+   SUB-NAVBAR - Thanh điều hướng kép cho PDF Tools
+   Giống Smallpdf - hiện dưới navbar chính
+   ======================================== */
+
+/* === HAMBURGER BUTTON (Mobile Menu Toggle) === */
+.hamburger-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    background: transparent;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    color: #475569;
+    transition: all 0.2s ease;
+    flex-shrink: 0;
+}
+
+.hamburger-btn:hover {
+    background: #f1f5f9;
+    color: #0f172a;
+}
+
+.hamburger-btn:active {
+    background: #e2e8f0;
+}
+
+/* Hamburger Dark Mode */
+body.dark-mode .hamburger-btn {
+    color: #e2e8f0;
+}
+
+body.dark-mode .hamburger-btn:hover {
+    background: #334155; /* Slate-700 */
+    color: #ffffff;
+}
+
+/* Hide hamburger on desktop - sidebar is always visible */
+@media (min-width: 900px) {
+    .hamburger-btn {
+        display: none !important;
+    }
+}
+
+/* Mobile First - Horizontal Layout */
+.sub-navbar {
+    position: fixed;
+    top: 80px; /* Bằng chiều cao navbar mobile */
+    left: 0;
+    right: 0;
+    height: 54px;
+    background-color: #f8fafc;
+    border-bottom: 1px solid #e2e8f0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 0 12px;
+    z-index: 99999 !important; /* Mobile: Always on top as requested */
+    overflow-x: auto; /* Cho phép scroll ngang trên mobile */
+    overflow-y: hidden;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+    white-space: nowrap;
+}
+
+/* Ẩn scrollbar nhưng vẫn scroll được */
+.sub-navbar::-webkit-scrollbar {
+    display: none;
+}
+.sub-navbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+
+/* === MOBILE SLIDE-OUT MENU === */
+@media (max-width: 899px) {
+    .sub-navbar {
+        /* Hidden by default on mobile */
+        position: fixed;
+        top: 80px; /* Match mobile navbar height */
+        left: 0;
+        bottom: 0;
+        width: 280px;
+        height: calc(100vh - 80px); /* Ensure full height */
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: flex-start;
+        padding: 20px 16px 150px 16px; /* Huge bottom padding to clear tool UIs */
+        gap: 4px;
+        background-color: #ffffff;
+        border-right: 1px solid #e2e8f0;
+        box-shadow: 4px 0 20px rgba(0, 0, 0, 0.1);
+        overflow-y: auto;
+        overflow-x: hidden;
+        transform: translateX(-100%);
+        transition: transform 0.3s ease;
+        z-index: 99999; /* Mobile Slide-out: Always on top */
+    }
+    
+    /* Show menu when expanded */
+    .sub-navbar.mobile-expanded {
+        transform: translateX(0);
+    }
+    
+    /* Vertical layout for items on mobile */
+    .sub-nav-item {
+        width: 100%;
+        padding: 12px 16px;
+        justify-content: flex-start;
+    }
+    
+    /* Hide dividers on mobile */
+    .sub-nav-divider {
+        display: none;
+    }
+    
+    /* Dropdown styling for mobile - FLATTEN THE STRUCTURE */
+    .sub-nav-dropdown {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        gap: 4px;
+    }
+    
+    /* Make "More" button invisible on mobile but keep container */
+    .sub-nav-dropdown > .sub-nav-item {
+        /* Make invisible but keep in DOM flow */
+        visibility: hidden !important;
+        height: 0 !important;
+        padding: 0 !important;
+        margin: 0 !important;
+        min-height: 0 !important;
+    }
+    
+    /* Make dropdown panel always visible on mobile with smooth animation */
+    .sub-nav-panel {
+        /* Force display regardless of parent state */
+        display: flex !important;
+        flex-direction: column !important;
+        position: static !important;
+        opacity: 1 !important;
+        visibility: visible !important;
+        transform: none !important;
+        box-shadow: none;
+        border: none;
+        border-radius: 0;
+        padding: 0; /* Remove indent - make it same level as other items */
+        background: transparent;
+        width: 100%;
+        
+        /* Smooth slide-down animation */
+        animation: slideDown 0.4s ease-out;
+        transform-origin: top;
+    }
+    
+    /* Style panel items for mobile - SAME STYLE as main items */
+    .sub-nav-panel-item {
+        width: 100%;
+        padding: 12px 16px; /* Same padding as .sub-nav-item */
+        font-size: 0.85rem; /* Same font size as main items */
+        
+        /* Smooth entrance animation */
+        animation: fadeInUp 0.3s ease-out backwards;
+    }
+    
+    /* Staggered animation delays for each item */
+    .sub-nav-panel-item:nth-child(1) { animation-delay: 0.05s; }
+    .sub-nav-panel-item:nth-child(2) { animation-delay: 0.1s; }
+    .sub-nav-panel-item:nth-child(3) { animation-delay: 0.15s; }
+    .sub-nav-panel-item:nth-child(4) { animation-delay: 0.2s; }
+    .sub-nav-panel-item:nth-child(5) { animation-delay: 0.25s; }
+    .sub-nav-panel-item:nth-child(6) { animation-delay: 0.3s; }
+    .sub-nav-panel-item:nth-child(7) { animation-delay: 0.35s; }
+    .sub-nav-panel-item:nth-child(8) { animation-delay: 0.4s; }
+    
+    /* Hide panel dividers on mobile */
+    .sub-nav-panel-divider {
+        display: none;
+    }
+
+    /* Dark Mode Override for Mobile Sidebar */
+    body.dark-mode .sub-nav-item:hover,
+    body.dark-mode .sub-nav-item.active {
+        background-color: #334155 !important; /* Slate-700 */
+        color: #f1f5f9 !important;
+    }
+    
+    body.dark-mode .sub-nav-panel-item:hover {
+         background-color: #334155 !important;
+         color: #f1f5f9 !important;
+    }
+}
+
+/* === MOBILE MENU ANIMATIONS === */
+@keyframes slideDown {
+    from {
+        opacity: 0;
+        max-height: 0;
+        transform: scaleY(0.8);
+    }
+    to {
+        opacity: 1;
+        max-height: 1000px;
+        transform: scaleY(1);
+    }
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Sub-nav items */
+.sub-nav-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    text-decoration: none;
+    color: #475569;
+    font-size: 0.85rem;
+    font-weight: 500;
+    padding: 8px 16px;
+    border-radius: 8px;
+    transition: all 0.2s ease;
+    background: transparent;
+    position: relative;
+    flex-shrink: 0;
+}
+
+.sub-nav-item:hover {
+    background: #ffffff;
+    color: #0f172a;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+.sub-nav-item.active {
+    background: linear-gradient(135deg, #e0f2fe 0%, #dbeafe 100%);
+    color: #0284c7;
+    font-weight: 600;
+    box-shadow: 0 2px 8px rgba(2, 132, 199, 0.15);
+}
+
+/* Icon trong sub-nav */
+.sub-nav-icon {
+    width: 20px;
+    height: 20px;
+    flex-shrink: 0;
+}
+
+/* Divider giữa các nhóm */
+.sub-nav-divider {
+    width: 1px;
+    height: 28px;
+    background: #cbd5e1;
+    margin: 0 8px;
+    flex-shrink: 0;
+}
+
+/* === DROPDOWN MENU === */
+.sub-nav-dropdown {
+    position: relative;
+}
+
+.sub-nav-dropdown > .sub-nav-item {
+    cursor: pointer;
+}
+
+/* Arrow icon for dropdown */
+.sub-nav-dropdown > .sub-nav-item::after {
+    content: '';
+    border-left: 4px solid transparent;
+    border-right: 4px solid transparent;
+    border-top: 5px solid currentColor;
+    margin-left: 4px;
+    transition: transform 0.2s ease;
+}
+
+.sub-nav-dropdown:hover > .sub-nav-item::after {
+    transform: rotate(180deg);
+}
+
+/* Dropdown panel */
+.sub-nav-panel {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    min-width: 200px;
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 12px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15);
+    padding: 8px;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(10px);
+    transition: all 0.2s ease;
+    z-index: 9999;
+}
+
+.sub-nav-dropdown:hover .sub-nav-panel {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(5px);
+}
+
+/* Panel items */
+.sub-nav-panel-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px 14px;
+    text-decoration: none;
+    color: #475569;
+    font-size: 0.85rem;
+    font-weight: 500;
+    border-radius: 8px;
+    transition: all 0.15s ease;
+}
+
+.sub-nav-panel-item:hover {
+    background: #f1f5f9;
+    color: #0f172a;
+}
+
+.sub-nav-panel-item.active {
+    background: #e0f2fe;
+    color: #0284c7;
+    font-weight: 600;
+}
+
+.sub-nav-panel-item img {
+    width: 20px;
+    height: 20px;
+}
+
+.sub-nav-panel-divider {
+    height: 1px;
+    background: #e2e8f0;
+    margin: 6px 0;
+}
+
+/* Animation khi hover */
+@media (min-width: 768px) {
+    .sub-navbar {
+        top: 90px;
+    }
+}
+
+
+
+/* ==================================================
+   DESKTOP SIDEBAR LAYOUT (Min-width: 900px)
+   Compact Sidebar Style (White/Light Theme)
+   ================================================== */
+@media (min-width: 900px) {
+    .sub-navbar {
+        top: 90px;
+        left: 0;
+        bottom: 0;
+        width: 86px; /* Slightly wider to fit text better */
+        height: calc(100vh - 90px);
+        
+        flex-direction: column;
+        align-items: center;
+        justify-content: flex-start;
+        padding: 32px 6px 24px 6px; /* Increased top padding to align with content */
+        gap: 6px;
+        
+        background-color: #ffffff;
+        border-right: 1px solid #e2e8f0;
+        /* ALLOW DROPDOWNS TO OVERFLOW: */
+        overflow: visible; 
+        box-shadow: none;
+        z-index: 50 !important; /* Desktop: Keep low to stay behind modals/backdrops */
+    }
+
+    /* Stack items vertically: Icon Top, Text Bottom */
+    .sub-nav-item {
+        width: 100%;
+        min-height: auto;
+        flex-direction: column;
+        justify-content: center;
+        text-align: center;
+        padding: 10px 2px;
+        gap: 4px;
+        margin-bottom: 0;
+        
+        color: #64748b;
+        font-size: 0.7rem; /* Balanced small size */
+        font-weight: 600;
+        line-height: 1.2; /* Tighter lines for wrapping */
+        white-space: normal; /* Force text wrapping */
+        word-wrap: break-word; /* Break long words if necessary */
+        
+        border-radius: 8px; 
+        transition: background-color 0.2s ease, color 0.2s ease; /* Transition only colors */
+        border: 1px solid transparent; 
+    }
+
+    /* Hover State */
+    .sub-nav-item:hover {
+        background: #f1f5f9;
+        color: #0f172a;
+        transform: none;
+        animation: none;
+        box-shadow: none;
+    }
+
+    /* Active State */
+    .sub-nav-item.active {
+        background: #eff6ff;
+        color: #0ea5e9;
+        border-color: #e0f2fe;
+    }
+
+    /* Sub Nav Icons */
+    .sub-nav-icon {
+        width: 24px;
+        height: 24px;
+        margin-bottom: 2px;
+        transition: none; /* Disable transition */
+        object-fit: contain;
+    }
+    
+    /* Removed hover scale effect */
+
+    /* Restore Dividers - Horizontal Separator */
+    .sub-nav-divider {
+        display: block;
+        width: 48px; /* Wider divider */
+        height: 1px;
+        background: #f1f5f9; /* Lighter divider */
+        margin: 6px auto;
+        flex-shrink: 0;
+    }
+
+    /* === Handle 'More' Dropdowns in Compact Mode === */
+    .sub-nav-dropdown {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        position: relative; /* Anchor for popup */
+    }
+
+    /* Remove arrow from 'More' items */
+    .sub-nav-dropdown > .sub-nav-item::after {
+        display: none;
+    }
+
+    /* Add a pseudo-icon for the "More" text */
+    .sub-nav-dropdown > .sub-nav-item span[data-i18n-key="common.more"]::before {
+        content: ""; 
+        display: block;
+        width: 20px;
+        height: 20px;
+        margin: 0 auto 4px auto;
+        background-color: currentColor;
+        /* Grid icon */
+        -webkit-mask: url("data:image/svg+xml,%3Csvg viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M4 4h4v4H4V4zm6 0h4v4h-4V4zm6 0h4v4h-4V4zM4 10h4v4H4v-4zm6 0h4v4h-4v-4zm6 0h4v4h-4v-4zM4 16h4v4H4v-4zm6 0h4v4h-4v-4zm6 0h4v4h-4v-4z'/%3E%3C/svg%3E") no-repeat center/contain;
+        mask: url("data:image/svg+xml,%3Csvg viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M4 4h4v4H4V4zm6 0h4v4h-4V4zm6 0h4v4h-4V4zM4 10h4v4H4v-4zm6 0h4v4h-4v-4zm6 0h4v4h-4v-4zM4 16h4v4H4v-4zm6 0h4v4h-4v-4zm6 0h4v4h-4v-4z'/%3E%3C/svg%3E") no-repeat center/contain;
+        opacity: 0.6;
+    }
+    
+    .sub-nav-dropdown > .sub-nav-item {
+        overflow: visible;
+    }
+
+    /* Dropdown Panel - Pop out to right */
+    .sub-nav-panel {
+        top: 0;
+        left: 80px; /* Anchor to right of sidebar */
+        margin-left: 14px;
+        transform: translateX(-10px);
+        
+        background: #ffffff;
+        border: 1px solid #e2e8f0;
+        box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.1);
+        padding: 12px;
+        
+        /* HIDE DELAY: Wait 0.1s before disappearing when mouse leaves */
+        transition: all 0.15s ease-out;
+        transition-delay: 0.07s; 
+    }
+    
+    /* Panel Triangle/Arrow */
+    .sub-nav-panel::before {
+        content: '';
+        position: absolute;
+        top: 24px;
+        left: -6px;
+        width: 12px;
+        height: 12px;
+        background: #ffffff;
+        transform: rotate(45deg);
+        border-left: 1px solid #e2e8f0;
+        border-bottom: 1px solid #e2e8f0;
+    }
+
+    /* INVISIBLE BRIDGE: Fills the gap between sidebar and menu so hover isn't lost */
+    .sub-nav-panel::after {
+        content: '';
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: -20px; /* Extend to the left to touch the sidebar */
+        width: 25px; /* Cover the gap */
+        background: transparent;
+        z-index: -1; 
+    }
+
+    .sub-nav-dropdown:hover .sub-nav-panel {
+        transform: translateX(0);
+        opacity: 1;
+        visibility: visible;
+        /* SHOW INSTANTLY: No delay when mouse enters */
+        transition-delay: 0s; 
+    }
+}
+
+/* ==================================================
+   CONTENT LAYOUT ADJUSTMENT
+   ================================================== */
+
+/* Mobile padding (unchanged) */
+body.has-sub-navbar .main-wrapper {
+    padding-top: 140px; 
+}
+
+/* Desktop padding adjustments for Compact Sidebar */
+@media (min-width: 900px) {
+    body.has-sub-navbar .main-wrapper {
+        padding-top: 110px !important; 
+        padding-left: 100px !important; /* Adjusted for 80px sidebar + gap */
+    }
+
+    body.has-sub-navbar .navbar { z-index: 1001; /* Tool bottom sheet */ }
+    
+    body.has-sub-navbar .container {
+        max-width: 1200px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+}
+
+/* ==================================================
+   DARK MODE OVERRIDES
+   ================================================== */
+body.dark-mode .sub-navbar {
+    background-color: #0f172a; 
+    border-color: #1e293b;
+}
+
+/* In dark mode, ensure panel is dark too */
+body.dark-mode .sub-nav-panel {
+    background: #1e293b;
+    border-color: #334155;
+    box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.5);
+}
+body.dark-mode .sub-nav-panel::before {
+    background: #1e293b;
+    border-color: #334155;
+}
+
+/* Re-apply desktop sidebar specific styling for items in dark mode */
+@media (min-width: 900px) {
+    body.dark-mode .sub-nav-item {
+        color: #7a7a7a;
+    }
+    
+    /* Make hover effect subtle and consistent with dark theme */
+    body.dark-mode .sub-nav-item:hover {
+        background: rgba(255, 255, 255, 0.08); /* Soft glass effect */
+        color: #4e4848;
+        transform: none; /* Remove movement */
+    }
+    
+    body.dark-mode .sub-nav-item.active {
+        color: #38bdf8;
+        background: rgba(56, 189, 248, 0.15);
+        border-color: transparent;
+    }
+    
+    /* Handle Panel Items in Dark Mode */
+    body.dark-mode .sub-nav-panel-item {
+        color: #94a3b8;
+    }
+    body.dark-mode .sub-nav-panel-item:hover {
+        background: rgba(255, 255, 255, 0.08); /* Dark hover for dropdown items */
+        color: #e2e8f0;
+    }
+    body.dark-mode .sub-nav-panel-item.active {
+        background: rgba(56, 189, 248, 0.15);
+        color: #38bdf8;
+    }
+
+    /* 1. Top-Level Icons (Basic Tools, Convert, etc.) - Make WHITE in Dark Mode */
+    body.dark-mode .sub-nav-icon {
+        filter: brightness(0) invert(1); /* Force to pure white */
+        opacity: 1;
+    }
+
+    /* 2. Dropdown Panel Icons (Merge, Word, Excel...) - Keep ORIGINAL COLORS */
+    body.dark-mode .sub-nav-panel-item img {
+        filter: none !important; /* No filter, show original colors */
+        opacity: 1;
+    }
+    
+    /* Remove hover/active color shifting for icons - Keep them stable */
+    body.dark-mode .sub-nav-item:hover .sub-nav-icon,
+    body.dark-mode .sub-nav-item.active .sub-nav-icon,
+    body.dark-mode .sub-nav-panel-item:hover img,
+    body.dark-mode .sub-nav-panel-item.active img {
+        /* Maintain the states defined above */
+    }
+    
+    /* Ensure more icon is visible in dark mode */
+    body.dark-mode .sub-nav-dropdown > .sub-nav-item span[data-i18n-key="common.more"]::before {
+        opacity: 1;
+        background-color: #ffffff; /* White "More" icon */
+    }
+    
+    body.dark-mode .sub-nav-dropdown:hover > .sub-nav-item span[data-i18n-key="common.more"]::before {
+        background-color: #ffffff;
+    }
+}
+
+/* ==================================================
+   HORSE ANIMATION BACKGROUND (YEAR OF 2026 BÍNH NGỌ)
+   ================================================== */
+.sidebar-horse-bg {
+    position: absolute;
+    top: 0; left: 0; width: 100%; height: 100%;
+    overflow: hidden; 
+    pointer-events: none;
+    z-index: 0;
+    opacity: 0.8;
+}
+
+body.dark-mode .sidebar-horse-bg {
+    opacity: 0.7;
+}
+
+.horse-group {
+    position: absolute;
+    display: flex;
+    flex-direction: row; /* Hàng ngang: Cờ đi sau, Ngựa đi trước */
+    align-items: center; 
+    top: 50%; /* Trả lại căn giữa theo chiều dọc ở Mobile */
+    transform: translateY(-50%);
+    left: -600px;
+    animation: horseRunHorizontal 14s linear infinite; 
+    pointer-events: none;
+}
+
+.horse-flag-container {
+    display: flex;
+    align-items: center;
+    position: relative;
+    border-right: none; /* Bỏ cột cờ */
+    padding-right: 0; 
+    height: auto; 
+    animation: bounceLogo 0.8s ease-in-out infinite alternate; 
+    z-index: 1; 
+}
+
+/* DÂY THỪNG (Rope) nối từ Logo tới Ngựa */
+.horse-flag-container::after {
+    content: '';
+    display: block;
+    width: 25px; /* Độ dài dây rút cực ngắn */
+    height: 10px;
+    border-bottom: 2px dashed #64748b; /* Nét đứt làm dây thừng */
+    border-radius: 50%; /* Dây thừng trĩu cong xuống nhịp nhàng */
+    margin-left: 2px; /* Dính sát logo */
+    margin-right: -25px; /* Buộc quấn sát vào đuôi ngựa */
+    transform: translateY(5px);
+}
+
+body.dark-mode .horse-flag-container::after {
+    border-bottom-color: #cbd5e1;
+}
+
+.horse-flag-img {
+    width: 200px;  /* Logo làm dãn dài và to ra theo đúng ý */
+    height: auto; 
+    object-fit: contain; 
+    filter: drop-shadow(2px 2px 4px rgba(0,0,0,0.3)); /* Trả lại drop shadow cho logo */
+}
+
+body.dark-mode .horse-flag-img {
+    /* KHÔNG dùng invert, chỉ đổ bóng sáng nhẹ để logo nổi trên nền đen */
+    filter: drop-shadow(1px 1px 3px rgba(255,255,255,0.4)) brightness(1.2);
+}
+
+.horse-animal-img {
+    height: 120px; 
+    width: auto;
+    object-fit: contain;
+    transform: scaleX(-1); 
+    /* BỎ mix-blend-mode để giữ nguyên màu giáp vàng/nền trong suốt gốc */
+    z-index: 2; 
+}
+
+body.dark-mode .horse-animal-img {
+    /* Gỡ invert để giữ đúng màu thật của ngựa trên darkmode */
+    filter: drop-shadow(0px 0px 5px rgba(255,255,255,0.2)); 
+}
+
+/* Hiệu ứng bụi đất văng tung tóe */
+.horse-dirt {
+    width: 5px;
+    height: 5px;
+    background: #a16207; /* Màu đất nâu */
+    border-radius: 50%;
+    position: absolute;
+    right: 25px; /* Rớt ở dưới chân gót ngựa */
+    bottom: 5px;
+    box-shadow: 
+        10px -10px 0 -1px #d97706, 
+        20px -5px 0 1px #78350f, 
+        15px -15px 0 -2px #b45309;
+    animation: dirtSplash 0.4s linear infinite;
+    z-index: 1;
+}
+
+body.dark-mode .horse-dirt {
+    background: #94a3b8; /* Bụi xám nhạt dạ quang ban đêm */
+    box-shadow: 
+        10px -10px 0 -1px #cbd5e1, 
+        20px -5px 0 1px #64748b, 
+        15px -15px 0 -2px #94a3b8;
+}
+
+@keyframes dirtSplash {
+    0% { transform: translate(0, 0) scale(1.5); opacity: 1; }
+    100% { 
+        transform: translate(-30px, 10px) scale(0); /* Bắn xuống đất và ra sau */
+        opacity: 0; 
+    }
+}
+
+/* Các item nổi lên trên con ngựa */
+.sub-nav-item, .sub-nav-divider, .sidebar-logo-link {
+    position: relative;
+    z-index: 2;
+}
+
+/* Mobile: Ngựa phi ngang sang phải */
+@keyframes horseRunHorizontal {
+    0% { left: -600px; }
+    100% { left: 100vw; }
+}
+
+/* Desktop: Ngựa phi từ dưới lên trên */
+@media (min-width: 900px) {
+    .horse-group {
+        top: auto;
+        left: 42px; /* Căn giữa hoàn hảo giữa lòng thanh Sidebar rộng 84px */
+        bottom: -600px;
+        transform: translateX(-50%) rotate(-90deg); 
+        animation: horseRunVertical 18s linear infinite; 
+    }
+}
+
+@keyframes horseRunVertical {
+    0% { bottom: -600px; }
+    100% { bottom: 120vh; } 
+}
+
+@keyframes bounceLogo {
+    0% { transform: translateY(0px) rotate(0deg); }
+    100% { transform: translateY(3px) rotate(-3deg); } /* Lắp bắp nẩy lên như đang bị ngựa kéo */
+}

@@ -1,0 +1,16 @@
+node_modules/
+dist/
+full.py
+translate.py
+bak/
+supabase/
+dich.py
+backup-service-worker.txt
+test/
+backend_win.exe
+tmp_pdftools_scan.json
+sitemap.xml
+manifest.json
+lib.dom.d.ts
+tools/
+wasm/

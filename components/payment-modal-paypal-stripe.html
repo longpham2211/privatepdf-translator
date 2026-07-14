@@ -1,0 +1,49 @@
+<div class="payment-modal-overlay" id="paymentModalOverlay">
+  <div class="payment-modal">
+    <button class="payment-modal-close" id="paymentModalClose">&times;</button>
+    
+    <div class="payment-modal-body">
+        <div class="summary-box">
+            <h2 data-i18n-key="payment.yourOrder">Đơn hàng của bạn</h2>
+            <div class="plan-details">
+                <strong data-i18n-key="payment.plan">Gói:</strong> <span id="checkout-plan-name">...</span>
+            </div>
+            <div class="price-details">
+                <strong data-i18n-key="payment.total">Tổng cộng:</strong> <span id="checkout-plan-price" class="price">...</span>
+            </div>
+            <p class="note" data-i18n-key="payment.upgradeNote">Bạn sẽ được nâng cấp ngay lập tức sau khi thanh toán thành công.</p>
+            <button id="backToPlansBtn" class="back-btn" data-i18n-key="payment.backToPlans">&larr; Quay lại chọn gói</button>
+        </div>
+
+        <div class="payment-box">
+            <h2 id="payment-box-title" data-i18n-key="payment.selectMethod">Chọn phương thức thanh toán</h2>
+            
+            <div class="payment-option" id="stripe-payment-option">
+                <h4 data-i18n-key="payment.creditDebit">Thẻ Tín dụng / Ghi nợ</h4>
+                <form id="payment-form">
+                    <div id="card-element">
+                        </div>
+                    <div id="card-errors" role="alert"></div>
+                    <button id="submit-button" class="pay-btn stripe-btn" data-i18n-key="payment.payNow">Thanh toán</button>
+                </form>
+            </div>
+
+            <div class="divider" id="payment-divider"><span data-i18n-key="common.or">hoặc</span></div>
+
+            <div class="payment-option" id="paypal-payment-option">
+                <h4>PayPal</h4>
+                <div id="paypal-button-container">
+                    </div>
+            </div>
+
+            <div class="payment-option" id="vn-payment-option">
+                <h4 data-i18n-key="payment.walletQR">Thanh toán qua Ví/QR</h4>
+                <div id="sepay-qr-container">
+                    <!-- SePay QR code sẽ được tạo tự động bởi JavaScript -->
+                </div>
+            </div>
+
+        </div>
+    </div>
+  </div>
+</div>
