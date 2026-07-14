@@ -12,6 +12,7 @@
   "devDependencies": {
     "assemblyscript": "^0.28.9",
     "electron": "^42.5.0",
+    "electron-builder": "^26.15.3",
     "supabase": "^2.64.2",
     "typescript": "^5.9.3",
     "uglify-js": "^3.19.3"
@@ -46,5 +47,33 @@
       "import": "./build/release.js",
       "types": "./build/release.d.ts"
     }
+  },
+  "build": {
+    "appId": "com.privatepdf.app",
+    "productName": "PrivatePDF",
+    "directories": {
+      "output": "dist"
+    },
+    "win": {
+      "target": "nsis",
+      "icon": "assets/logo/dautrangweb.png"
+    },
+    "mac": {
+      "target": "dmg",
+      "icon": "assets/logo/dautrangweb.png"
+    },
+    "linux": {
+      "target": "AppImage",
+      "icon": "assets/logo/dautrangweb.png"
+    },
+    "extraResources": [
+      {
+        "from": "backend",
+        "to": "backend",
+        "filter": [
+          "**/*"
+        ]
+      }
+    ]
   }
 }

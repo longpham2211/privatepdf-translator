@@ -50,8 +50,19 @@ jobs:
           path: backend/
 
       - name: Build ứng dụng (Electron Builder)
-        # Thay lệnh này bằng lệnh build thực tế trong package.json của bạn (vd: npm run dist)
-        run: npm run build
-        env:
-          # Token mặc định của GitHub dùng để tự động đính kèm file Setup (.exe, .dmg) vào Release
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        # Sử dụng npx để chạy electron-builder ngay lập tức
+        # Nó sẽ dựa vào hệ điều hành của máy ảo để build file tương ứng (.exe, .dmg, .AppImage)
+        run: npx electron-builder --publish never
+
+      - name: Upload Artifacts (Tải file cài đặt lên GitHub)
+        uses: actions/upload-artifact@v4
+        with:
+          # Đặt tên file artifact tùy theo hệ điều hành
+          name: privatepdf-app-${{ matrix.os }}
+          # Đường dẫn chứa file cài đặt sau khi build xong (thường nằm trong thư mục dist/)
+          path: |
+            dist/*.exe
+            dist/*.dmg
+            dist/*.AppImage
+            dist/*.snap
+            dist/*.deb
