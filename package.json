@@ -25,11 +25,8 @@
   },
   "name": "privatepdf-hosting",
   "version": "1.0.0",
-  "description": "",
+  "description": "PrivatePDF Desktop App",
   "main": "main.cjs",
-  "directories": {
-    "test": "test"
-  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/longpham2211/privatepdf-hosting.git"
