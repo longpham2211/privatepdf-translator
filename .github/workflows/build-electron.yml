@@ -1,0 +1,57 @@
+name: Build Electron App
+
+on:
+  release:
+    types: [created]
+  workflow_dispatch: # Cho phép bấm chạy thử bằng tay trên GitHub
+
+jobs:
+  build:
+    strategy:
+      matrix:
+        os: [windows-latest, macos-latest, ubuntu-latest]
+    
+    runs-on: ${{ matrix.os }}
+
+    steps:
+      - name: Lấy source code của Frontend (Electron)
+        uses: actions/checkout@v4
+
+      - name: Cài đặt Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Cài đặt thư viện (Dependencies)
+        run: npm install
+
+      # =========================================================
+      # TẢI BACKEND TỪ REPO PRIVATE 
+      # Sử dụng action chuyên tải Artifact từ repo khác
+      # =========================================================
+      - name: Download Backend Artifact từ Private Repo
+        uses: dawidd6/action-download-artifact@v3
+        with:
+          # Bắt buộc: Cần PAT Token có quyền 'repo' vì repo backend là Private
+          github_token: ${{ secrets.PAT_TOKEN }}
+          
+          # Tên repo chứa backend
+          repo: longpham2211/privatepdf-backend
+          
+          # Tên file workflow bên repo backend (Ví dụ: main.yml hoặc build.yml). Bạn cần sửa lại cho đúng tên file.
+          workflow: main.yml 
+          
+          workflow_conclusion: success
+          
+          # Tên Artifact (Dựa theo ảnh bạn chụp: backend-windows-latest, backend-macos-latest,...)
+          name: backend-${{ matrix.os }}
+          
+          # Lưu vào thư mục backend/ (giống với cấu trúc bạn đang có)
+          path: backend/
+
+      - name: Build ứng dụng (Electron Builder)
+        # Thay lệnh này bằng lệnh build thực tế trong package.json của bạn (vd: npm run dist)
+        run: npm run build
+        env:
+          # Token mặc định của GitHub dùng để tự động đính kèm file Setup (.exe, .dmg) vào Release
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
