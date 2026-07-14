@@ -51,8 +51,10 @@ jobs:
 
       - name: Build ứng dụng (Electron Builder)
         # Sử dụng npx để chạy electron-builder ngay lập tức
-        # Nó sẽ dựa vào hệ điều hành của máy ảo để build file tương ứng (.exe, .dmg, .AppImage)
-        run: npx electron-builder --publish never
+        # Đổi thành --publish always để tự động đẩy thẳng file .exe, .dmg lên trang Release của GitHub
+        run: npx electron-builder --publish always
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Upload Artifacts (Tải file cài đặt lên GitHub)
         uses: actions/upload-artifact@v4
