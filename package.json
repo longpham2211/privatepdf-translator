@@ -25,7 +25,7 @@
     "wasm-pack": "0.13.1"
   },
   "name": "privatepdf-translator",
-  "version": "1.0.13",
+  "version": "1.0.14",
   "description": "PrivatePDF Desktop App",
   "main": "main.cjs",
   "repository": {
@@ -71,7 +71,13 @@
           ]
         }
       ],
-      "icon": "assets/logo/dautrangweb.png"
+      "icon": "assets/logo/dautrangweb.png",
+      "extraResources": [
+        {
+          "from": "backend/backend_win_${arch}.exe",
+          "to": "backend/backend_win_${arch}.exe"
+        }
+      ]
     },
     "mac": {
       "target": [
@@ -90,7 +96,13 @@
           ]
         }
       ],
-      "icon": "assets/logo/dautrangweb.png"
+      "icon": "assets/logo/dautrangweb.png",
+      "extraResources": [
+        {
+          "from": "backend/backend_mac_${arch}",
+          "to": "backend/backend_mac_${arch}"
+        }
+      ]
     },
     "linux": {
       "target": [
@@ -111,13 +123,13 @@
           ]
         }
       ],
-      "icon": "assets/logo/dautrangweb.png"
-    },
-    "extraResources": [
-      {
-        "from": "backend/backend_${os}_${arch}*",
-        "to": "backend"
-      }
-    ]
+      "icon": "assets/logo/dautrangweb.png",
+      "extraResources": [
+        {
+          "from": "backend/backend_linux_${arch}",
+          "to": "backend/backend_linux_${arch}"
+        }
+      ]
+    }
   }
 }
