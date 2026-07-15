@@ -2,6 +2,8 @@
 
 <html lang="es">
 <head>
+<!-- FIRST: inline style to prevent white flash on Ctrl+R before any JS runs -->
+<style>html,body{background-color:#f8fafc;margin:0;padding:0;}html.dark-mode,html.dark-mode body{background-color:#0f172a!important;}</style>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
 <meta content="no-referrer" name="referrer"/>
@@ -10,26 +12,29 @@
 <link href="/assets/logo/dautrangweb.png" rel="icon" sizes="192x192" type="image/png"/>
 <link href="/assets/logo/dautrangweb.png" rel="apple-touch-icon"/>
 <script>
-        // Critical Script: Anti-FOUC (Dark Mode) & Language Fix
+        // Critical Script: Anti-FOUC (Dark Mode + Language + White Flash)
         // Executed immediately before page rendering
         (function () {
             // 1. Handle Dark Mode Immediately
             const isDark = localStorage.getItem('darkMode') === 'enabled';
             if (isDark) {
                 document.documentElement.classList.add('dark-mode');
-                // Force paint background dark immediately to stop white flash
                 document.documentElement.style.backgroundColor = '#0f172a';
                 document.documentElement.style.color = '#e2e8f0';
+                document.write('<style>html,body{background-color:#0f172a!important;color:#e2e8f0!important;}</style>');
+            } else {
+                document.write('<style>html,body{background-color:#f8fafc!important;}</style>');
             }
 
-            // 2. Handle Language Immediately
-            const savedLang = localStorage.getItem('selectedLanguage');
-            if (savedLang === 'en' || savedLang === 'vi') {
-                document.documentElement.lang = savedLang;
-            } else {
-                const browserLang = navigator.language || navigator.userLanguage;
-                document.documentElement.lang = browserLang.startsWith('vi') ? 'vi' : 'en';
-            }
+            // 2. Hide body immediately to prevent language flash
+            document.documentElement.style.opacity = '0';
+
+            // 3. Reveal after i18n applies (or fallback after 800ms)
+            window.__revealPage = function() {
+                document.documentElement.style.transition = 'opacity 0.12s ease';
+                document.documentElement.style.opacity = '1';
+            };
+            window.__revealPageTimer = setTimeout(window.__revealPage, 800);
         })();
     </script>
 <title>Traducir PDF: traduce tus archivos PDF gratis, rápido y fácil</title>
@@ -1374,7 +1379,7 @@
     </script>
 <header class="navbar">
 <div class="nav-left">
-<a href="/es/index.html" style="display: flex; align-items: center; text-decoration: none; color: inherit;">
+<a href="/es/index.html" onclick="event.preventDefault(); var url = this.href; document.body.style.transition='opacity 0.15s ease'; document.body.style.opacity='0'; setTimeout(function(){ window.location.href=url; }, 150);" style="display: flex; align-items: center; text-decoration: none; color: inherit; cursor: pointer;">
 <img alt="Logo" class="nav-logo" src="/../assets/logo/logomain.png"/>
 </a>
 </div>
@@ -1757,6 +1762,22 @@
 <!-- External Scripts -->
 <!-- Lemon Squeezy Checkout Overlay -->
 <script defer="" src="https://assets.lemonsqueezy.com/lemon.js"></script>
+<!-- Anti-FOUC: Intercept i18n CustomEvent BEFORE i18n.js runs -->
+<script>
+        (function () {
+            const _origDispatch = window.dispatchEvent.bind(window);
+            window.dispatchEvent = function (event) {
+                const result = _origDispatch(event);
+                if (event instanceof CustomEvent && typeof window.__revealPage === 'function') {
+                    clearTimeout(window.__revealPageTimer);
+                    window.__revealPage();
+                    window.__revealPage = null;
+                    window.dispatchEvent = _origDispatch;
+                }
+                return result;
+            };
+        })();
+    </script>
 <!-- JavaScript -->
 <script src="/language/i18n.js"></script>
 <!-- Supabase Auth -->

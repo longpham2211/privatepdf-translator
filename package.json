@@ -19,25 +19,26 @@
   },
   "dependencies": {
     "bytenode": "^1.6.0",
+    "electron-updater": "^6.8.9",
     "express": "^5.2.1",
     "python": "^0.0.4",
     "wasm-pack": "0.13.1"
   },
-  "name": "privatepdf-hosting",
+  "name": "privatepdf-translator",
   "version": "1.0.0",
   "description": "PrivatePDF Desktop App",
   "main": "main.cjs",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/longpham2211/privatepdf-hosting.git"
+    "url": "git+https://github.com/longpham2211/privatepdf-translator.git"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/longpham2211/privatepdf-hosting/issues"
+    "url": "https://github.com/longpham2211/privatepdf-translator/issues"
   },
-  "homepage": "https://github.com/longpham2211/privatepdf-hosting#readme",
+  "homepage": "https://github.com/longpham2211/privatepdf-translator#readme",
   "type": "module",
   "exports": {
     ".": {
@@ -47,7 +48,14 @@
   },
   "build": {
     "appId": "com.privatepdf.app",
-    "productName": "PrivatePDF",
+    "productName": "Privatepdf translator",
+    "publish": [
+      {
+        "provider": "github",
+        "owner": "longpham2211",
+        "repo": "privatepdf-translator"
+      }
+    ],
     "directories": {
       "output": "dist"
     },
@@ -63,14 +71,8 @@
       "target": "AppImage",
       "icon": "assets/logo/dautrangweb.png"
     },
-    "extraResources": [
-      {
-        "from": "backend",
-        "to": "backend",
-        "filter": [
-          "**/*"
-        ]
-      }
+    "asarUnpack": [
+      "backend/**/*"
     ]
   }
 }

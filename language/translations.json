@@ -530,7 +530,7 @@
       "pageCount": "{count} pages",
       "createFile": "Creating file...",
       "scanDetectedTitle": "Scanned PDF Detected",
-      "scanDetectedDesc": "Your file appears to be a scanned PDF. It cannot be translated directly. Would you like to perform optical character recognition (OCR) first?",
+      "scanDetectedDesc": "Your file appears to be a scanned PDF and can't be translated directly. Please OCR the file first. 😕",
       "scanCancel": "Cancel",
       "scanConfirm": "Go to OCR",
       "freeQuota": "Free translation: {count}/10 pages",
@@ -2448,7 +2448,6 @@
       "processingPdf": "Đang xử lý PDF...",
       "createFile": "Đang tạo file...",
       "scanDetectedTitle": "Phát hiện file scan",
-      "scanDetectedDesc": "File của bạn hiện tại không thể dịch trực tiếp vì là file scan. Bạn có muốn OCR trước khi dịch không?",
       "scanCancel": "Không, cảm ơn",
       "scanConfirm": "Có, đi tới OCR",
       "freeQuota": "Dịch miễn phí: {count}/10 trang",
@@ -2458,7 +2457,8 @@
       "unsupportedLanguageTitle": "Ngôn ngữ chưa hỗ trợ",
       "unsupportedLanguageDesc": "Phiên bản hiện tại chưa hỗ trợ render chất lượng cao cho tiếng Ấn Độ, Ả Rập và một số ngôn ngữ phức tạp khác và bạn không thể tải xuống vào lúc này ",
       "pageIndicator": "Trang {current}/{total}",
-      "translate-pdf-file": "Dịch PDF"
+      "translate-pdf-file": "Dịch PDF",
+      "scanDetectedDesc": "Tệp của bạn có vẻ là bản PDF được quét và không thể dịch trực tiếp. Vui lòng OCR tệp trước. 😕"
     },
     "chat-pdf": {
       "title": "Chat PDF - Trò chuyện và tóm tắt cùng file PDF",
@@ -6215,7 +6215,6 @@
       "pageCount": "{hitungan} halaman",
       "createFile": "Membuat berkas...",
       "scanDetectedTitle": "PDF yang dipindai Terdeteksi",
-      "scanDetectedDesc": "File Anda tampaknya merupakan PDF yang dipindai. Itu tidak dapat diterjemahkan secara langsung. Apakah Anda ingin melakukan pengenalan karakter optik (OCR) terlebih dahulu?",
       "scanCancel": "Membatalkan",
       "scanConfirm": "Pergi ke OCR",
       "freeQuota": "Terjemahan gratis: {count}/10 halaman",
@@ -6224,7 +6223,8 @@
       "upgradePro": "Tingkatkan PRO",
       "unsupportedLanguageTitle": "Bahasa Tidak Didukung",
       "unsupportedLanguageDesc": "Versi saat ini tidak mendukung rendering berkualitas tinggi untuk bahasa Hindi, Arab, dan beberapa skrip rumit lainnya. Ini mungkin tidak dapat dimuat saat ini.",
-      "pageIndicator": "Halaman {saat ini}/{total}"
+      "pageIndicator": "Halaman {saat ini}/{total}",
+      "scanDetectedDesc": "File Anda tampaknya merupakan PDF yang dipindai dan tidak dapat diterjemahkan secara langsung. Silakan OCR filenya terlebih dahulu. 😕"
     },
     "batchModal": {
       "title": "Tingkatkan ke Premium",
@@ -8194,7 +8194,6 @@
       "translateBeforeDownload": "Sila terjemah sebelum memuat turun!",
       "freeLimitNote": "Naik taraf kepada Pro untuk terjemahan tanpa had.",
       "freeLimitReached": "Anda telah mencapai had pelan percuma",
-      "scanDetectedDesc": "Fail anda kelihatan seperti PDF yang diimbas. Ia tidak boleh diterjemahkan secara langsung. Adakah anda ingin melakukan pengecaman aksara optik (OCR) dahulu?",
       "freeQuota": "Terjemahan percuma: {count}/10 halaman",
       "pageIndicator": "Halaman {current}/{total}",
       "unsupportedLanguageTitle": "Bahasa Tidak Disokong",
@@ -8204,7 +8203,8 @@
       "upgradePro": "Tingkatkan PRO",
       "pdfLibNotLoaded": "Pustaka PDF tidak dimuatkan. Sila tunggu sebentar.",
       "noTranslationData": "Tiada data terjemahan tersedia untuk mengeksport PDF",
-      "unsupportedLanguageDesc": "Versi semasa tidak menyokong pemaparan berkualiti tinggi untuk Hindi, Arab dan beberapa skrip kompleks lain. Ia mungkin tidak dimuatkan sekarang."
+      "unsupportedLanguageDesc": "Versi semasa tidak menyokong pemaparan berkualiti tinggi untuk Hindi, Arab dan beberapa skrip kompleks lain. Ia mungkin tidak dimuatkan sekarang.",
+      "scanDetectedDesc": "Fail anda kelihatan seperti PDF yang diimbas dan tidak boleh diterjemahkan secara langsung. Sila OCR fail dahulu. 😕"
     },
     "batchModal": {
       "title": "Naik taraf kepada Premium",
@@ -10183,8 +10183,8 @@
       "unsupportedLanguageDesc": "Den nuværende version understøtter ikke gengivelse af høj kvalitet til hindi, arabisk og nogle andre komplekse scripts. Den indlæses muligvis ikke lige nu.",
       "pageIndicator": "Opgrader til Premium",
       "upgradePro": "Opgrader PRO",
-      "scanDetectedDesc": "Din fil ser ud til at være en scannet PDF. Det kan ikke oversættes direkte. Vil du udføre optisk tegngenkendelse (OCR) først?",
-      "freeLimitNote": "Opgrader til Pro for ubegrænset oversættelse."
+      "freeLimitNote": "Opgrader til Pro for ubegrænset oversættelse.",
+      "scanDetectedDesc": "Din fil ser ud til at være en scannet PDF og kan ikke oversættes direkte. OCR filen først. 😕"
     },
     "batchModal": {
       "backBox": "Tilbage til Hjemmet",
@@ -12154,7 +12154,6 @@
       "noTranslationData": "Für den PDF-Export sind keine Übersetzungsdaten verfügbar",
       "collapseToolbar": "Symbolleiste ausblenden",
       "exportingPage": "Originaldatei nicht gefunden!",
-      "scanDetectedDesc": "Ihre Datei scheint eine gescannte PDF-Datei zu sein. Es kann nicht direkt übersetzt werden. Möchten Sie zunächst eine optische Zeichenerkennung (OCR) durchführen?",
       "scanDetectedTitle": "Gescanntes PDF erkannt",
       "createFile": "Datei wird erstellt...",
       "scanConfirm": "Gehen Sie zu OCR",
@@ -12164,7 +12163,8 @@
       "unsupportedLanguageDesc": "Die aktuelle Version unterstützt kein hochwertiges Rendering für Hindi, Arabisch und einige andere komplexe Skripte. Möglicherweise wird es gerade nicht geladen.",
       "upgradePro": "Upgrade PRO",
       "freeLimitNote": "Upgrade PRO",
-      "pageIndicator": "Seite {aktuell}/{gesamt}"
+      "pageIndicator": "Seite {aktuell}/{gesamt}",
+      "scanDetectedDesc": "Ihre Datei scheint eine gescannte PDF-Datei zu sein und kann nicht direkt übersetzt werden. Bitte OCR die Datei zuerst. 😕"
     },
     "batchModal": {
       "content": "Führen Sie ein Upgrade durch, um weitere neue Funktionen zu nutzen.",
@@ -14138,13 +14138,13 @@
       "freeQuota": "Traducción gratuita: {count}/10 páginas",
       "pdfLibNotLoaded": "Biblioteca PDF no cargada. Espere un momento.",
       "unsupportedLanguageTitle": "Idioma no admitido",
-      "scanDetectedDesc": "Su archivo parece ser un PDF escaneado. No se puede traducir directamente. ¿Le gustaría realizar primero el reconocimiento óptico de caracteres (OCR)?",
       "createFile": "Creando archivo...",
       "freeLimitReached": "Has alcanzado el límite del plan gratuito",
       "upgradePro": "Actualizar PRO",
       "freeLimitNote": "Actualice a Pro para obtener traducción ilimitada.",
       "unsupportedLanguageDesc": "La versión actual no admite renderizado de alta calidad para hindi, árabe y algunas otras escrituras complejas. Puede que no se esté cargando en este momento.",
-      "pageIndicator": "Página {actual}/{total}"
+      "pageIndicator": "Página {actual}/{total}",
+      "scanDetectedDesc": "Su archivo parece ser un PDF escaneado y no se puede traducir directamente. Primero realice el OCR del archivo. 😕"
     },
     "batchModal": {
       "title": "Actualizar a Premium",
@@ -16123,8 +16123,8 @@
       "scanDetectedTitle": "Votre fichier semble être un PDF numérisé. Il ne peut pas être traduit directement. Souhaitez-vous d'abord effectuer une reconnaissance optique de caractères (OCR) ?",
       "pageIndicator": "Page {actuelle}/{total}",
       "scanCancel": "Aller à l'OCR",
-      "scanDetectedDesc": "Votre fichier semble être un PDF numérisé. Il ne peut pas être traduit directement. Souhaitez-vous d'abord effectuer une reconnaissance optique de caractères (OCR) ?",
-      "freeLimitNote": "Passez à Pro pour une traduction illimitée."
+      "freeLimitNote": "Passez à Pro pour une traduction illimitée.",
+      "scanDetectedDesc": "Votre fichier semble être un PDF numérisé et ne peut pas être traduit directement. Veuillez d'abord OCR le fichier. 😕"
     },
     "batchModal": {
       "backBox": "Retour à la maison",
@@ -18101,10 +18101,10 @@
       "freeLimitReached": "Hai raggiunto il limite del piano gratuito",
       "unsupportedLanguageDesc": "La versione attuale non supporta il rendering di alta qualità per hindi, arabo e altri script complessi. Potrebbe non essere caricato in questo momento.",
       "freeQuota": "Traduzione gratuita: {count}/10 pagine",
-      "scanDetectedDesc": "Il tuo file sembra essere un PDF scansionato. Non può essere tradotto direttamente. Desideri eseguire prima il riconoscimento ottico dei caratteri (OCR)?",
       "upgradePro": "Aggiorna PRO",
       "unsupportedLanguageTitle": "Lingua non supportata",
-      "pageIndicator": "Pagina {corrente}/{totale}"
+      "pageIndicator": "Pagina {corrente}/{totale}",
+      "scanDetectedDesc": "Il tuo file sembra essere un PDF scansionato e non può essere tradotto direttamente. Per favore esegui prima l'OCR del file. 😕"
     },
     "batchModal": {
       "upgradeBtn": "Passa a Premium",
@@ -20076,7 +20076,6 @@
       "translateBeforeDownload": "Vertaal alstublieft voordat u downloadt!",
       "processingPdf": "PDF verwerken...",
       "freeLimitReached": "U heeft de gratis abonnementslimiet bereikt",
-      "scanDetectedDesc": "Uw bestand lijkt een gescande PDF te zijn. Het kan niet rechtstreeks worden vertaald. Wilt u eerst optische tekenherkenning (OCR) uitvoeren?",
       "pageIndicator": "Pagina {huidig}/{totaal}",
       "freeQuota": "Gratis vertaling: {count}/10 pagina's",
       "unsupportedLanguageDesc": "Pagina {huidig}/{totaal}",
@@ -20084,7 +20083,8 @@
       "scanDetectedTitle": "Gescande PDF gedetecteerd",
       "upgradePro": "Upgrade PRO",
       "freeLimitNote": "Upgrade naar Pro voor onbeperkt vertalen.",
-      "unsupportedLanguageTitle": "Niet-ondersteunde taal"
+      "unsupportedLanguageTitle": "Niet-ondersteunde taal",
+      "scanDetectedDesc": "Uw bestand lijkt een gescande PDF te zijn en kan niet rechtstreeks worden vertaald. OCR het bestand eerst. 😕"
     },
     "batchModal": {
       "upgradeBtn": "Upgrade naar Premium",
@@ -22058,13 +22058,13 @@
       "freeQuota": "Gratis oversettelse: {count}/10 sider",
       "unsupportedLanguageTitle": "Side {current}/{total}",
       "upgradePro": "Side {current}/{total}",
-      "scanDetectedDesc": "Filen din ser ut til å være en skannet PDF. Det kan ikke oversettes direkte. Vil du utføre optisk tegngjenkjenning (OCR) først?",
       "unsupportedLanguageDesc": "Oppgrader til Premium",
       "scanConfirm": "Gå til OCR",
       "scanDetectedTitle": "Skannet PDF oppdaget",
       "pageIndicator": "Oppgrader for å oppleve flere nye funksjoner.",
       "freeLimitReached": "Du har nådd grensen for gratisplaner",
-      "freeLimitNote": "Oppgrader til Pro for ubegrenset oversettelse."
+      "freeLimitNote": "Oppgrader til Pro for ubegrenset oversettelse.",
+      "scanDetectedDesc": "Filen din ser ut til å være en skannet PDF og kan ikke oversettes direkte. Vennligst OCR filen først. 😕"
     },
     "batchModal": {
       "upgradeBtn": "Oppgrader til Premium",
@@ -24035,7 +24035,6 @@
       "noTranslationData": "Brak danych tłumaczeniowych do eksportu do pliku PDF",
       "scanConfirm": "Osiągnąłeś limit bezpłatnego planu",
       "freeQuota": "Osiągnąłeś limit bezpłatnego planu",
-      "scanDetectedDesc": "Twój plik wygląda na zeskanowany plik PDF. Nie da się tego przetłumaczyć bezpośrednio. Czy chcesz najpierw przeprowadzić optyczne rozpoznawanie znaków (OCR)?",
       "pageCount": "{count} stron",
       "scanDetectedTitle": "Wykryto zeskanowany plik PDF",
       "pageIndicator": "Strona {bieżąca}/{łącznie}",
@@ -24044,7 +24043,8 @@
       "unsupportedLanguageTitle": "Nieobsługiwany język",
       "freeLimitNote": "Uaktualnij PRO",
       "processingPdf": "Przetwarzam plik PDF...",
-      "unsupportedLanguageDesc": "Bieżąca wersja nie obsługuje wysokiej jakości renderowania pism hindi, arabskich i niektórych innych złożonych pism. Być może w tej chwili się nie ładuje."
+      "unsupportedLanguageDesc": "Bieżąca wersja nie obsługuje wysokiej jakości renderowania pism hindi, arabskich i niektórych innych złożonych pism. Być może w tej chwili się nie ładuje.",
+      "scanDetectedDesc": "Twój plik wygląda na zeskanowany plik PDF i nie można go bezpośrednio przetłumaczyć. Najpierw wykonaj OCR pliku. 😕"
     },
     "batchModal": {
       "title": "Uaktualnij do wersji Premium",
@@ -26013,7 +26013,6 @@
       "createFile": "Criando arquivo...",
       "scanCancel": "Cancelar",
       "noTranslationData": "Não há dados de tradução disponíveis para exportar PDF",
-      "scanDetectedDesc": "Seu arquivo parece ser um PDF digitalizado. Não pode ser traduzido diretamente. Gostaria de realizar primeiro o reconhecimento óptico de caracteres (OCR)?",
       "freeLimitReached": "Você atingiu o limite do plano gratuito",
       "pageCount": "Criando arquivo...",
       "freeLimitNote": "Atualize para o Pro para tradução ilimitada.",
@@ -26024,7 +26023,8 @@
       "unsupportedLanguageDesc": "A versão atual não oferece suporte à renderização de alta qualidade para hindi, árabe e alguns outros scripts complexos. Pode não estar carregando agora.",
       "processingPdf": "Processando PDF...",
       "pageIndicator": "Página {atual}/{total}",
-      "unsupportedLanguageTitle": "A versão atual não oferece suporte à renderização de alta qualidade para hindi, árabe e alguns outros scripts complexos. Pode não estar carregando agora."
+      "unsupportedLanguageTitle": "A versão atual não oferece suporte à renderização de alta qualidade para hindi, árabe e alguns outros scripts complexos. Pode não estar carregando agora.",
+      "scanDetectedDesc": "Seu arquivo parece ser um PDF digitalizado e não pode ser traduzido diretamente. Faça o OCR do arquivo primeiro. 😕"
     },
     "batchModal": {
       "backBox": "De volta para casa",
@@ -27996,7 +27996,6 @@
       "noTranslationData": "Inga översättningsdata tillgängliga för att exportera PDF",
       "freeLimitNote": "Uppgradera till Pro för obegränsad översättning.",
       "pageCount": "Skapar fil...",
-      "scanDetectedDesc": "Din fil verkar vara en skannad PDF. Det går inte att översätta direkt. Vill du utföra optisk teckenigenkänning (OCR) först?",
       "createFile": "Skapar fil...",
       "unsupportedLanguageTitle": "Språk som inte stöds",
       "scanCancel": "Gå till OCR",
@@ -28004,7 +28003,8 @@
       "scanDetectedTitle": "Skannad PDF upptäckt",
       "unsupportedLanguageDesc": "Den nuvarande versionen stöder inte rendering av hög kvalitet för hindi, arabiska och vissa andra komplexa skript. Det kanske inte laddas just nu.",
       "freeQuota": "Fri översättning: {count}/10 sidor",
-      "pageIndicator": "Sida {current}/{total}"
+      "pageIndicator": "Sida {current}/{total}",
+      "scanDetectedDesc": "Din fil verkar vara en skannad PDF och kan inte översättas direkt. OCR filen först. 😕"
     },
     "batchModal": {
       "upgradeBtn": "Uppgradera till Premium",
@@ -29979,12 +29979,12 @@
       "noTranslationData": "PDF'yi dışa aktarmak için çeviri verisi yok",
       "freeLimitReached": "Ücretsiz plan sınırına ulaştınız",
       "freeLimitNote": "Sınırsız çeviri için Pro'ya yükseltin.",
-      "scanDetectedDesc": "Dosyanız taranmış bir PDF gibi görünüyor. Doğrudan tercüme edilemez. Önce optik karakter tanıma (OCR) işlemini gerçekleştirmek ister misiniz?",
       "createFile": "Dosya oluşturuluyor...",
       "upgradePro": "PRO'yu yükseltin",
       "pageCount": "{count} sayfa",
       "scanConfirm": "OCR'a git",
-      "unsupportedLanguageDesc": "Sayfa {güncel}/{toplam}"
+      "unsupportedLanguageDesc": "Sayfa {güncel}/{toplam}",
+      "scanDetectedDesc": "Dosyanız taranmış bir PDF gibi görünüyor ve doğrudan çevrilemiyor. Lütfen önce dosyayı OCR'layın. 😕"
     },
     "batchModal": {
       "backBox": "Ana Sayfaya Geri Dön",
@@ -31948,7 +31948,6 @@
       "noTranslationData": "Нет данных перевода для экспорта PDF.",
       "noOriginalFile": "Исходный файл не найден!",
       "pdfLibNotLoaded": "PDF-библиотека не загружена. Пожалуйста, подождите немного.",
-      "scanDetectedDesc": "Ваш файл выглядит как отсканированный PDF-файл. Его нельзя перевести напрямую. Хотите сначала выполнить оптическое распознавание символов (OCR)?",
       "processingPdf": "Обработка PDF-файла...",
       "freeLimitReached": "Вы достигли лимита бесплатного плана",
       "freeQuota": "Свободный перевод: {count}/10 страниц.",
@@ -31956,7 +31955,8 @@
       "unsupportedLanguageTitle": "Неподдерживаемый язык",
       "unsupportedLanguageDesc": "Текущая версия не поддерживает высококачественную визуализацию хинди, арабского языка и некоторых других сложных шрифтов. Возможно, он сейчас не загружается.",
       "freeLimitNote": "Обновите версию до Pro, чтобы получить неограниченный перевод.",
-      "pageIndicator": "Страница {текущая}/{всего}"
+      "pageIndicator": "Страница {текущая}/{всего}",
+      "scanDetectedDesc": "Ваш файл выглядит как отсканированный PDF-файл и не может быть переведен напрямую. Пожалуйста, сначала распознайте файл. 😕"
     },
     "edit-pdf": {
       "title": "Редактировать PDF — редактируйте PDF-файлы бесплатно, быстро и легко.",
@@ -33932,7 +33932,6 @@
       "freeLimitReached": "Ви досягли ліміту безкоштовного плану",
       "scanConfirm": "Безкоштовний переклад: {count}/10 сторінок",
       "unsupportedLanguageDesc": "Поточна версія не підтримує високоякісне відтворення для хінді, арабської та деяких інших складних писемностей. Можливо, зараз не завантажується.",
-      "scanDetectedDesc": "Ваш файл виглядає як відсканований PDF-файл. Це не можна перекласти безпосередньо. Бажаєте спочатку виконати оптичне розпізнавання символів (OCR)?",
       "noTranslationData": "Немає доступних даних перекладу для експорту PDF",
       "scanCancel": "Cancel",
       "translateBeforeDownload": "Please translate before downloading!",
@@ -33944,7 +33943,8 @@
       "unsupportedLanguageTitle": "Непідтримувана мова",
       "processingPdf": "{count} сторінок",
       "scanDetectedTitle": "Виявлено сканований PDF-файл",
-      "freeQuota": "Безкоштовний переклад: {count}/10 сторінок"
+      "freeQuota": "Безкоштовний переклад: {count}/10 сторінок",
+      "scanDetectedDesc": "Схоже, що ваш файл є відсканованим PDF-файлом, і його неможливо перекласти безпосередньо. Спочатку розпізнайте файл. 😕"
     },
     "batchModal": {
       "title": "Оновіть до Premium",
@@ -35915,7 +35915,6 @@
       "pdfLibNotLoaded": "لم يتم تحميل مكتبة PDF. من فضلك انتظر لحظة.",
       "pageCount": "{عدد} صفحة",
       "createFile": "جارٍ إنشاء الملف...",
-      "scanDetectedDesc": "يبدو أن ملفك عبارة عن ملف PDF ممسوح ضوئيًا. لا يمكن ترجمتها مباشرة. هل ترغب في إجراء التعرف البصري على الأحرف (OCR) أولاً؟",
       "freeQuota": "ترجمة مجانية: {count}/10 صفحات",
       "unsupportedLanguageTitle": "لغة غير مدعومة",
       "freeLimitNote": "الترقية إلى Pro للحصول على ترجمة غير محدودة.",
@@ -35924,7 +35923,8 @@
       "unsupportedLanguageDesc": "الإصدار الحالي لا يدعم العرض عالي الجودة للغة الهندية والعربية وبعض النصوص المعقدة الأخرى. ربما لا يتم التحميل الآن.",
       "scanConfirm": "لقد وصلت إلى الحد الأقصى للخطة المجانية",
       "freeLimitReached": "الترقية إلى Pro للحصول على ترجمة غير محدودة.",
-      "upgradePro": "ترقية للمحترفين"
+      "upgradePro": "ترقية للمحترفين",
+      "scanDetectedDesc": "يبدو أن ملفك عبارة عن ملف PDF ممسوح ضوئيًا ولا يمكن ترجمته مباشرة. يرجى التعرف الضوئي على الحروف على الملف أولاً. 😕"
     },
     "batchModal": {
       "title": "الترقية إلى بريميوم",
@@ -37898,13 +37898,13 @@
       "scanConfirm": "ओसीआर पर जाएं",
       "freeLimitReached": "आप मुफ़्त योजना की सीमा तक पहुँच गए हैं",
       "scanDetectedTitle": "स्कैन की गई पीडीएफ का पता चला",
-      "scanDetectedDesc": "आपकी फ़ाइल एक स्कैन की गई पीडीएफ प्रतीत होती है। इसका सीधे अनुवाद नहीं किया जा सकता. क्या आप पहले ऑप्टिकल कैरेक्टर रिकग्निशन (ओसीआर) करना चाहेंगे?",
       "pageIndicator": "पृष्ठ {वर्तमान}/{कुल}",
       "unsupportedLanguageTitle": "असमर्थित भाषा",
       "freeLimitNote": "असीमित अनुवाद के लिए प्रो में अपग्रेड करें।",
       "selectTargetLanguage": "कृपया अनुवाद करने से पहले एक लक्ष्य भाषा चुनें",
       "unsupportedLanguageDesc": "वर्तमान संस्करण हिंदी, अरबी और कुछ अन्य जटिल लिपियों के लिए उच्च गुणवत्ता वाले प्रतिपादन का समर्थन नहीं करता है। यह अभी लोड नहीं हो रहा होगा.",
-      "freeQuota": "मुफ़्त अनुवाद: {गिनती}/10 पृष्ठ"
+      "freeQuota": "मुफ़्त अनुवाद: {गिनती}/10 पृष्ठ",
+      "scanDetectedDesc": "आपकी फ़ाइल एक स्कैन की गई पीडीएफ प्रतीत होती है और इसका सीधे अनुवाद नहीं किया जा सकता। कृपया पहले फ़ाइल को OCR करें। 😕"
     },
     "batchModal": {
       "title": "प्रीमियम में अपग्रेड करें",
@@ -39871,7 +39871,6 @@
       "noTranslationData": "ไม่มีข้อมูลการแปลสำหรับส่งออก PDF",
       "freeQuota": "แปลฟรี: {count}/10 หน้า",
       "exportingPage": "กำลังส่งออกหน้า {current}/{total}...",
-      "scanDetectedDesc": "ไฟล์ของคุณดูเหมือนจะเป็น PDF ที่สแกนแล้ว ไม่สามารถแปลโดยตรงได้ คุณต้องการดำเนินการรู้จำอักขระด้วยแสง (OCR) ก่อนหรือไม่",
       "freeLimitNote": "อัปเกรดเป็น Pro เพื่อการแปลไม่จำกัด",
       "scanConfirm": "ไปที่โอซีอาร์",
       "pageCount": "{count} หน้า",
@@ -39884,7 +39883,8 @@
       "processingPdf": "กำลังประมวลผล PDF...",
       "scanDetectedTitle": "ตรวจพบ PDF ที่สแกนแล้ว",
       "freeLimitReached": "คุณใช้แผนฟรีถึงขีดจำกัดแล้ว",
-      "unsupportedLanguageDesc": "เวอร์ชันปัจจุบันไม่รองรับการเรนเดอร์คุณภาพสูงสำหรับภาษาฮินดี อาหรับ และสคริปต์ที่ซับซ้อนอื่นๆ ตอนนี้อาจจะโหลดไม่ได้"
+      "unsupportedLanguageDesc": "เวอร์ชันปัจจุบันไม่รองรับการเรนเดอร์คุณภาพสูงสำหรับภาษาฮินดี อาหรับ และสคริปต์ที่ซับซ้อนอื่นๆ ตอนนี้อาจจะโหลดไม่ได้",
+      "scanDetectedDesc": "ไฟล์ของคุณดูเหมือนจะเป็น PDF ที่สแกนแล้ว และไม่สามารถแปลได้โดยตรง กรุณา OCR ไฟล์ก่อน 😕"
     },
     "batchModal": {
       "upgradeBtn": "อัปเกรดเป็นพรีเมียม",
@@ -41859,12 +41859,12 @@
       "freeLimitReached": "무료 요금제 한도에 도달했습니다.",
       "upgradePro": "PRO 업그레이드",
       "scanConfirm": "OCR로 이동",
-      "scanDetectedDesc": "파일이 스캔된 PDF인 것 같습니다. 직접 번역할 수는 없습니다. 광학 문자 인식(OCR)을 먼저 수행하시겠습니까?",
       "freeQuota": "무료 번역: {count}/10페이지",
       "freeLimitNote": "무제한 번역을 원하시면 Pro로 업그레이드하세요.",
       "unsupportedLanguageDesc": "현재 버전은 힌디어, 아랍어 및 기타 복잡한 스크립트에 대한 고품질 렌더링을 지원하지 않습니다. 지금은 로드되지 않을 수도 있습니다.",
       "pageIndicator": "페이지 {현재}/{총계}",
-      "speed": "Speed:"
+      "speed": "Speed:",
+      "scanDetectedDesc": "파일이 스캔된 PDF인 것으로 나타나 직접 번역할 수 없습니다. 먼저 파일을 OCR해 주세요. 😕"
     },
     "batchModal": {
       "title": "프리미엄으로 업그레이드",
@@ -43837,14 +43837,14 @@
       "pdfLibNotLoaded": "PDF ライブラリがロードされていません。しばらくお待ちください。",
       "noTranslationData": "PDF をエクスポートできる翻訳データがありません",
       "upgradePro": "PRO をアップグレードする",
-      "scanDetectedDesc": "ファイルはスキャンされた PDF であるようです。直接訳すことはできません。最初に光学式文字認識 (OCR) を実行しますか?",
       "unsupportedLanguageTitle": "サポートされていない言語",
       "freeLimitReached": "無料プランの制限に達しました",
       "freeQuota": "無料翻訳: {count} / 10 ページ",
       "scanConfirm": "OCRに移動",
       "pageIndicator": "ページ {現在}/{合計}",
       "freeLimitNote": "Pro にアップグレードすると、無制限に翻訳できます。",
-      "unsupportedLanguageDesc": "現在のバージョンでは、ヒンディー語、アラビア語、その他の複雑な文字の高品質レンダリングはサポートされていません。現在ロードされていない可能性があります。"
+      "unsupportedLanguageDesc": "現在のバージョンでは、ヒンディー語、アラビア語、その他の複雑な文字の高品質レンダリングはサポートされていません。現在ロードされていない可能性があります。",
+      "scanDetectedDesc": "ファイルはスキャンされた PDF であるようで、直接翻訳できません。まずファイルを OCR してください。 😕"
     },
     "batchModal": {
       "title": "プレミアムにアップグレード",
@@ -45821,10 +45821,10 @@
       "freeQuota": "免费翻译：{count}/10 页",
       "scanConfirm": "转到光学字符识别",
       "freeLimitReached": "您已达到免费计划限制",
-      "scanDetectedDesc": "您的文件似乎是扫描的 PDF。不能直接翻译。您想先执行光学字符识别 (OCR) 吗？",
       "unsupportedLanguageDesc": "当前版本不支持印地语、阿拉伯语和其他一些复杂脚本的高质量渲染。它现在可能无法加载。",
       "pageIndicator": "页数 {当前}/{总计}",
-      "scanDetectedTitle": "检测到扫描的 PDF"
+      "scanDetectedTitle": "检测到扫描的 PDF",
+      "scanDetectedDesc": "您的文件似乎是扫描的 PDF，无法直接翻译。请先对文件进行 OCR。 😕"
     },
     "batchModal": {
       "backBox": "返回首页",
@@ -47797,14 +47797,14 @@
       "unsupportedLanguageTitle": "不支援的語言",
       "upgradePro": "升級專業版",
       "freeQuota": "免費翻譯：{count}/10 頁",
-      "scanDetectedDesc": "您的文件似乎是掃描的 PDF。不能直接翻譯。您想先執行光學字元辨識 (OCR) 嗎？",
       "freeLimitNote": "升級到專業版即可無限翻譯。",
       "scanDetectedTitle": "偵測到掃描的 PDF",
       "pageCount": "{count} 頁",
       "processingPdf": "處理 PDF...",
       "scanConfirm": "轉到光學字元識別",
       "pageIndicator": "頁數 {當前}/{總計}",
-      "unsupportedLanguageDesc": "当前版本不支持印地语、阿拉伯语和其他一些复杂脚本的高质量渲染。現在它可能無法加載。"
+      "unsupportedLanguageDesc": "当前版本不支持印地语、阿拉伯语和其他一些复杂脚本的高质量渲染。現在它可能無法加載。",
+      "scanDetectedDesc": "您的文件似乎是掃描的 PDF，無法直接翻譯。請先對文件進行 OCR。 😕"
     },
     "batchModal": {
       "benefit2": "批次處理。",

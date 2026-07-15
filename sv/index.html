@@ -2,7 +2,20 @@
 
 <html lang="sv">
 <head>
-<script>window.location.replace('/pdftools/translate-pdf/translate-pdf.html');</script>
+<!-- FIRST: inline style to prevent white flash on Ctrl+R before any JS runs -->
+<style>html,body{background-color:#f8fafc;margin:0;padding:0;}html.dark-mode,html.dark-mode body{background-color:#0a0a0a!important;}</style>
+<script>
+    // Anti-FOUC: set background immediately before redirect to avoid white flash
+    (function () {
+      var isDark = localStorage.getItem('darkMode') === 'enabled';
+      if (isDark) {
+        document.write('<style>html,body{background-color:#0a0a0a!important;}</style>');
+      } else {
+        document.write('<style>html,body{background-color:#f8fafc!important;}</style>');
+      }
+    })();
+    window.location.replace('/pdftools/translate-pdf/translate-pdf.html');
+  </script>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
 <title>PrivatePDF - En perfekt lösning för alla dina PDF-behov</title>

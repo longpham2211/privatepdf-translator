@@ -2,6 +2,46 @@
   box-sizing: border-box;
 }
 
+/* ===== Scrollbar ===== */
+
+/* ===== Scrollbar ===== */
+
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+  margin: 6px 0;
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg,
+      #4f8cff,
+      #3b6dff);
+  border-radius: 999px;
+  border: 2px solid transparent;
+  background-clip: padding-box;
+  transition: all .25s ease;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(180deg,
+      #6aa2ff,
+      #4f8cff);
+}
+
+::-webkit-scrollbar-thumb:active {
+  background: linear-gradient(180deg,
+      #2f6eff,
+      #1d5cff);
+}
+
+::-webkit-scrollbar-corner {
+  background: transparent;
+}
+
 body {
   font-family: 'Inter', sans-serif;
   margin: 0;
@@ -81,7 +121,7 @@ body.dark-mode .upload-box p {
   border-radius: 12px;
   /* Bo cong mượt mà hơn */
   background-color: #f3f8ff;
-  padding: 40px;
+  padding: 40px 40px;
   /* Giảm padding cứng để tự giãn đều */
   min-height: 480px;
   width: 100%;

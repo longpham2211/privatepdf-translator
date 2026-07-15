@@ -2,28 +2,31 @@
 
 <html lang="de">
 <head>
+<!-- FIRST: inline style to prevent white flash on Ctrl+R before any JS runs -->
+<style>html,body{background-color:#f8fafc;margin:0;padding:0;}html.dark-mode,html.dark-mode body{background-color:#0a0a0a!important;}</style>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
 <script>
-    // Critical Script: Anti-FOUC (Dark Mode) & Language Fix
-    // Executed immediately before page rendering
+    // Critical Script: Anti-FOUC (Dark Mode + Language + White Flash)
     (function () {
       // 1. Handle Dark Mode Immediately
       const isDark = localStorage.getItem('darkMode') === 'enabled';
       if (isDark) {
         document.documentElement.classList.add('dark-mode');
-        // Force paint background dark immediately to stop white flash
-        document.write('<style>html, body { background-color: #0a0a0a !important; color: #f8f9fa !important; }</style>');
+        document.write('<style>html,body{background-color:#0a0a0a!important;color:#f8f9fa!important;}</style>');
+      } else {
+        document.write('<style>html,body{background-color:#f8fafc!important;}</style>');
       }
 
-      // 2. Handle Language Immediately
-      const savedLang = localStorage.getItem('selectedLanguage');
-      if (savedLang === 'en' || savedLang === 'vi') {
-        document.documentElement.lang = savedLang;
-      } else {
-        const browserLang = navigator.language || navigator.userLanguage;
-        document.documentElement.lang = browserLang.startsWith('vi') ? 'vi' : 'en';
-      }
+      // 2. Hide immediately to prevent language FOUC
+      document.documentElement.style.opacity = '0';
+
+      // 3. Reveal after i18n applies (or fallback after 800ms)
+      window.__revealPage = function() {
+        document.documentElement.style.transition = 'opacity 0.12s ease';
+        document.documentElement.style.opacity = '1';
+      };
+      window.__revealPageTimer = setTimeout(window.__revealPage, 800);
     })();
   </script>
 <style>
@@ -284,8 +287,8 @@
   </script>
 <header class="navbar">
 <div class="nav-left">
-<a href="/de/pdftools/translate-pdf/translate-pdf.html" style="display: flex; align-items: center; text-decoration: none; color: inherit;">
-<img alt="Logo" class="nav-logo" src="/assets/logo/logomain.png"/>
+<a href="/de/index.html" onclick="event.preventDefault(); var url = this.href; document.body.style.transition='opacity 0.15s ease'; document.body.style.opacity='0'; setTimeout(function(){ window.location.href=url; }, 150);" style="display: flex; align-items: center; text-decoration: none; color: inherit; cursor: pointer;">
+<img alt="Logo" class="nav-logo" src="/../assets/logo/logomain.png"/>
 </a>
 </div>
 <!--navright-->
@@ -351,6 +354,22 @@
 <!-- External Scripts -->
 <!-- Lemon Squeezy Checkout Overlay -->
 <script defer="" src="https://assets.lemonsqueezy.com/lemon.js"></script>
+<!-- Anti-FOUC: Intercept i18n CustomEvent BEFORE i18n.js runs -->
+<script>
+    (function () {
+      var _orig = window.dispatchEvent.bind(window);
+      window.dispatchEvent = function (event) {
+        var result = _orig(event);
+        if (event instanceof CustomEvent && typeof window.__revealPage === 'function') {
+          clearTimeout(window.__revealPageTimer);
+          window.__revealPage();
+          window.__revealPage = null;
+          window.dispatchEvent = _orig;
+        }
+        return result;
+      };
+    })();
+  </script>
 <!-- JavaScript -->
 <script src="/language/i18n.js"></script>
 <!-- Supabase Auth -->
