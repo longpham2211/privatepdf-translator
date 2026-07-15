@@ -25,7 +25,7 @@
     "wasm-pack": "0.13.1"
   },
   "name": "privatepdf-translator",
-  "version": "1.0.11",
+  "version": "1.0.12",
   "description": "PrivatePDF Desktop App",
   "main": "main.cjs",
   "repository": {
@@ -115,8 +115,8 @@
     },
     "extraResources": [
       {
-        "from": "backend/backend_${os}_${arch}${ext}",
-        "to": "backend/backend_${os}_${arch}${ext}"
+        "from": "backend/backend_${os}_${arch}*",
+        "to": "backend"
       }
     ]
   }
