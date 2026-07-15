@@ -27,20 +27,52 @@ jobs:
       - name: Install Dependencies
         run: npm install
 
-      - name: Download Backend Artifact from Private Repo
+      - name: Download All Backend Artifacts
         uses: dawidd6/action-download-artifact@v3
         with:
           github_token: ${{ secrets.PAT_TOKEN }}
-          
           repo: longpham2211/privatepdf-backend
-          
           workflow: build.yml
-          
-          workflow_conclusion: success
-          
-          name: backend-${{ matrix.os }}
-          
-          path: backend/
+          workflow_conclusion: ""
+          path: backend-temp/
+        continue-on-error: true
+
+      - name: Re-organize Backend Files & Make Executable
+        run: |
+          mkdir -p backend
+          # Tới từng thư mục con lấy file đem ra ngoài backend/
+          if [ -d "backend-temp" ]; then
+            find backend-temp -type f -exec mv {} backend/ \;
+            rm -rf backend-temp
+          fi
+          # Cấp quyền cho Mac/Linux
+          chmod +x backend/backend_mac_* backend/backend_linux_* 2>/dev/null || true
+
+      - name: Filter Architectures based on available Backends
+        run: |
+          node -e "
+          const fs = require('fs');
+          const pkg = JSON.parse(fs.readFileSync('package.json'));
+          const hasFile = (f) => fs.existsSync('backend/' + f);
+          const platforms = {
+            mac: { prefix: 'backend_mac_', ext: '' },
+            win: { prefix: 'backend_win_', ext: '.exe' },
+            linux: { prefix: 'backend_linux_', ext: '' }
+          };
+          for (const [os, config] of Object.entries(platforms)) {
+            if (pkg.build[os] && pkg.build[os].target) {
+              pkg.build[os].target = pkg.build[os].target.filter(t => {
+                if (t.arch) {
+                  t.arch = t.arch.filter(a => hasFile(config.prefix + a + config.ext));
+                  return t.arch.length > 0;
+                }
+                return true;
+              });
+            }
+          }
+          fs.writeFileSync('package.json', JSON.stringify(pkg, null, 2));
+          console.log('Updated package.json architectures based on downloaded backends.');
+          "
 
       - name: Build Application (Electron Builder)
         run: npx electron-builder

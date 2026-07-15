@@ -25,7 +25,7 @@
     "wasm-pack": "0.13.1"
   },
   "name": "privatepdf-translator",
-  "version": "1.0.10",
+  "version": "1.0.11",
   "description": "PrivatePDF Desktop App",
   "main": "main.cjs",
   "repository": {
@@ -33,7 +33,7 @@
     "url": "git+https://github.com/longpham2211/privatepdf-translator.git"
   },
   "keywords": [],
-  "author": "longpham2211 <longpham2211@github.com>",
+  "author": "smallLab28 <longpham2211@github.com>",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/longpham2211/privatepdf-translator/issues"
@@ -115,11 +115,8 @@
     },
     "extraResources": [
       {
-        "from": "backend",
-        "to": "backend",
-        "filter": [
-          "**/*"
-        ]
+        "from": "backend/backend_${os}_${arch}${ext}",
+        "to": "backend/backend_${os}_${arch}${ext}"
       }
     ]
   }
