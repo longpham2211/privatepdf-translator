@@ -38,6 +38,7 @@ jobs:
         continue-on-error: true
 
       - name: Re-organize Backend Files & Make Executable
+        shell: bash
         run: |
           mkdir -p backend
           # Tới từng thư mục con lấy file đem ra ngoài backend/
