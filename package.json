@@ -25,7 +25,7 @@
     "wasm-pack": "0.13.1"
   },
   "name": "privatepdf-translator",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "PrivatePDF Desktop App",
   "main": "main.cjs",
   "repository": {
@@ -49,7 +49,7 @@
   "build": {
     "appId": "com.privatepdf.app",
     "productName": "Privatepdf translator",
-    "artifactName": "PrivatePDF-Setup.${ext}",
+    "artifactName": "Privatepdf-translator-setup.${ext}",
     "publish": [
       {
         "provider": "github",
@@ -61,15 +61,56 @@
       "output": "dist"
     },
     "win": {
-      "target": "nsis",
+      "target": [
+        {
+          "target": "nsis",
+          "arch": [
+            "x64",
+            "ia32",
+            "arm64"
+          ]
+        }
+      ],
       "icon": "assets/logo/dautrangweb.png"
     },
     "mac": {
-      "target": "dmg",
+      "target": [
+        {
+          "target": "dmg",
+          "arch": [
+            "x64",
+            "arm64"
+          ]
+        },
+        {
+          "target": "zip",
+          "arch": [
+            "x64",
+            "arm64"
+          ]
+        }
+      ],
       "icon": "assets/logo/dautrangweb.png"
     },
     "linux": {
-      "target": "AppImage",
+      "target": [
+        {
+          "target": "AppImage",
+          "arch": [
+            "x64",
+            "armv7l",
+            "arm64"
+          ]
+        },
+        {
+          "target": "deb",
+          "arch": [
+            "x64",
+            "armv7l",
+            "arm64"
+          ]
+        }
+      ],
       "icon": "assets/logo/dautrangweb.png"
     },
     "asarUnpack": [

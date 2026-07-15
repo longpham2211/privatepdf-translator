@@ -16,18 +16,18 @@ jobs:
     runs-on: ${{ matrix.os }}
 
     steps:
-      - name: Lấy source code của Frontend (Electron)
+      - name: Checkout Frontend Source Code
         uses: actions/checkout@v4
 
-      - name: Cài đặt Node.js
+      - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
           node-version: 20
 
-      - name: Cài đặt thư viện (Dependencies)
+      - name: Install Dependencies
         run: npm install
 
-      - name: Download Backend Artifact từ Private Repo
+      - name: Download Backend Artifact from Private Repo
         uses: dawidd6/action-download-artifact@v3
         with:
           github_token: ${{ secrets.PAT_TOKEN }}
@@ -42,13 +42,13 @@ jobs:
           
           path: backend/
 
-      - name: Build ứng dụng (Electron Builder)
-        
+      - name: Build Application (Electron Builder)
         run: npx electron-builder --publish always
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
-      - name: Upload Artifacts (Tải file cài đặt lên GitHub)
+      - name: Upload Artifacts to GitHub
         uses: actions/upload-artifact@v4
         with:
           name: privatepdf-app-${{ matrix.os }}
