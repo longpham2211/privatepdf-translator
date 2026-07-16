@@ -7,7 +7,7 @@ supabase/
 dich.py
 backup-service-worker.txt
 test/
-backend_win.exe
+backend_win_x64.exe
 tmp_pdftools_scan.json
 sitemap.xml
 manifest.json
