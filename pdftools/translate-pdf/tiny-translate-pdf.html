@@ -3,7 +3,19 @@
 
 <head>
     <!-- FIRST: inline style to prevent white flash on Ctrl+R before any JS runs -->
-    <style>html,body{background-color:#f8fafc;margin:0;padding:0;}html.dark-mode,html.dark-mode body{background-color:#0f172a!important;}</style>
+    <style>
+        html,
+        body {
+            background-color: #f8fafc;
+            margin: 0;
+            padding: 0;
+        }
+
+        html.dark-mode,
+        html.dark-mode body {
+            background-color: #0f172a !important;
+        }
+    </style>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="referrer" content="no-referrer" />
@@ -30,7 +42,7 @@
             document.documentElement.style.opacity = '0';
 
             // 3. Reveal after i18n applies (or fallback after 800ms)
-            window.__revealPage = function() {
+            window.__revealPage = function () {
                 document.documentElement.style.transition = 'opacity 0.12s ease';
                 document.documentElement.style.opacity = '1';
             };
@@ -186,12 +198,14 @@
 
         /* nơi chỉnh khoảng cách giữa navbar và dual view darkmode */
         body.dark-mode .dual-view-container {
-            padding-top: 134px; /* same as light mode mobile */
+            padding-top: 134px;
+            /* same as light mode mobile */
         }
 
         @media (min-width: 900px) {
             body.dark-mode .dual-view-container {
-                padding-top: 90px; /* same as light mode desktop */
+                padding-top: 90px;
+                /* same as light mode desktop */
                 padding-left: 0;
             }
 
@@ -1387,7 +1401,8 @@
     </script>
     <header class="navbar">
         <div class="nav-left">
-            <a href="../../index.html" onclick="event.preventDefault(); var url = this.href; document.body.style.transition='opacity 0.15s ease'; document.body.style.opacity='0'; setTimeout(function(){ window.location.href=url; }, 150);"
+            <a href="../../index.html"
+                onclick="event.preventDefault(); var url = this.href; document.body.style.transition='opacity 0.15s ease'; document.body.style.opacity='0'; setTimeout(function(){ window.location.href=url; }, 150);"
                 style="display: flex; align-items: center; text-decoration: none; color: inherit; cursor: pointer;">
                 <img src="../../../assets/logo/logomain.png" alt="Logo" class="nav-logo">
             </a>
@@ -1773,9 +1788,6 @@
                 <div class="panel-content" id="translationContainer">
                     <div class="translation-page"
                         style="display: flex; flex-direction: column; align-items: center; justify-content: center; color: #888; height: 100%; min-height: unset; box-shadow: none; background: transparent;">
-                        <div style="font-size: 3rem; margin-bottom: 1rem; opacity: 0.3;">TRANSLATE PDF</div>
-                        <p data-i18n-key="translate-pdf.startPrompt">Bấn <b>"Dịch ngay"</b> ở trên để bắt đầu dịch tài
-                            liệu này.</p>
                     </div>
                 </div>
             </div>
@@ -1830,7 +1842,7 @@
 
     <script src="../../js/modules/auth.js"></script>
     <script src="../../js/modules/premium.js"></script>
-    
+
     <script src="../../js/modules/settings.js"></script>
     <script src="../../js/main.js"></script>
     <script src="../../js/premium-access-control.js"></script>

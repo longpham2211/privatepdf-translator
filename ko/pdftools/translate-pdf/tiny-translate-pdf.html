@@ -3,7 +3,19 @@
 <html lang="ko">
 <head>
 <!-- FIRST: inline style to prevent white flash on Ctrl+R before any JS runs -->
-<style>html,body{background-color:#f8fafc;margin:0;padding:0;}html.dark-mode,html.dark-mode body{background-color:#0f172a!important;}</style>
+<style>
+        html,
+        body {
+            background-color: #f8fafc;
+            margin: 0;
+            padding: 0;
+        }
+
+        html.dark-mode,
+        html.dark-mode body {
+            background-color: #0f172a !important;
+        }
+    </style>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
 <meta content="no-referrer" name="referrer"/>
@@ -30,7 +42,7 @@
             document.documentElement.style.opacity = '0';
 
             // 3. Reveal after i18n applies (or fallback after 800ms)
-            window.__revealPage = function() {
+            window.__revealPage = function () {
                 document.documentElement.style.transition = 'opacity 0.12s ease';
                 document.documentElement.style.opacity = '1';
             };
@@ -179,12 +191,14 @@
 
         /* nơi chỉnh khoảng cách giữa navbar và dual view darkmode */
         body.dark-mode .dual-view-container {
-            padding-top: 134px; /* same as light mode mobile */
+            padding-top: 134px;
+            /* same as light mode mobile */
         }
 
         @media (min-width: 900px) {
             body.dark-mode .dual-view-container {
-                padding-top: 90px; /* same as light mode desktop */
+                padding-top: 90px;
+                /* same as light mode desktop */
                 padding-left: 0;
             }
 
@@ -1739,8 +1753,6 @@
 </div>
 <div class="panel-content" id="translationContainer">
 <div class="translation-page" style="display: flex; flex-direction: column; align-items: center; justify-content: center; color: #888; height: 100%; min-height: unset; box-shadow: none; background: transparent;">
-<div style="font-size: 3rem; margin-bottom: 1rem; opacity: 0.3;">TRANSLATE PDF</div>
-<p>이 문서의 번역을 시작하려면 위의 <b>'번역'</b>을 클릭하세요.</p>
 </div>
 </div>
 </div>

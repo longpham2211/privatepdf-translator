@@ -154,6 +154,9 @@
       "apiKey": "API Key",
       "apiKeyPlaceholder": "Enter your API Key...",
       "saveConfig": "Save Configuration",
+      "devicesTitle": "Device",
+      "devicesDesc": "Devices currently in use",
+      "deviceUsed": "Registered device",
       "hintGemini": "Get key at: aistudio.google.com/apikey",
       "hintChatGPT": "Get key at: platform.openai.com/api-keys",
       "hintGroq": "Get key at: console.groq.com/keys",
@@ -2174,7 +2177,10 @@
       "connectionError": "Lỗi kết nối:",
       "hintGroq": "Nhận key tại: console.groq.com/keys",
       "hintChatGPT": "Nhận key tại: platform.openai.com/api-keys",
-      "savedCors": "Đã lưu (không thể xác minh do CORS - khóa sẽ được kiểm tra trong quá trình dịch)"
+      "savedCors": "Đã lưu (không thể xác minh do CORS - khóa sẽ được kiểm tra trong quá trình dịch)",
+      "deviceUsed": "Thiết bị đã đăng ký",
+      "devicesTitle": "Thiết bị",
+      "devicesDesc": "Các thiết bị hiện đang được sử dụng"
     },
     "footer": {
       "compress": "Nén PDF",
@@ -5878,7 +5884,10 @@
       "hintGemini": "Dapatkan kunci di: aistudio.google.com/apikey",
       "connectionError": "Kesalahan koneksi:",
       "unsupportedProvider": "Penyedia tidak didukung",
-      "invalidKeyHttp": "Kunci Tidak Valid"
+      "invalidKeyHttp": "Kunci Tidak Valid",
+      "devicesTitle": "Perangkat",
+      "deviceUsed": "Perangkat terdaftar",
+      "devicesDesc": "Perangkat yang sedang digunakan"
     },
     "state": {
       "slogan": "Privasi, Keamanan.",
@@ -7858,7 +7867,10 @@
       "unsupportedProvider": "Pembekal yang tidak disokong",
       "connectionError": "Ralat sambungan:",
       "enterApiKey": "Sila masukkan Kunci API!",
-      "checkingKey": "Menyemak..."
+      "checkingKey": "Menyemak...",
+      "devicesDesc": "Peranti yang sedang digunakan",
+      "devicesTitle": "Peranti",
+      "deviceUsed": "Peranti berdaftar"
     },
     "footer": {
       "contact": "Kenalan",
@@ -9838,7 +9850,10 @@
       "hintGemini": "Få nøglen på: aistudio.google.com/apikey",
       "hintChatGPT": "Få nøglen på: platform.openai.com/api-keys",
       "hintGroq": "Få nøglen på: console.groq.com/keys",
-      "hintClaude": "Få nøglen på: console.anthropic.com/settings/keys"
+      "hintClaude": "Få nøglen på: console.anthropic.com/settings/keys",
+      "devicesTitle": "Enhed",
+      "deviceUsed": "Registreret enhed",
+      "devicesDesc": "Enheder i brug i øjeblikket"
     },
     "footer": {
       "feature": "PDF-værktøjer",
@@ -11818,7 +11833,10 @@
       "switchedToGoogle": "Auf kostenlosen Google Translate umgestellt!",
       "keyValidSaved": "Gültiger API-Schlüssel! Gespeichert {provider} – Modell: {model}",
       "unsupportedProvider": "Nicht unterstützter Anbieter",
-      "savedCors": "Gespeichert (kann aufgrund von CORS nicht überprüft werden – Schlüssel wird während der Übersetzung überprüft)"
+      "savedCors": "Gespeichert (kann aufgrund von CORS nicht überprüft werden – Schlüssel wird während der Übersetzung überprüft)",
+      "devicesTitle": "Gerät",
+      "deviceUsed": "Registriertes Gerät",
+      "devicesDesc": "Derzeit verwendete Geräte"
     },
     "state": {
       "slogan": "Datenschutz, Sicherheit.",
@@ -13798,7 +13816,10 @@
       "keyValidSaved": "¡Clave API válida! {proveedor} guardado - Modelo: {modelo}",
       "connectionError": "Error de conexión:",
       "invalidKeyHttp": "Clave no válida",
-      "unsupportedProvider": "Proveedor no compatible"
+      "unsupportedProvider": "Proveedor no compatible",
+      "devicesTitle": "Dispositivo",
+      "deviceUsed": "Dispositivo registrado",
+      "devicesDesc": "Dispositivos actualmente en uso"
     },
     "footer": {
       "merge": "Fusionar PDF",
@@ -15778,7 +15799,10 @@
       "connectionError": "Erreur de connexion :",
       "keyValidSaved": "Clé API valide ! {provider} enregistré – Modèle : {model}",
       "unsupportedProvider": "Fournisseur non pris en charge",
-      "savedCors": "Enregistré (impossible de vérifier en raison de CORS — la clé sera vérifiée pendant la traduction)"
+      "savedCors": "Enregistré (impossible de vérifier en raison de CORS — la clé sera vérifiée pendant la traduction)",
+      "devicesTitle": "Appareil",
+      "devicesDesc": "Appareils actuellement utilisés",
+      "deviceUsed": "Appareil enregistré"
     },
     "footer": {
       "contact": "Contact",
@@ -17758,7 +17782,10 @@
       "keyValidSaved": "Chiave API valida! {provider} salvato: modello: {model}",
       "hintGemini": "Ottieni la chiave su: aistudio.google.com/apikey",
       "connectionError": "Errore di connessione:",
-      "unsupportedProvider": "Fornitore non supportato"
+      "unsupportedProvider": "Fornitore non supportato",
+      "devicesTitle": "Dispositivo",
+      "devicesDesc": "Dispositivi attualmente in uso",
+      "deviceUsed": "Dispositivo registrato"
     },
     "state": {
       "slogan": "Privacy, sicurezza.",
@@ -19738,7 +19765,10 @@
       "keyValidSaved": "Geldige API-sleutel! {provider} opgeslagen — Model: {model}",
       "checkingKey": "Controleren...",
       "hintChatGPT": "Haal de sleutel op: platform.openai.com/api-keys",
-      "hintGemini": "Haal de sleutel op: aistudio.google.com/apikey"
+      "hintGemini": "Haal de sleutel op: aistudio.google.com/apikey",
+      "devicesTitle": "Apparaat",
+      "devicesDesc": "Apparaten die momenteel in gebruik zijn",
+      "deviceUsed": "Geregistreerd apparaat"
     },
     "state": {
       "slogan": "Privacy, veiligheid.",
@@ -21718,7 +21748,10 @@
       "hintGemini": "Få nøkkel på: aistudio.google.com/apikey",
       "hintGroq": "Få nøkkel på: console.groq.com/keys",
       "hintChatGPT": "Få nøkkel på: platform.openai.com/api-keys",
-      "hintClaude": "Få nøkkel på: console.anthropic.com/settings/keys"
+      "hintClaude": "Få nøkkel på: console.anthropic.com/settings/keys",
+      "devicesTitle": "Enhet",
+      "deviceUsed": "Registrert enhet",
+      "devicesDesc": "Enheter som er i bruk"
     },
     "footer": {
       "aboutUs": "Om oss",
@@ -23698,7 +23731,10 @@
       "hintClaude": "Zdobądź klucz pod adresem: console.anthropic.com/settings/keys",
       "invalidKeyHttp": "Nieprawidłowy klucz",
       "enterApiKey": "Proszę wprowadzić klucz API!",
-      "hintChatGPT": "Zdobądź klucz na: platform.openai.com/api-keys"
+      "hintChatGPT": "Zdobądź klucz na: platform.openai.com/api-keys",
+      "devicesTitle": "Urządzenie",
+      "deviceUsed": "Zarejestrowane urządzenie",
+      "devicesDesc": "Urządzenia aktualnie używane"
     },
     "footer": {
       "description": "PrivatePDF — świetne rozwiązanie dla Ciebie.",
@@ -25678,7 +25714,10 @@
       "invalidKeyHttp": "Chave inválida",
       "savedCors": "Salvo (não é possível verificar devido ao CORS — a chave será verificada durante a tradução)",
       "hintClaude": "Obtenha a chave em: console.anthropic.com/settings/keys",
-      "keyValidSaved": "Chave de API válida! {provider} salvo — Modelo: {model}"
+      "keyValidSaved": "Chave de API válida! {provider} salvo — Modelo: {model}",
+      "devicesTitle": "Dispositivo",
+      "deviceUsed": "Dispositivo registrado",
+      "devicesDesc": "Dispositivos atualmente em uso"
     },
     "state": {
       "slogan": "Privacidade, segurança.",
@@ -27658,7 +27697,10 @@
       "keyValidSaved": "Giltig API-nyckel! Sparad {provider} — Modell: {model}",
       "enterApiKey": "Vänligen ange en API-nyckel!",
       "unsupportedProvider": "Ej stödd leverantör",
-      "savedCors": "Sparad (kan inte verifieras på grund av CORS - nyckel kommer att kontrolleras under översättning)"
+      "savedCors": "Sparad (kan inte verifieras på grund av CORS - nyckel kommer att kontrolleras under översättning)",
+      "devicesTitle": "Anordning",
+      "deviceUsed": "Registrerad enhet",
+      "devicesDesc": "Enheter som används för närvarande"
     },
     "footer": {
       "feature": "PDF-verktyg",
@@ -29638,7 +29680,10 @@
       "keyValidSaved": "Geçerli API Anahtarı! {provider} kaydedildi — Model: {model}",
       "switchedToGoogle": "Ücretsiz Google Çeviri'ye geçildi!",
       "enterApiKey": "Lütfen bir API Anahtarı girin!",
-      "unsupportedProvider": "Desteklenmeyen sağlayıcı"
+      "unsupportedProvider": "Desteklenmeyen sağlayıcı",
+      "devicesTitle": "Cihaz",
+      "deviceUsed": "Kayıtlı cihaz",
+      "devicesDesc": "Şu anda kullanımda olan cihazlar"
     },
     "footer": {
       "split": "PDF'yi böl",
@@ -31618,7 +31663,10 @@
       "keyValidSaved": "Действительный ключ API! Сохранено {provider} — Модель: {model}.",
       "invalidKeyHttp": "Неверный ключ",
       "enterApiKey": "Пожалуйста, введите ключ API!",
-      "switchedToGoogle": "Перешел на бесплатный Google Translate!"
+      "switchedToGoogle": "Перешел на бесплатный Google Translate!",
+      "devicesTitle": "Устройство",
+      "devicesDesc": "Устройства, используемые в настоящее время",
+      "deviceUsed": "Зарегистрированное устройство"
     },
     "footer": {
       "description": "PrivatePDF — отличное решение для вас.",
@@ -33598,7 +33646,10 @@
       "enterApiKey": "Будь ласка, введіть ключ API!",
       "keyValidSaved": "Дійсний ключ API! Збережено {provider} — Модель: {model}",
       "connectionError": "Помилка підключення:",
-      "switchedToGoogle": "Перейшов на безкоштовний Google Translate!"
+      "switchedToGoogle": "Перейшов на безкоштовний Google Translate!",
+      "devicesTitle": "пристрій",
+      "devicesDesc": "Пристрої, які зараз використовуються",
+      "deviceUsed": "Зареєстрований пристрій"
     },
     "state": {
       "slogan": "Конфіденційність, безпека.",
@@ -35578,7 +35629,10 @@
       "connectionError": "خطأ في الاتصال:",
       "hintClaude": "احصل على المفتاح على: console.anthropic.com/settings/keys",
       "hintGroq": "احصل على المفتاح على: console.groq.com/keys",
-      "checkingKey": "جارٍ التحقق..."
+      "checkingKey": "جارٍ التحقق...",
+      "devicesTitle": "جهاز",
+      "devicesDesc": "الأجهزة المستخدمة حاليا",
+      "deviceUsed": "الجهاز المسجل"
     },
     "footer": {
       "feature": "أدوات قوات الدفاع الشعبي",
@@ -37558,7 +37612,10 @@
       "switchedToGoogle": "निःशुल्क Google अनुवाद पर स्विच किया गया!",
       "hintGemini": "यहां कुंजी प्राप्त करें: aistudio.google.com/apikey",
       "keyValidSaved": "वैध एपीआई कुंजी! सहेजा गया {प्रदाता} — मॉडल: {मॉडल}",
-      "unsupportedProvider": "असमर्थित प्रदाता"
+      "unsupportedProvider": "असमर्थित प्रदाता",
+      "devicesTitle": "उपकरण",
+      "devicesDesc": "वर्तमान में उपयोग में आने वाले उपकरण",
+      "deviceUsed": "पंजीकृत डिवाइस"
     },
     "state": {
       "slogan": "निजता एवं सुरक्षा।",
@@ -39538,7 +39595,10 @@
       "switchedToGoogle": "เปลี่ยนไปใช้ Google แปลภาษาฟรีแล้ว!",
       "savedCors": "บันทึกแล้ว (ไม่สามารถตรวจสอบได้เนื่องจาก CORS — รหัสจะถูกตรวจสอบระหว่างการแปล)",
       "unsupportedProvider": "ผู้ให้บริการที่ไม่รองรับ",
-      "keyValidSaved": "คีย์ API ที่ถูกต้อง! บันทึก {ผู้ให้บริการ} — รุ่น: {model}"
+      "keyValidSaved": "คีย์ API ที่ถูกต้อง! บันทึก {ผู้ให้บริการ} — รุ่น: {model}",
+      "devicesTitle": "อุปกรณ์",
+      "deviceUsed": "อุปกรณ์ที่ลงทะเบียน",
+      "devicesDesc": "อุปกรณ์ที่ใช้งานอยู่ในปัจจุบัน"
     },
     "footer": {
       "feature": "เครื่องมือ PDF",
@@ -41518,7 +41578,10 @@
       "savedCors": "저장됨(CORS로 인해 확인할 수 없음 - 번역 중에 키가 확인됨)",
       "unsupportedProvider": "지원되지 않는 제공업체",
       "enterApiKey": "API 키를 입력해주세요!",
-      "connectionError": "연결 오류:"
+      "connectionError": "연결 오류:",
+      "devicesTitle": "장치",
+      "deviceUsed": "등록된 기기",
+      "devicesDesc": "현재 사용중인 기기"
     },
     "footer": {
       "compress": "PDF 압축",
@@ -43498,7 +43561,10 @@
       "hintClaude": "キーを入手: console.anthropic.com/settings/keys",
       "hintChatGPT": "キーを入手するには: platform.openai.com/api-keys",
       "unsupportedProvider": "サポートされていないプロバイダー",
-      "keyValidSaved": "有効なAPIキーです!保存された {provider} — モデル: {model}"
+      "keyValidSaved": "有効なAPIキーです!保存された {provider} — モデル: {model}",
+      "devicesTitle": "デバイス",
+      "deviceUsed": "登録済みのデバイス",
+      "devicesDesc": "現在使用中のデバイス"
     },
     "state": {
       "express": "PDF、画像、テキストの処理ツールを無料で無制限にアップロードできます。",
@@ -45478,7 +45544,10 @@
       "unsupportedProvider": "不受支持的提供商",
       "enterApiKey": "请输入 API 密钥！",
       "connectionError": "连接错误：",
-      "keyValidSaved": "有效的 API 密钥！已保存的 {provider} — 模型：{model}"
+      "keyValidSaved": "有效的 API 密钥！已保存的 {provider} — 模型：{model}",
+      "devicesTitle": "设备",
+      "deviceUsed": "注册设备",
+      "devicesDesc": "当前使用的设备"
     },
     "footer": {
       "compress": "压缩PDF",
@@ -47458,7 +47527,10 @@
       "hintClaude": "取得金鑰：console.anthropic.com/settings/keys",
       "enterApiKey": "請輸入 API 金鑰！",
       "hintGemini": "取得金鑰：aistudio.google.com/apikey",
-      "keyValidSaved": "有效的 API 金鑰！已儲存的 {provider} — 模型：{model}"
+      "keyValidSaved": "有效的 API 金鑰！已儲存的 {provider} — 模型：{model}",
+      "devicesTitle": "裝置",
+      "deviceUsed": "註冊設備",
+      "devicesDesc": "目前使用的設備"
     },
     "footer": {
       "split": "分割PDF",

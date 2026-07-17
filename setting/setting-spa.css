@@ -76,6 +76,38 @@ body.dark-mode #settings-overlay {
     }
 }
 
+/* Device Management */
+
+#deviceManagementCard {
+    display: none;
+}
+
+.device-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.device-title {
+    margin-bottom: 0;
+}
+
+.device-count {
+    font-size: 0.9rem;
+}
+
+.device-list {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-top: 15px;
+}
+
+.loading-device {
+    font-size: 0.9rem;
+}
+
 #settings-overlay .settings-layout {
     display: flex;
     height: 100%;
