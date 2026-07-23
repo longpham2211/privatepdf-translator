@@ -3,7 +3,19 @@
 <html lang="ms">
 <head>
 <!-- FIRST: inline style to prevent white flash on Ctrl+R before any JS runs -->
-<style>html,body{background-color:#f8fafc;margin:0;padding:0;}html.dark-mode,html.dark-mode body{background-color:#0a0a0a!important;}</style>
+<style>
+    html,
+    body {
+      background-color: #f8fafc;
+      margin: 0;
+      padding: 0;
+    }
+
+    html.dark-mode,
+    html.dark-mode body {
+      background-color: #0a0a0a !important;
+    }
+  </style>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
 <script>
@@ -22,7 +34,7 @@
       document.documentElement.style.opacity = '0';
 
       // 3. Reveal after i18n applies (or fallback after 800ms)
-      window.__revealPage = function() {
+      window.__revealPage = function () {
         document.documentElement.style.transition = 'opacity 0.12s ease';
         document.documentElement.style.opacity = '1';
       };
@@ -335,7 +347,40 @@
             <span style="font-size: 20px;"></span>
             <span>Hệ thống đang bảo trì tính năng dịch PDF. Vì số người dùng quá đông nên hệ thống tạm thời không thể xử lý yêu cầu của quý khách. Mong quý khách thông cảm.</span>
         </div>
-<!---->
+ <!-- PREMIUM LIMIT MODAL -->
+<div id="authTipsBanner" style="
+      margin-bottom: 24px;
+      margin-top: -20px;
+      padding: 12px 20px;
+      background: linear-gradient(135deg, #eef2ff 0%, #e0e7ff 100%);
+      border: 1px solid #c7d2fe;
+      border-radius: 8px;
+      color: #3730a3;
+      font-size: 14px;
+      font-weight: 500;
+      display: flex;
+      white-space: nowrap;
+      align-items: center;
+      gap: 10px;
+      box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
+      position: relative;
+      z-index: 10;
+      width: 100%;
+      max-width: 500px;
+      box-sizing: border-box;
+      justify-content: center;
+    ">
+<span><strong>Tips:</strong> Log in to configure fonts for PDF exports and enable dark mode! 😉</span>
+</div>
+<script>
+      (function () {
+        try {
+          if (localStorage.getItem('isLoggedIn') === 'true') {
+            document.getElementById('authTipsBanner').style.display = 'none';
+          }
+        } catch (e) { }
+      })();
+    </script>
 <div class="upload-box" id="dropZone">
 <div class="select-area">
 <button class="select-btn" id="selectBtn" type="button">
@@ -350,7 +395,6 @@
 <div class="file-list" id="fileList"></div>
 </div>
 </div>
-<!-- PREMIUM LIMIT MODAL -->
 <!-- External Scripts -->
 <!-- Lemon Squeezy Checkout Overlay -->
 <script defer="" src="https://assets.lemonsqueezy.com/lemon.js"></script>

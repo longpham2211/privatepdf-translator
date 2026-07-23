@@ -183,12 +183,13 @@
       "hintChatGPT": "Get key at: platform.openai.com/api-keys",
       "hintGroq": "Get key at: console.groq.com/keys",
       "hintClaude": "Get key at: console.anthropic.com/settings/keys",
+      "hintDeepL": "Get DeepL Auth Key at: www.deepl.com/pro-api (free keys end with :fx)",
       "switchedToGoogle": "Switched to free Google Translate!",
       "enterApiKey": "Please enter an API Key!",
       "checkingKey": "Checking...",
       "unsupportedProvider": "Unsupported provider",
       "invalidKeyHttp": "Invalid Key",
-      "keyValidSaved": "Valid API Key! Saved {provider} — Model: {model}",
+      "keyValidSaved": "Valid API Key! Saved {provider}",
       "savedCors": "Saved (cannot verify due to CORS — key will be checked during translation)",
       "connectionError": "Connection error: ",
       "subscription": "Subscription",
@@ -219,7 +220,8 @@
       "offerEndsIn": "Offer ends in:",
       "guest": "Guest",
       "reloadConfirm": "Reload page to apply new language?",
-      "changeLanguage": "Change"
+      "changeLanguage": "Change",
+      "aiSpeedWarning": "Note: When using AI for translation, the speed may be significantly slower than that of Google Translate or DeepL. Furthermore, the AI ​​can sometimes be overly smart ,potentially breaking the layout on certain pages (it is currently recommended to use the latest models to avoid this issue)."
     },
     "state": {
       "slogan": "Privacy, Security.",
@@ -2193,7 +2195,6 @@
       "enterApiKey": "Vui lòng nhập Khóa API!",
       "switchedToGoogle": "Đã chuyển sang Google Dịch miễn phí!",
       "hintGemini": "Nhận key tại: aistudio.google.com/apikey",
-      "keyValidSaved": "Khóa API hợp lệ! Đã lưu {provider} — Model: {model}",
       "hintClaude": "Nhận key tại: console.anthropic.com/settings/keys",
       "connectionError": "Lỗi kết nối:",
       "hintGroq": "Nhận key tại: console.groq.com/keys",
@@ -2226,7 +2227,10 @@
       "fontSaved": "Đã lưu cấu hình phông chữ",
       "fontUploadSuccess": "Tải lên thành công:",
       "fontUploadConnectError": "Không thể kết nối với máy chủ",
-      "fontUploadServerError": "Lỗi máy chủ trong quá trình tải lên"
+      "fontUploadServerError": "Lỗi máy chủ trong quá trình tải lên",
+      "hintDeepL": "Nhận khóa xác thực DeepL tại: www.deepl.com/pro-api (khóa miễn phí kết thúc bằng :fx)",
+      "keyValidSaved": "Khóa API hợp lệ! Đã lưu {nhà cung cấp}",
+      "aiSpeedWarning": "Lưu ý: Khi sử dụng AI để dịch, tốc độ có thể chậm hơn đáng kể so với Google Translate hoặc DeepL. Hơn nữa, AI đôi khi có thể quá thông minh, có khả năng phá vỡ bố cục trên một số trang nhất định (hiện tại nên sử dụng các mẫu mới nhất để tránh vấn đề này)."
     },
     "footer": {
       "compress": "Nén PDF",
@@ -5918,7 +5922,6 @@
       "apiConfigDesc": "Pilih penyedia dan model yang sesuai. Kunci API disimpan secara lokal di perangkat Anda.",
       "checkingKey": "Memeriksa...",
       "hintGroq": "Dapatkan kunci di: console.groq.com/keys",
-      "keyValidSaved": "Kunci API yang Valid! Tersimpan {provider} — Model: {model}",
       "hintClaude": "Dapatkan kunci di: console.anthropic.com/settings/keys",
       "switchedToGoogle": "Beralih ke Google Terjemahan gratis!",
       "enterApiKey": "Silakan masukkan Kunci API!",
@@ -5955,7 +5958,10 @@
       "fontUploadError": "Kesalahan pengunggahan:",
       "fontUploadSuccess": "Pengunggahan berhasil:",
       "fontUploadInvalid": "Silakan pilih file .ttf, .otf, atau .ttc",
-      "fontUploadServerError": "Kesalahan server saat mengunggah"
+      "fontUploadServerError": "Kesalahan server saat mengunggah",
+      "hintDeepL": "Dapatkan Kunci Auth DeepL di: www.deepl.com/pro-api (kunci gratis diakhiri dengan :fx)",
+      "keyValidSaved": "Kunci API yang Valid! {penyedia} disimpan",
+      "aiSpeedWarning": "Catatan: Saat menggunakan AI untuk penerjemahan, kecepatannya mungkin jauh lebih lambat dibandingkan Google Terjemahan atau DeepL. Selain itu, AI terkadang terlalu pintar, berpotensi merusak tata letak halaman tertentu (saat ini disarankan untuk menggunakan model terbaru untuk menghindari masalah ini)."
     },
     "state": {
       "slogan": "Privasi, Keamanan.",
@@ -7925,7 +7931,6 @@
       "invalidKeyHttp": "Kunci Tidak Sah",
       "hintGroq": "Dapatkan kunci di: console.groq.com/keys",
       "switchedToGoogle": "Bertukar kepada Terjemahan Google percuma!",
-      "keyValidSaved": "Kunci API yang sah! Disimpan {provider} — Model: {model}",
       "hintGemini": "Dapatkan kunci di: aistudio.google.com/apikey",
       "hintChatGPT": "Dapatkan kunci di: platform.openai.com/api-keys",
       "hintClaude": "Dapatkan kunci di: console.anthropic.com/settings/keys",
@@ -7961,7 +7966,10 @@
       "fontUploadConnectError": "Tidak dapat menyambung ke pelayan",
       "fontUploadSuccess": "Muat naik berjaya:",
       "fontUploadServerError": "Ralat pelayan semasa muat naik",
-      "fontSaved": "Konfigurasi fon disimpan"
+      "fontSaved": "Konfigurasi fon disimpan",
+      "hintDeepL": "Dapatkan DeepL Auth Key di: www.deepl.com/pro-api (kunci percuma berakhir dengan :fx)",
+      "keyValidSaved": "Kunci API yang sah! Disimpan {provider}",
+      "aiSpeedWarning": "Nota: Apabila menggunakan AI untuk terjemahan, kelajuan mungkin jauh lebih perlahan daripada Terjemahan Google atau DeepL. Tambahan pula, AI kadang-kadang boleh menjadi terlalu pintar, berpotensi memecahkan reka letak pada halaman tertentu (pada masa ini disyorkan untuk menggunakan model terkini untuk mengelakkan isu ini)."
     },
     "footer": {
       "contact": "Kenalan",
@@ -7992,8 +8000,8 @@
       "imageTools": "Alat Imej"
     },
     "auth": {
-      "signInTitle": "Log Masuk",
       "2211": "Daftar Masuk / Daftar",
+      "signInTitle": "Log Masuk",
       "email": "E-mel",
       "switchToSignUp": "Tiada akaun? daftar",
       "password": "Kata laluan",
@@ -9929,7 +9937,6 @@
       "saveConfig": "Gem konfiguration",
       "apiConfigDesc": "Vælg en udbyder og passende model. API-nøgler gemmes lokalt på din enhed.",
       "savedCors": "Gemt (kan ikke bekræftes på grund af CORS - nøgle vil blive kontrolleret under oversættelse)",
-      "keyValidSaved": "Gyldig API-nøgle! Gemt {udbyder} — Model: {model}",
       "invalidKeyHttp": "Ugyldig nøgle",
       "connectionError": "Forbindelsesfejl:",
       "unsupportedProvider": "Ikke-understøttet udbyder",
@@ -9967,7 +9974,10 @@
       "fontUploadInvalid": "Vælg venligst en .ttf-, .otf- eller .ttc-fil",
       "fontUploading": "Uploader skrifttype...",
       "fontUploadConnectError": "Kan ikke oprette forbindelse til serveren",
-      "fontUploadServerError": "Serverfejl under upload"
+      "fontUploadServerError": "Serverfejl under upload",
+      "hintDeepL": "Hent DeepL Auth Key på: www.deepl.com/pro-api (gratis nøgler slutter med :fx)",
+      "keyValidSaved": "Gyldig API-nøgle! Gemt {udbyder}",
+      "aiSpeedWarning": "Bemærk: Når du bruger AI til oversættelse, kan hastigheden være betydeligt langsommere end Google Translate eller DeepL. Ydermere kan AI nogle gange være alt for smart, og potentielt ødelægge layoutet på visse sider (det anbefales i øjeblikket at bruge de nyeste modeller for at undgå dette problem)."
     },
     "footer": {
       "feature": "PDF-værktøjer",
@@ -9998,13 +10008,13 @@
       "writeTools": "Skriveværktøjer"
     },
     "auth": {
+      "2211": "Log ind / Tilmeld dig",
       "email": "E-mail",
       "signUpTitle": "Tilmeld dig",
       "signInTitle": "Log ind",
       "password": "Adgangskode",
       "signInBtn": "Log ind",
       "switchToSignUp": "Har du ikke en konto? Tilmeld dig",
-      "2211": "Log ind / Tilmeld dig",
       "switchToSignIn": "Har du allerede en konto? Log ind",
       "signUpFacebook": "Tilmeld dig med Facebook",
       "modalSubtitle": "Velkommen til Privatepdf!",
@@ -11943,7 +11953,6 @@
       "hintGemini": "Holen Sie sich den Schlüssel unter: aistudio.google.com/apikey",
       "hintChatGPT": "Holen Sie sich den Schlüssel unter: platform.openai.com/api-keys",
       "switchedToGoogle": "Auf kostenlosen Google Translate umgestellt!",
-      "keyValidSaved": "Gültiger API-Schlüssel! Gespeichert {provider} – Modell: {model}",
       "unsupportedProvider": "Nicht unterstützter Anbieter",
       "savedCors": "Gespeichert (kann aufgrund von CORS nicht überprüft werden – Schlüssel wird während der Übersetzung überprüft)",
       "devicesTitle": "Gerät",
@@ -11973,7 +11982,10 @@
       "saveFont": "Schriftartkonfiguration speichern",
       "fontSaved": "Schriftartkonfiguration gespeichert",
       "fontUploadConnectError": "Es kann keine Verbindung zum Server hergestellt werden",
-      "fontUploadServerError": "Serverfehler beim Hochladen"
+      "fontUploadServerError": "Serverfehler beim Hochladen",
+      "hintDeepL": "Holen Sie sich den DeepL-Authentifizierungsschlüssel unter: www.deepl.com/pro-api (kostenlose Schlüssel enden mit :fx)",
+      "keyValidSaved": "Gültiger API-Schlüssel! Gespeichert {provider}",
+      "aiSpeedWarning": "Hinweis: Bei der Verwendung von KI zur Übersetzung kann die Geschwindigkeit deutlich langsamer sein als die von Google Translate oder DeepL. Darüber hinaus kann die KI manchmal übermäßig intelligent sein und möglicherweise das Layout bestimmter Seiten beeinträchtigen (derzeit wird empfohlen, die neuesten Modelle zu verwenden, um dieses Problem zu vermeiden)."
     },
     "state": {
       "slogan": "Datenschutz, Sicherheit.",
@@ -11999,10 +12011,10 @@
       "free": "Frei"
     },
     "auth": {
+      "2211": "Anmelden/Registrieren",
       "signInTitle": "Anmelden",
       "signUpTitle": "Melden Sie sich an",
       "email": "E-Mail",
-      "2211": "Anmelden/Registrieren",
       "rememberMe": "Erinnere dich an mich",
       "password": "Passwort",
       "confirmPassword": "Passwort bestätigen",
@@ -13948,7 +13960,6 @@
       "hintGemini": "Obtenga la clave en: aistudio.google.com/apikey",
       "switchedToGoogle": "¡Cambiado al Traductor de Google gratuito!",
       "savedCors": "Guardado (no se puede verificar debido a CORS; la clave se verificará durante la traducción)",
-      "keyValidSaved": "¡Clave API válida! {proveedor} guardado - Modelo: {modelo}",
       "connectionError": "Error de conexión:",
       "invalidKeyHttp": "Clave no válida",
       "unsupportedProvider": "Proveedor no compatible",
@@ -13979,7 +13990,10 @@
       "fontUploadServerError": "Error del servidor durante la carga",
       "fontUploadError": "Error de carga:",
       "fontSaved": "Configuración de fuente guardada",
-      "fontUploadConnectError": "No se puede conectar al servidor"
+      "fontUploadConnectError": "No se puede conectar al servidor",
+      "hintDeepL": "Obtenga la clave de autenticación de DeepL en: www.deepl.com/pro-api (las claves gratuitas terminan en :fx)",
+      "keyValidSaved": "¡Clave API válida! Guardado {proveedor}",
+      "aiSpeedWarning": "Nota: Cuando se utiliza IA para la traducción, la velocidad puede ser significativamente más lenta que la de Google Translate o DeepL. Además, la IA a veces puede ser demasiado inteligente y alterar potencialmente el diseño de determinadas páginas (actualmente se recomienda utilizar los últimos modelos para evitar este problema)."
     },
     "footer": {
       "merge": "Fusionar PDF",
@@ -14010,12 +14024,12 @@
       "writeTools": "Herramientas de escritura"
     },
     "auth": {
+      "2211": "Iniciar sesión / Registrarse",
       "signUpTitle": "Inscribirse",
       "rememberMe": "Acuérdate de mí",
       "confirmPassword": "confirmar Contraseña",
       "signInTitle": "Iniciar sesión",
       "signUpBtn": "Inscribirse",
-      "2211": "Iniciar sesión / Registrarse",
       "password": "Contraseña",
       "switchToSignUp": "Don't have an account? Sign up",
       "email": "Correo electrónico",
@@ -15955,7 +15969,6 @@
       "invalidKeyHttp": "Clé invalide",
       "enterApiKey": "Veuillez saisir une clé API !",
       "connectionError": "Erreur de connexion :",
-      "keyValidSaved": "Clé API valide ! {provider} enregistré – Modèle : {model}",
       "unsupportedProvider": "Fournisseur non pris en charge",
       "savedCors": "Enregistré (impossible de vérifier en raison de CORS — la clé sera vérifiée pendant la traduction)",
       "devicesTitle": "Appareil",
@@ -15985,7 +15998,10 @@
       "fontUploadSuccess": "Téléchargement réussi :",
       "fontUploading": "Téléchargement de la police...",
       "fontUploadServerError": "Erreur de serveur lors du téléchargement",
-      "fontSaved": "Configuration de police enregistrée"
+      "fontSaved": "Configuration de police enregistrée",
+      "hintDeepL": "Obtenez la clé d'authentification DeepL sur : www.deepl.com/pro-api (les clés gratuites se terminent par :fx)",
+      "keyValidSaved": "Clé API valide ! Enregistré {fournisseur}",
+      "aiSpeedWarning": "Remarque : Lorsque vous utilisez l'IA pour la traduction, la vitesse peut être nettement inférieure à celle de Google Translate ou DeepL. De plus, l'IA peut parfois se montrer trop intelligente, pouvant potentiellement casser la mise en page sur certaines pages (il est actuellement recommandé d'utiliser les derniers modèles pour éviter ce problème)."
     },
     "footer": {
       "contact": "Contact",
@@ -16011,9 +16027,9 @@
       "express": "Fusionner un PDF"
     },
     "auth": {
+      "2211": "Se connecter",
       "signUpTitle": "S'inscrire",
       "signInTitle": "Se connecter",
-      "2211": "Se connecter",
       "modalTitle": "Se connecter / S'inscrire",
       "modalSubtitle": "Bienvenue sur Privatepdf !",
       "password": "Mot de passe",
@@ -17960,7 +17976,6 @@
       "savedCors": "Salvato (impossibile verificare a causa di CORS: la chiave verrà controllata durante la traduzione)",
       "hintChatGPT": "Ottieni la chiave su: platform.openai.com/api-keys",
       "hintClaude": "Ottieni la chiave su: console.anthropic.com/settings/keys",
-      "keyValidSaved": "Chiave API valida! {provider} salvato: modello: {model}",
       "hintGemini": "Ottieni la chiave su: aistudio.google.com/apikey",
       "connectionError": "Errore di connessione:",
       "unsupportedProvider": "Fornitore non supportato",
@@ -17991,7 +18006,10 @@
       "fontUploadError": "Errore di caricamento:",
       "fontUploadConnectError": "Impossibile connettersi al server",
       "fontSaved": "Configurazione dei caratteri salvata",
-      "fontUploadServerError": "Errore del server durante il caricamento"
+      "fontUploadServerError": "Errore del server durante il caricamento",
+      "hintDeepL": "Ottieni la chiave di autenticazione DeepL su: www.deepl.com/pro-api (le chiavi gratuite terminano con :fx)",
+      "keyValidSaved": "Chiave API valida! {fornitore} salvato",
+      "aiSpeedWarning": "Nota: quando si utilizza l'intelligenza artificiale per la traduzione, la velocità potrebbe essere notevolmente inferiore a quella di Google Translate o DeepL. Inoltre, l'intelligenza artificiale a volte può essere eccessivamente intelligente, potenzialmente interrompendo il layout di alcune pagine (attualmente si consiglia di utilizzare i modelli più recenti per evitare questo problema)."
     },
     "state": {
       "slogan": "Privacy, sicurezza.",
@@ -18022,10 +18040,10 @@
       "pdfTools": "Strumenti di immagine"
     },
     "auth": {
+      "2211": "Accedi / Registrati",
       "signUpTitle": "Iscrizione",
       "rememberMe": "Ricordati di me",
       "signInTitle": "Registrazione",
-      "2211": "Accedi / Registrati",
       "signUpBtn": "Iscrizione",
       "email": "E-mail",
       "signInGoogle": "Accedi con Google",
@@ -19966,7 +19984,6 @@
       "connectionError": "Verbindingsfout:",
       "enterApiKey": "Voer een API-sleutel in!",
       "hintGroq": "Haal de sleutel op: console.groq.com/keys",
-      "keyValidSaved": "Geldige API-sleutel! {provider} opgeslagen — Model: {model}",
       "checkingKey": "Controleren...",
       "hintChatGPT": "Haal de sleutel op: platform.openai.com/api-keys",
       "hintGemini": "Haal de sleutel op: aistudio.google.com/apikey",
@@ -19997,7 +20014,10 @@
       "fontUploading": "Lettertype uploaden...",
       "fontUploadConnectError": "Kan geen verbinding maken met de server",
       "fontUploadInvalid": "Selecteer een .ttf-, .otf- of .ttc-bestand",
-      "fontUploadServerError": "Serverfout tijdens het uploaden"
+      "fontUploadServerError": "Serverfout tijdens het uploaden",
+      "hintDeepL": "Haal de DeepL Auth Key op: www.deepl.com/pro-api (gratis sleutels eindigen op :fx)",
+      "keyValidSaved": "Geldige API-sleutel! {aanbieder} opgeslagen",
+      "aiSpeedWarning": "Let op: Bij gebruik van AI voor vertaling kan de snelheid aanzienlijk langzamer zijn dan die van Google Translate of DeepL. Bovendien kan de AI soms overdreven slim zijn, waardoor mogelijk de lay-out op bepaalde pagina's wordt verbroken (momenteel wordt aanbevolen om de nieuwste modellen te gebruiken om dit probleem te voorkomen)."
     },
     "state": {
       "slogan": "Privacy, veiligheid.",
@@ -20028,12 +20048,12 @@
       "writeTools": "Schrijfhulpmiddelen"
     },
     "auth": {
+      "2211": "Inloggen",
       "signInTitle": "Inloggen",
       "email": "E-mail",
       "password": "Wachtwoord",
       "confirmPassword": "Bevestig wachtwoord",
       "signInBtn": "Inloggen",
-      "2211": "Inloggen",
       "signUpTitle": "Aanmelden",
       "signUpFacebook": "Meld je aan met Facebook",
       "modalSubtitle": "Welkom bij Privatepdf!",
@@ -21971,7 +21991,6 @@
       "checkingKey": "Sjekker...",
       "switchedToGoogle": "Byttet til gratis Google Translate!",
       "enterApiKey": "Vennligst skriv inn en API-nøkkel!",
-      "keyValidSaved": "Gyldig API-nøkkel! Lagret {leverandør} — Modell: {model}",
       "hintGemini": "Få nøkkel på: aistudio.google.com/apikey",
       "hintGroq": "Få nøkkel på: console.groq.com/keys",
       "hintChatGPT": "Få nøkkel på: platform.openai.com/api-keys",
@@ -22003,7 +22022,10 @@
       "fontUploadError": "Opplastingsfeil:",
       "fontSaved": "Skriftkonfigurasjon lagret",
       "fontUploadServerError": "Serverfeil under opplasting",
-      "fontUploadConnectError": "Kan ikke koble til server"
+      "fontUploadConnectError": "Kan ikke koble til server",
+      "hintDeepL": "Få DeepL Auth Key på: www.deepl.com/pro-api (gratisnøkler slutter med:fx)",
+      "keyValidSaved": "Gyldig API-nøkkel! Lagret {provider}",
+      "aiSpeedWarning": "Merk: Når du bruker AI for oversettelse, kan hastigheten være betydelig lavere enn for Google Translate eller DeepL. Videre kan AI noen ganger være altfor smart, og potensielt ødelegge layouten på visse sider (det anbefales for øyeblikket å bruke de nyeste modellene for å unngå dette problemet)."
     },
     "footer": {
       "aboutUs": "Om oss",
@@ -22029,10 +22051,10 @@
       "fast": "Rask"
     },
     "auth": {
+      "2211": "Logg inn / Registrer deg",
       "signInTitle": "Logg på",
       "email": "Passord",
       "password": "Passord",
-      "2211": "Logg inn / Registrer deg",
       "signUpTitle": "Registrer deg",
       "modalTitle": "Logg inn / Registrer deg",
       "modalSubtitle": "Velkommen til Privatepdf!",
@@ -23975,7 +23997,6 @@
       "switchedToGoogle": "Przełączono na bezpłatny Tłumacz Google!",
       "unsupportedProvider": "Nieobsługiwany dostawca",
       "connectionError": "Błąd połączenia:",
-      "keyValidSaved": "Prawidłowy klucz API! Zapisano {provider} — Model: {model}",
       "hintGemini": "Zdobądź klucz na: aistudio.google.com/apikey",
       "hintGroq": "Zdobądź klucz na: console.groq.com/keys",
       "hintClaude": "Zdobądź klucz pod adresem: console.anthropic.com/settings/keys",
@@ -24009,7 +24030,10 @@
       "fontUploadConnectError": "Nie można połączyć się z serwerem",
       "fontUploadError": "Błąd przesyłania:",
       "fontUploadServerError": "Błąd serwera podczas przesyłania",
-      "fontUploadInvalid": "Wybierz plik .ttf, .otf lub .ttc"
+      "fontUploadInvalid": "Wybierz plik .ttf, .otf lub .ttc",
+      "hintDeepL": "Zdobądź klucz autoryzacyjny DeepL na: www.deepl.com/pro-api (darmowe klucze kończą się na :fx)",
+      "keyValidSaved": "Prawidłowy klucz API! Zapisano {dostawcę}",
+      "aiSpeedWarning": "Uwaga: w przypadku korzystania ze sztucznej inteligencji do tłumaczenia prędkość może być znacznie mniejsza niż w przypadku Tłumacza Google lub DeepL. Co więcej, sztuczna inteligencja może czasami być zbyt inteligentna, potencjalnie psując układ na niektórych stronach (obecnie zaleca się używanie najnowszych modeli, aby uniknąć tego problemu)."
     },
     "footer": {
       "description": "PrivatePDF — świetne rozwiązanie dla Ciebie.",
@@ -24035,8 +24059,8 @@
       "secure": "Bezpieczny"
     },
     "auth": {
-      "signInTitle": "Zalogować się",
       "2211": "Zalogować się",
+      "signInTitle": "Zalogować się",
       "signUpTitle": "Zapisać się",
       "password": "Hasło",
       "email": "E-mail",
@@ -25987,7 +26011,6 @@
       "invalidKeyHttp": "Chave inválida",
       "savedCors": "Salvo (não é possível verificar devido ao CORS — a chave será verificada durante a tradução)",
       "hintClaude": "Obtenha a chave em: console.anthropic.com/settings/keys",
-      "keyValidSaved": "Chave de API válida! {provider} salvo — Modelo: {model}",
       "devicesTitle": "Dispositivo",
       "deviceUsed": "Dispositivo registrado",
       "devicesDesc": "Dispositivos atualmente em uso",
@@ -26015,7 +26038,10 @@
       "fontUploadInvalid": "Selecione um arquivo .ttf, .otf ou .ttc",
       "fontSaved": "Configuração de fonte salva",
       "fontUploadServerError": "Erro no servidor durante o upload",
-      "fontUploadConnectError": "Não é possível conectar ao servidor"
+      "fontUploadConnectError": "Não é possível conectar ao servidor",
+      "hintDeepL": "Obtenha a chave de autenticação DeepL em: www.deepl.com/pro-api (as chaves gratuitas terminam com :fx)",
+      "keyValidSaved": "Chave de API válida! Salvo {provedor}",
+      "aiSpeedWarning": "Nota: Ao usar IA para tradução, a velocidade pode ser significativamente mais lenta do que a do Google Translate ou DeepL. Além disso, a IA às vezes pode ser excessivamente inteligente, potencialmente quebrando o layout em determinadas páginas (atualmente é recomendado usar os modelos mais recentes para evitar esse problema)."
     },
     "state": {
       "slogan": "Privacidade, segurança.",
@@ -26041,10 +26067,10 @@
       "secure": "Seguro"
     },
     "auth": {
+      "2211": "Entrar / Inscrever-se",
       "signInTitle": "Entrar",
       "signUpTitle": "Inscrever-se",
       "email": "E-mail",
-      "2211": "Entrar / Inscrever-se",
       "password": "Senha",
       "rememberMe": "Lembre de mim",
       "confirmPassword": "Confirme sua senha",
@@ -27990,7 +28016,6 @@
       "invalidKeyHttp": "Ogiltig nyckel",
       "hintChatGPT": "Få nyckel på: platform.openai.com/api-keys",
       "hintGroq": "Få nyckel på: console.groq.com/keys",
-      "keyValidSaved": "Giltig API-nyckel! Sparad {provider} — Modell: {model}",
       "enterApiKey": "Vänligen ange en API-nyckel!",
       "unsupportedProvider": "Ej stödd leverantör",
       "savedCors": "Sparad (kan inte verifieras på grund av CORS - nyckel kommer att kontrolleras under översättning)",
@@ -28021,7 +28046,10 @@
       "saveFont": "Spara teckensnittskonfiguration",
       "fontUploadInvalid": "Välj en .ttf-, .otf- eller .ttc-fil",
       "fontUploadServerError": "Serverfel under uppladdning",
-      "fontSaved": "Teckensnittskonfigurationen har sparats"
+      "fontSaved": "Teckensnittskonfigurationen har sparats",
+      "hintDeepL": "Hämta DeepL Auth Key på: www.deepl.com/pro-api (gratis nycklar slutar med :fx)",
+      "keyValidSaved": "Giltig API-nyckel! Sparade {provider}",
+      "aiSpeedWarning": "Obs! När du använder AI för översättning kan hastigheten vara betydligt lägre än för Google Translate eller DeepL. Dessutom kan AI ibland vara alltför smart, potentiellt bryta layouten på vissa sidor (det rekommenderas för närvarande att använda de senaste modellerna för att undvika detta problem)."
     },
     "footer": {
       "feature": "PDF-verktyg",
@@ -28052,8 +28080,8 @@
       "writeTools": "Skrivverktyg"
     },
     "auth": {
-      "signInTitle": "Logga in",
       "2211": "Logga in / Registrera dig",
+      "signInTitle": "Logga in",
       "signUpTitle": "Registrera dig",
       "email": "E-post",
       "password": "Lösenord",
@@ -29996,7 +30024,6 @@
       "invalidKeyHttp": "Geçersiz Anahtar",
       "hintGemini": "Anahtarı şu adresten alın: aistudio.google.com/apikey",
       "hintChatGPT": "Anahtarı şu adresten alın: platform.openai.com/api-keys",
-      "keyValidSaved": "Geçerli API Anahtarı! {provider} kaydedildi — Model: {model}",
       "switchedToGoogle": "Ücretsiz Google Çeviri'ye geçildi!",
       "enterApiKey": "Lütfen bir API Anahtarı girin!",
       "unsupportedProvider": "Desteklenmeyen sağlayıcı",
@@ -30027,7 +30054,10 @@
       "fontSaved": "Yazı tipi yapılandırması kaydedildi",
       "fontUploadError": "Yükleme hatası:",
       "fontUploadInvalid": "Lütfen bir .ttf, .otf veya .ttc dosyası seçin",
-      "fontUploadServerError": "Yükleme sırasında sunucu hatası"
+      "fontUploadServerError": "Yükleme sırasında sunucu hatası",
+      "hintDeepL": "DeepL Kimlik Doğrulama Anahtarını şu adresten edinin: www.deepl.com/pro-api (ücretsiz anahtarların sonu :fx ile biter)",
+      "keyValidSaved": "Geçerli API Anahtarı! {provider} kaydedildi",
+      "aiSpeedWarning": "Not: Çeviri için yapay zeka kullanıldığında hız, Google Translate veya DeepL'den önemli ölçüde daha yavaş olabilir. Dahası, yapay zeka bazen aşırı akıllı olabiliyor ve potansiyel olarak belirli sayfalardaki düzeni bozabiliyor (şu anda bu sorunu önlemek için en son modellerin kullanılması tavsiye ediliyor)."
     },
     "footer": {
       "split": "PDF'yi böl",
@@ -30058,8 +30088,8 @@
       "writeTools": "Yazma Araçları"
     },
     "auth": {
-      "signInTitle": "Oturum aç",
       "2211": "Oturum aç",
+      "signInTitle": "Oturum aç",
       "signUpTitle": "Üye olmak",
       "confirmPassword": "Şifreyi Onayla",
       "modalTitle": "Giriş Yap / Kayıt Ol",
@@ -32002,7 +32032,6 @@
       "hintChatGPT": "Получите ключ по адресу: Platform.openai.com/api-keys.",
       "hintGroq": "Получите ключ по адресу: console.groq.com/keys.",
       "connectionError": "Ошибка подключения:",
-      "keyValidSaved": "Действительный ключ API! Сохранено {provider} — Модель: {model}.",
       "invalidKeyHttp": "Неверный ключ",
       "enterApiKey": "Пожалуйста, введите ключ API!",
       "switchedToGoogle": "Перешел на бесплатный Google Translate!",
@@ -32033,7 +32062,10 @@
       "saveFont": "Сохранить конфигурацию шрифта",
       "fontUploadSuccess": "Загрузка прошла успешно:",
       "fontSaved": "Конфигурация шрифта сохранена.",
-      "fontUploadConnectError": "Не могу подключиться к серверу"
+      "fontUploadConnectError": "Не могу подключиться к серверу",
+      "hintDeepL": "Получите ключ аутентификации DeepL по адресу: www.deepl.com/pro-api (бесплатные ключи заканчиваются на :fx)",
+      "keyValidSaved": "Действительный ключ API! Сохранено {поставщик}",
+      "aiSpeedWarning": "Примечание. При использовании искусственного интеллекта для перевода скорость может быть значительно медленнее, чем у Google Translate или DeepL. Кроме того, ИИ иногда может быть слишком умным, потенциально нарушая макет на определенных страницах (в настоящее время рекомендуется использовать последние модели, чтобы избежать этой проблемы)."
     },
     "footer": {
       "description": "PrivatePDF — отличное решение для вас.",
@@ -32064,6 +32096,7 @@
       "imageTools": "Инструменты для изображений"
     },
     "auth": {
+      "2211": "Войти / Зарегистрироваться",
       "signUpTitle": "Зарегистрироваться",
       "signInTitle": "Войти",
       "email": "Электронная почта",
@@ -32074,7 +32107,6 @@
       "signUpBtn": "Зарегистрироваться",
       "switchToSignUp": "У вас нет учетной записи? Зарегистрироваться",
       "forgotPassword": "Забыли пароль?",
-      "2211": "Войти / Зарегистрироваться",
       "signInFacebook": "Забыли пароль?",
       "modalTitle": "Войти / Зарегистрироваться",
       "signUpGoogle": "Зарегистрируйтесь через Google",
@@ -34009,7 +34041,6 @@
       "invalidKeyHttp": "Недійсний ключ",
       "unsupportedProvider": "Непідтримуваний постачальник",
       "enterApiKey": "Будь ласка, введіть ключ API!",
-      "keyValidSaved": "Дійсний ключ API! Збережено {provider} — Модель: {model}",
       "connectionError": "Помилка підключення:",
       "switchedToGoogle": "Перейшов на безкоштовний Google Translate!",
       "devicesTitle": "пристрій",
@@ -34039,7 +34070,10 @@
       "fontUploadInvalid": "Виберіть файл .ttf, .otf або .ttc",
       "fontSaved": "Конфігурацію шрифту збережено",
       "fontUploadConnectError": "Не вдається підключитися до сервера",
-      "fontUploadServerError": "Помилка сервера під час завантаження"
+      "fontUploadServerError": "Помилка сервера під час завантаження",
+      "hintDeepL": "Отримайте ключ DeepL Auth на: www.deepl.com/pro-api (безкоштовні ключі закінчуються на :fx)",
+      "keyValidSaved": "Дійсний ключ API! Збережено {provider}",
+      "aiSpeedWarning": "Примітка. Якщо для перекладу використовується AI, швидкість може бути значно нижчою, ніж у Google Translate або DeepL. Крім того, ШІ іноді може бути надто розумним, потенційно порушуючи макет на певних сторінках (наразі рекомендується використовувати найновіші моделі, щоб уникнути цієї проблеми)."
     },
     "state": {
       "slogan": "Конфіденційність, безпека.",
@@ -34065,6 +34099,7 @@
       "secure": "Безпечний"
     },
     "auth": {
+      "2211": "Увійти / Зареєструватися",
       "email": "Електронна пошта",
       "signInTitle": "Увійти",
       "password": "Пароль",
@@ -34074,7 +34109,6 @@
       "rememberMe": "Пам'ятай мене",
       "modalSubtitle": "Ласкаво просимо до Privatepdf!",
       "signUpTitle": "Увійти / Зареєструватися",
-      "2211": "Увійти / Зареєструватися",
       "signUpFacebook": "Зареєструватися через Facebook",
       "passwordMismatch": "Паролі не збігаються",
       "signUpGoogle": "Зареєструватися в Google",
@@ -36013,7 +36047,6 @@
       "invalidKeyHttp": "مفتاح غير صالح",
       "unsupportedProvider": "مزود غير معتمد",
       "enterApiKey": "الرجاء إدخال مفتاح API!",
-      "keyValidSaved": "مفتاح API صالح! تم حفظ {provider} — النموذج: {model}",
       "connectionError": "خطأ في الاتصال:",
       "hintClaude": "احصل على المفتاح على: console.anthropic.com/settings/keys",
       "hintGroq": "احصل على المفتاح على: console.groq.com/keys",
@@ -36045,7 +36078,10 @@
       "saveFont": "حفظ تكوين الخط",
       "fontUploadServerError": "حدث خطأ في الخادم أثناء التحميل",
       "fontUploadConnectError": "لا يمكن الاتصال بالخادم",
-      "fontSaved": "تم حفظ تكوين الخط"
+      "fontSaved": "تم حفظ تكوين الخط",
+      "hintDeepL": "احصل على مفتاح DeepL Auth على: www.deepl.com/pro-api (المفاتيح المجانية تنتهي بـ:fx)",
+      "keyValidSaved": "مفتاح API صالح! تم الحفظ {provider}",
+      "aiSpeedWarning": "ملاحظة: عند استخدام الذكاء الاصطناعي للترجمة، قد تكون السرعة أبطأ بكثير من خدمة Google Translate أو DeepL. علاوة على ذلك، يمكن أن يكون الذكاء الاصطناعي في بعض الأحيان ذكيًا بشكل مفرط، مما قد يؤدي إلى تعطيل التخطيط على صفحات معينة (يوصى حاليًا باستخدام أحدث النماذج لتجنب هذه المشكلة)."
     },
     "footer": {
       "feature": "أدوات قوات الدفاع الشعبي",
@@ -36071,11 +36107,11 @@
       "express": "نحن نقدم أدوات معالجة ملفات PDF والصور والنصوص مجانًا، مع تحميلات غير محدودة."
     },
     "auth": {
+      "2211": "تسجيل الدخول / الاشتراك",
       "email": "بريد إلكتروني",
       "password": "كلمة المرور",
       "signUpTitle": "مرحبا بكم في Privatepdf!",
       "signInTitle": "تسجيل الدخول",
-      "2211": "تسجيل الدخول / الاشتراك",
       "rememberMe": "تذكرنى",
       "confirmPassword": "تأكيد كلمة المرور",
       "signInBtn": "تسجيل الدخول",
@@ -38022,7 +38058,6 @@
       "hintGroq": "यहां कुंजी प्राप्त करें: console.groq.com/keys",
       "switchedToGoogle": "निःशुल्क Google अनुवाद पर स्विच किया गया!",
       "hintGemini": "यहां कुंजी प्राप्त करें: aistudio.google.com/apikey",
-      "keyValidSaved": "वैध एपीआई कुंजी! सहेजा गया {प्रदाता} — मॉडल: {मॉडल}",
       "unsupportedProvider": "असमर्थित प्रदाता",
       "devicesTitle": "उपकरण",
       "devicesDesc": "वर्तमान में उपयोग में आने वाले उपकरण",
@@ -38051,7 +38086,10 @@
       "fontUploadInvalid": "कृपया एक .ttf, .otf, या .ttc फ़ाइल चुनें",
       "fontUploadConnectError": "सर्वर से जुड़ नहीं सकते",
       "fontUploadServerError": "अपलोड के दौरान सर्वर त्रुटि",
-      "fontSaved": "फ़ॉन्ट कॉन्फ़िगरेशन सहेजा गया"
+      "fontSaved": "फ़ॉन्ट कॉन्फ़िगरेशन सहेजा गया",
+      "hintDeepL": "डीपएल प्रामाणिक कुंजी यहां प्राप्त करें: www.depl.com/pro-api (मुफ्त कुंजी :fx के साथ समाप्त होती है)",
+      "keyValidSaved": "वैध एपीआई कुंजी! सहेजा गया {प्रदाता}",
+      "aiSpeedWarning": "ध्यान दें: अनुवाद के लिए AI का उपयोग करते समय, गति Google Translate या DeepL की तुलना में काफी धीमी हो सकती है। इसके अलावा, एआई कभी-कभी अत्यधिक स्मार्ट हो सकता है, संभावित रूप से कुछ पृष्ठों पर लेआउट को तोड़ सकता है (वर्तमान में इस समस्या से बचने के लिए नवीनतम मॉडल का उपयोग करने की अनुशंसा की जाती है)।"
     },
     "state": {
       "slogan": "निजता एवं सुरक्षा।",
@@ -38082,13 +38120,13 @@
       "writeTools": "लेखन उपकरण"
     },
     "auth": {
+      "2211": "प्रवेश या साइन अप",
       "password": "पासवर्ड",
       "email": "ईमेल",
       "modalTitle": "प्रवेश या साइन अप",
       "rememberMe": "मुझे याद करो",
       "signUpTitle": "साइन अप करें",
       "signInTitle": "दाखिल करना",
-      "2211": "प्रवेश या साइन अप",
       "confirmPassword": "पासवर्ड की पुष्टि कीजिये",
       "forgotPassword": "पासवर्ड भूल गए?",
       "modalSubtitle": "Privatepdf में आपका स्वागत है!",
@@ -40029,7 +40067,6 @@
       "switchedToGoogle": "เปลี่ยนไปใช้ Google แปลภาษาฟรีแล้ว!",
       "savedCors": "บันทึกแล้ว (ไม่สามารถตรวจสอบได้เนื่องจาก CORS — รหัสจะถูกตรวจสอบระหว่างการแปล)",
       "unsupportedProvider": "ผู้ให้บริการที่ไม่รองรับ",
-      "keyValidSaved": "คีย์ API ที่ถูกต้อง! บันทึก {ผู้ให้บริการ} — รุ่น: {model}",
       "devicesTitle": "อุปกรณ์",
       "deviceUsed": "อุปกรณ์ที่ลงทะเบียน",
       "devicesDesc": "อุปกรณ์ที่ใช้งานอยู่ในปัจจุบัน",
@@ -40057,7 +40094,10 @@
       "fontUploadInvalid": "โปรดเลือกไฟล์ .ttf, .otf หรือ .ttc",
       "fontUploadServerError": "เซิร์ฟเวอร์เกิดข้อผิดพลาดระหว่างการอัปโหลด",
       "fontSaved": "บันทึกการกำหนดค่าแบบอักษรแล้ว",
-      "fontUploadConnectError": "ไม่สามารถเชื่อมต่อกับเซิร์ฟเวอร์ได้"
+      "fontUploadConnectError": "ไม่สามารถเชื่อมต่อกับเซิร์ฟเวอร์ได้",
+      "hintDeepL": "รับคีย์การตรวจสอบสิทธิ์ DeepL ได้ที่: www.deepl.com/pro-api (คีย์ฟรีลงท้ายด้วย :fx)",
+      "keyValidSaved": "คีย์ API ที่ถูกต้อง! บันทึกแล้ว {ผู้ให้บริการ}",
+      "aiSpeedWarning": "หมายเหตุ: เมื่อใช้ AI ในการแปล ความเร็วอาจช้ากว่า Google Translate หรือ DeepL อย่างมาก นอกจากนี้ บางครั้ง AI ยังฉลาดเกินไป ซึ่งอาจทำลายเค้าโครงในบางหน้า (ปัจจุบันแนะนำให้ใช้รุ่นล่าสุดเพื่อหลีกเลี่ยงปัญหานี้)"
     },
     "footer": {
       "feature": "เครื่องมือ PDF",
@@ -40088,13 +40128,13 @@
       "writeTools": "เครื่องมือการเขียน"
     },
     "auth": {
+      "2211": "เข้าสู่ระบบ / ลงทะเบียน",
       "signInTitle": "เข้าสู่ระบบ",
       "modalTitle": "เข้าสู่ระบบ / ลงทะเบียน",
       "signUpTitle": "ลงทะเบียน",
       "email": "อีเมล",
       "password": "รหัสผ่าน",
       "rememberMe": "จำฉันไว้",
-      "2211": "เข้าสู่ระบบ / ลงทะเบียน",
       "signInBtn": "เข้าสู่ระบบ",
       "confirmPassword": "ยืนยันรหัสผ่าน",
       "modalSubtitle": "ยินดีต้อนรับสู่ Privatepdf!",
@@ -42031,7 +42071,6 @@
       "hintGemini": "aistudio.google.com/apikey에서 키를 받으세요.",
       "hintGroq": "키 받기: console.groq.com/keys",
       "invalidKeyHttp": "잘못된 키",
-      "keyValidSaved": "유효한 API 키! {provider} 저장됨 — 모델: {model}",
       "savedCors": "저장됨(CORS로 인해 확인할 수 없음 - 번역 중에 키가 확인됨)",
       "unsupportedProvider": "지원되지 않는 제공업체",
       "enterApiKey": "API 키를 입력해주세요!",
@@ -42063,7 +42102,10 @@
       "fontUploadSuccess": "업로드 성공:",
       "saveFont": "글꼴 구성 저장",
       "fontUploading": "글꼴 업로드 중...",
-      "fontUploadError": "업로드 오류:"
+      "fontUploadError": "업로드 오류:",
+      "hintDeepL": "www.deepl.com/pro-api에서 DeepL 인증 키 받기(무료 키는 :fx로 끝남)",
+      "keyValidSaved": "유효한 API 키! {공급자}를 저장했습니다.",
+      "aiSpeedWarning": "참고: AI를 사용해 번역하는 경우 Google 번역이나 DeepL에 비해 속도가 상당히 느려질 수 있습니다. 게다가, AI는 때때로 지나치게 똑똑하여 특정 페이지의 레이아웃을 깨뜨릴 수 있습니다(현재 이 문제를 피하기 위해 최신 모델을 사용하는 것이 좋습니다)."
     },
     "footer": {
       "compress": "PDF 압축",
@@ -42094,9 +42136,9 @@
       "pdfTools": "PDF 도구"
     },
     "auth": {
+      "2211": "로그인 / 가입",
       "signInTitle": "로그인",
       "signUpTitle": "가입",
-      "2211": "로그인 / 가입",
       "modalTitle": "로그인 / 가입",
       "password": "나를 기억해",
       "email": "이메일",
@@ -44041,7 +44083,6 @@
       "hintClaude": "キーを入手: console.anthropic.com/settings/keys",
       "hintChatGPT": "キーを入手するには: platform.openai.com/api-keys",
       "unsupportedProvider": "サポートされていないプロバイダー",
-      "keyValidSaved": "有効なAPIキーです!保存された {provider} — モデル: {model}",
       "devicesTitle": "デバイス",
       "deviceUsed": "登録済みのデバイス",
       "devicesDesc": "現在使用中のデバイス",
@@ -44069,7 +44110,10 @@
       "saveFont": "フォント設定の保存",
       "fontUploadError": "アップロードエラー:",
       "fontUploadConnectError": "サーバーに接続できません",
-      "fontSaved": "フォント設定が保存されました"
+      "fontSaved": "フォント設定が保存されました",
+      "hintDeepL": "DeepL 認証キーは www.deepl.com/pro-api で入手してください (無料キーは :fx で終わります)",
+      "keyValidSaved": "有効なAPIキーです! {プロバイダー} を保存しました",
+      "aiSpeedWarning": "注: AI を使用して翻訳する場合、Google 翻訳や DeepL に比べて速度が大幅に遅くなる場合があります。さらに、AI が賢すぎる場合があり、特定のページのレイアウトを壊す可能性があります (現在、この問題を回避するには最新モデルを使用することが推奨されています)。"
     },
     "state": {
       "express": "PDF、画像、テキストの処理ツールを無料で無制限にアップロードできます。",
@@ -46047,7 +46091,6 @@
       "unsupportedProvider": "不受支持的提供商",
       "enterApiKey": "请输入 API 密钥！",
       "connectionError": "连接错误：",
-      "keyValidSaved": "有效的 API 密钥！已保存的 {provider} — 模型：{model}",
       "devicesTitle": "设备",
       "deviceUsed": "注册设备",
       "devicesDesc": "当前使用的设备",
@@ -46075,7 +46118,10 @@
       "fontUploading": "正在上传字体...",
       "fontSaved": "已保存字体配置",
       "fontUploadError": "上传错误：",
-      "fontUploadConnectError": "无法连接到服务器"
+      "fontUploadConnectError": "无法连接到服务器",
+      "hintDeepL": "获取 DeepL Auth 密钥：www.deepl.com/pro-api（免费密钥以 :fx 结尾）",
+      "keyValidSaved": "有效的 API 密钥！已保存{提供商}",
+      "aiSpeedWarning": "注意：使用AI进行翻译时，速度可能会明显慢于Google Translate或DeepL。此外，AI有时会过于智能，可能会破坏某些页面的布局（目前建议使用最新模型来避免此问题）。"
     },
     "footer": {
       "compress": "压缩PDF",
@@ -46106,10 +46152,10 @@
       "imageTools": "图像工具"
     },
     "auth": {
+      "2211": "登录/注册",
       "signInTitle": "登入",
       "modalTitle": "登录/注册",
       "email": "电子邮件",
-      "2211": "登录/注册",
       "signUpTitle": "登录/注册",
       "password": "密码",
       "signInBtn": "登入",
@@ -48053,7 +48099,6 @@
       "hintClaude": "取得金鑰：console.anthropic.com/settings/keys",
       "enterApiKey": "請輸入 API 金鑰！",
       "hintGemini": "取得金鑰：aistudio.google.com/apikey",
-      "keyValidSaved": "有效的 API 金鑰！已儲存的 {provider} — 模型：{model}",
       "devicesTitle": "裝置",
       "deviceUsed": "註冊設備",
       "devicesDesc": "目前使用的設備",
@@ -48081,7 +48126,10 @@
       "saveFont": "儲存字體配置",
       "fontUploading": "正在上傳字體...",
       "fontSaved": "已儲存字體配置",
-      "fontUploadError": "上傳錯誤："
+      "fontUploadError": "上傳錯誤：",
+      "hintDeepL": "取得 DeepL Auth 金鑰：www.deepl.com/pro-api（免費金鑰以 :fx 結尾）",
+      "keyValidSaved": "有效的 API 金鑰！已儲存{提供者}",
+      "aiSpeedWarning": "注意：使用AI進行翻譯時，速度可能會明顯慢於Google Translate或DeepL。此外，AI有時會過於智能，可能會破壞某些頁面的佈局（目前建議使用最新模型來避免此問題）。"
     },
     "footer": {
       "split": "分割PDF",
