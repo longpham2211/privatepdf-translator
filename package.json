@@ -25,7 +25,7 @@
     "wasm-pack": "0.13.1"
   },
   "name": "privatepdf-translator",
-  "version": "1.0.22",
+  "version": "1.0.23",
   "description": "PrivatePDF Desktop App",
   "main": "main.cjs",
   "repository": {
